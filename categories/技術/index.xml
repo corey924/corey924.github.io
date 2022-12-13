@@ -24,6 +24,7 @@ Hugo
 更進一步的比較文章已經很多大大分享，可以先參考以下這篇說明（如何正確選擇靜態網站產生器：Jekyll vs. Hugo vs. Hexo）： How to Choose the Right Static Generator: Jekyll vs. Hugo vs. Hexo
 本篇文章會著重在我選擇使用「Hugo」的觀點上， 不過有些功能還尚未深入使用，如果有其他發現或有想要補充的會再更新本文。
 Hugo 優點#建構速度目前比其他主流產生器快。 使用 Go 語言編寫，重點是使用編譯完成的 binary ，不需要額外安裝對應的語言環境。 免費開源且國內外資源多。 Hugo 缺點#可擴展的外掛比較少（但內建功能已很多）。 沒有內建佈景風格（需要選一個第三方設計好的佈景安裝）。 需要了解一些 Go 語言的使用方法（對想學習或已經熟悉的人來說不算缺點）。 最後因為 Go 程式語言本來就在我的學習清單內，加上它瑕不掩瑜的速度優勢，Hugo 就從中脫穎而出了。 台灣之光 Hexo 不好意思了！]]></description>
+    <enclosure url="https://corey924.github.io/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     
   </channel>
