@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>日本 on Corey 種子的資訊生活筆記</title>
+    <link>https://corey924.github.io/tags/%E6%97%A5%E6%9C%AC/</link>
+    <description>Recent content in 日本 on Corey 種子的資訊生活筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>
+</copyright>
+    <lastBuildDate>Sat, 17 Dec 2022 17:28:53 +0800</lastBuildDate><atom:link href="https://corey924.github.io/tags/%E6%97%A5%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日本空拍機登錄註冊</title>
+      <link>https://corey924.github.io/posts/2022/12/%E6%97%A5%E6%9C%AC%E7%A9%BA%E6%8B%8D%E6%A9%9F%E7%99%BB%E9%8C%84%E8%A8%BB%E5%86%8A/</link>
+      <pubDate>Sat, 17 Dec 2022 17:28:53 +0800</pubDate>
+      
+      <guid>https://corey924.github.io/posts/2022/12/%E6%97%A5%E6%9C%AC%E7%A9%BA%E6%8B%8D%E6%A9%9F%E7%99%BB%E9%8C%84%E8%A8%BB%E5%86%8A/</guid>
+      <description><![CDATA[因為近期要去日本旅遊，想說把空拍機帶到日本飛看看，便開始研究怎麼合法的帶去當地飛行。 順便做了一下登錄註冊過程的筆記整理。
+本文撰寫時間為：2022/12，一段時間後如果法規或流程有變動便不適合參考，請注意。
+現行日本無人機法規（2022/06/20）重量 100g 以上的機種必須「註冊」許可才能飛行。 無人機需要配置「Remote ID」裝置，部分比較新的機種有內建，如果沒有內建則需要加裝 Remote ID 外掛。 禁止飛超過 150M 高度 其他規定跟台灣的空拍法規差不多，簡單翻譯一下： 最新禁飛區規定請參考：
+日本国土交通省：無人航空機の飛行禁止空域と飛行の方法
+日本禁飛區地域查詢：
+国土地理院：地理院地図
+2022/06/20 新規定宣導頁面：
+日本国土交通省：無人航空機登録ポータルサイト
+未登記而飛行，最高可處 50 萬日元罰款，還請大家在起飛前查好相關規定並嚴格遵守。
+註冊流程這邊提醒一下，因為註冊審核一來一往的時間大概都需要一週的工作天，建議最晚在出國前一個月就開始跑申請流程比較保險，避免到了日本還沒拿到許可的窘境。
+1. 首先到日本國土交通省無人機登錄網站https://www.ossportal.dips.mlit.go.jp
+1.1 點選【ログイン・アカウント作成】進入1.2 再點選【個人の方のアカウント開設】進入個人註冊頁面。因為沒有用過企業、團體的註冊，所以本篇介紹的是「一般民眾個人註冊」的流程，如果有企業、團體註冊的經驗歡迎分享XD
+1.3 同意使用條約使用條約要拉到最底下，最下方「航空法における無人航空機（ドローン・ラジコン機等）の飛行ルールについて」連結要點開後才能都打勾。 按下【次へ進む】進到下一步。
+1.4 個人資料輸入上圖範例是隨便打一些資料上去的參考圖，請勿照抄XD
+以下針對各欄位做一些說明：
+氏名
+姓名，請輸入「護照」上的姓名拼音。
+フリガナ
+姓名日文讀音，可以使用這個工具網站 中国語カタカナ変換 將中文姓名打進去後，底下會產生日文發音的平假名。如果送出時此欄位出現錯誤，請檢查是否有像是「ー」的長音符，需要拿掉。
+住所
+地址，將自己的聯絡地址翻譯成英文輸入就好。另外因為上面找不到「台灣」，如果是住在台灣的可以先選「Others」，在下方欄位補上「Taiwan」即可；台灣英文地址可以使用台灣郵局的 中文地址英譯 工具查詢。
+メールアドレス、メールアドレス（確認用）
+E-mail，輸入自己常用的電子信箱，之後會發送重要連結請勿亂填。
+パスワード、パスワード（確認用）
+密碼，未來登入網站時會使用到。
+依序填完成功送出後，會發送登錄確認信到剛剛填寫的電子信箱內；如果沒看到，記得檢查一下垃圾信件夾。
+2. 到信箱收取確認信2.1 找尋一封來自 @dips-reg.mlit.go.jp 的信件注意信中的「ログインID」是你的登錄帳號，請找個地方記起來。
+2.2 接著到登入頁面登入頁面 輸入「ログインID」（帳號）和剛剛註冊時填寫的「パスワード」（密碼）]]></description>
+    <enclosure url="https://corey924.github.io/images/posts/dips2022/cover.jpg" length="447774" type="image/.jpg" />
+    </item>
+    
+  </channel>
+</rss>
+
