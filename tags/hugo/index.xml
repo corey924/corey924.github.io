@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>hugo on Corey 種子的資訊生活筆記</title>
-    <link>https://corey924.github.io/tags/hugo/</link>
+    <link>https://coreynote.life/tags/hugo/</link>
     <description>Recent content in hugo on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>
 </copyright>
-    <lastBuildDate>Thu, 01 Dec 2022 15:58:53 +0800</lastBuildDate><atom:link href="https://corey924.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 15:58:53 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用「Hugo」架設 Blog 起手勢！</title>
-      <link>https://corey924.github.io/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/</link>
+      <link>https://coreynote.life/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/</link>
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
-      <guid>https://corey924.github.io/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/</guid>
+      <guid>https://coreynote.life/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/</guid>
       <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些心得囉～
 選用技術特性使用近年很流行的「Static Site Generator」（靜態網站產生器）方式架站。有以下特點： 因為內容都是靜態產生，不需要後端處理，加上使用快取會比動態產生的網頁更有效率，請求速度很快。 不需要架設資料庫。 理論上比任何動態網站更安全。 目前主流的三大靜態網站產生器Jekyll
 由 Github 聯合創始人 Thomas Preston-Werner 使用 Ruby 語言所開發。
@@ -24,7 +24,7 @@ Hugo
 更進一步的比較文章已經很多大大分享，可以先參考以下這篇說明（如何正確選擇靜態網站產生器：Jekyll vs. Hugo vs. Hexo）： How to Choose the Right Static Generator: Jekyll vs. Hugo vs. Hexo
 本篇文章會著重在我選擇使用「Hugo」的觀點上， 不過有些功能還尚未深入使用，如果有其他發現或有想要補充的會再更新本文。
 Hugo 優點建構速度目前比其他主流產生器快。 使用 Go 語言編寫，重點是使用編譯完成的 binary ，不需要額外安裝對應的語言環境。 免費開源且國內外資源多。 Hugo 缺點可擴展的外掛比較少（但內建功能已很多）。 沒有內建佈景風格（需要選一個第三方設計好的佈景安裝）。 需要了解一些 Go 語言的使用方法（對想學習或已經熟悉的人來說不算缺點）。 最後因為 Go 程式語言本來就在我的學習清單內，加上它瑕不掩瑜的速度優勢，Hugo 就從中脫穎而出了。 台灣之光 Hexo 不好意思了！]]></description>
-    <enclosure url="https://corey924.github.io/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
+    <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     
   </channel>

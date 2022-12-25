@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>搜索 on Corey 種子的資訊生活筆記</title>
-    <link>https://corey924.github.io/search/</link>
+    <link>https://coreynote.life/search/</link>
     <description>Recent content in 搜索 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>
-</copyright><atom:link href="https://corey924.github.io/search/index.xml" rel="self" type="application/rss+xml" />
+</copyright><atom:link href="https://coreynote.life/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
 

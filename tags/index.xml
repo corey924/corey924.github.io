@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>標籤 on Corey 種子的資訊生活筆記</title>
-    <link>https://corey924.github.io/tags/</link>
+    <link>https://coreynote.life/tags/</link>
     <description>Recent content in 標籤 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>
 </copyright>
-    <lastBuildDate>Sat, 17 Dec 2022 21:36:29 +0800</lastBuildDate><atom:link href="https://corey924.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Dec 2022 21:36:29 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
 

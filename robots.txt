@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://corey924.github.io/sitemap.xml
+Sitemap: https://coreynote.life/sitemap.xml
