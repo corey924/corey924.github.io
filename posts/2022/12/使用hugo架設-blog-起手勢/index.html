@@ -1,17 +1,17 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="zh-hant"
   data-bs-theme="auto" data-palette="blue">
-  <head><script src="https://coreynote.life/assets/init/bundle.min.d945007be1c889885516b8241f53d9b84260f5f94e4ec39b7fb07a3207d860ba.js" integrity="sha256-2UUAe&#43;HIiYhVFrgkH1PZuEJg9flOTsObf7B6MgfYYLo=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.5fe4e5fee47d8c160de84eb100d2eef42ed8b04312af4a72c6f7850369674db0.js" integrity="sha256-X&#43;Tl/uR9jBYN6E6xANLu9C7YsEMSr0pyxveFA2lnTbA=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>使用「Hugo」架設 Blog 起手勢！ - Corey 種子的資訊生活筆記</title>
-    <link rel="icon" href="https://coreynote.life/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_16x16_resize_box_3.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="https://coreynote.life/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_32x32_resize_box_3.png" sizes="32x32" type="image/png">
-    <link rel="apple-touch-icon" href="https://coreynote.life/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_180x180_resize_box_3.png" sizes="180x180" type="image/png">
-    <link rel="icon" href="https://coreynote.life/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_150x150_resize_box_3.png" sizes="150x150" type="image/png">
-    <link rel="icon" href="https://coreynote.life/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_192x192_resize_box_3.png" sizes="192x192" type="image/png">
-<link rel="mask-icon" href="https://coreynote.life/safari-pinned-tab.svg" color="#6f42c1">
-<meta name="keywords" content="" />
+    <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_16x16_resize_box_3.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_32x32_resize_box_3.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_150x150_resize_box_3.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_180x180_resize_box_3.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_192x192_resize_box_3.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="hugo, blog" />
 <meta name="description" content="近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。首篇當然就是整理一下架設這個 Blog 網站的一些心得囉～" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png"/>
 
@@ -22,17 +22,19 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://coreynote.life/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/" /><meta property="og:image" content="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-01T15:58:53+08:00" />
-<meta property="article:modified_time" content="2022-12-01T15:58:53+08:00" />
+<meta property="article:modified_time" content="2023-02-07T08:24:25+08:00" />
 
 <meta itemprop="name" content="使用「Hugo」架設 Blog 起手勢！">
 <meta itemprop="description" content="近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。首篇當然就是整理一下架設這個 Blog 網站的一些心得囉～"><meta itemprop="datePublished" content="2022-12-01T15:58:53+08:00" />
-<meta itemprop="dateModified" content="2022-12-01T15:58:53+08:00" />
-<meta itemprop="wordCount" content="520"><meta itemprop="image" content="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png">
+<meta itemprop="dateModified" content="2023-02-07T08:24:25+08:00" />
+<meta itemprop="wordCount" content="544"><meta itemprop="image" content="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png">
 <meta itemprop="keywords" content="hugo,go-lang," />
+  <meta property="og:image:alt" content="使用「Hugo」架設 Blog 起手勢！" />
+  <meta name="twitter:image:alt" content="使用「Hugo」架設 Blog 起手勢！" />
 
-<link data-precache rel="stylesheet" href="https://coreynote.life/assets/main/bundle.min.9a454837a039395f6613fa5ba89fb24e14b6d464fd8b13da4a51e2f2c1a45642.css" integrity="sha256-mkVIN6A5OV9mE/pbqJ+yThS21GT9ixPaSlHi8sGkVkI=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.7129f88d91c7b8720073b3d75b00397db473efa5e35b26a11c55a03cbd73ccb4.css" integrity="sha256-cSn4jZHHuHIAc7PXWwA5fbRz76XjWyahHFWgPL1zzLQ=" crossorigin="anonymous">
 
-    <link data-precache rel="stylesheet" href="https://coreynote.life/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
 
 
 
@@ -52,12 +54,13 @@
 <a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start ms-2 ms-xxl-0 mx-auto me-xxl-2"
     href="https://coreynote.life/">
     <picture><img class="logo " alt="Logo" src="https://coreynote.life/images/logo.webp" loading="lazy" width="512" height="512" />
-</picture>Corey 種子的資訊生活筆記
+</picture>
+Corey 種子的資訊生活筆記
 </a>
 
     <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
       <div class="offcanvas-header px-4 pb-0">
-        <h5 class="offcanvas-title" id="navbarMenusLabel">Corey 種子的資訊生活筆記</h5>
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Corey 種子的資訊生活筆記</div>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body p-4 pt-0 p-xxl-0">
@@ -104,13 +107,20 @@
             </ul>
           </li>
         </ul>
-        <hr class="d-xxl-none">
-    <form class="search-bar ms-auto my-1" action="https://coreynote.life/search/" novalidate>
+        
+    <hr class="d-xxl-none">
+    <form class="search-bar ms-auto my-1" action="/search/" novalidate>
       <div class="input-group input-group-sm align-items-center">
-        <span class="btn btn-search disabled position-absolute left-0 border-0">
+        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
           <i class="fas fa-fw fa-search fa-lg"></i>
         </span>
-        <input class="py-2 form-control rounded search-input" name="q" type="search" aria-label="Search" required>
+        <input
+          class="my-1 form-control border-white rounded search-input bg-body"
+          name="q"
+          type="search"
+          placeholder="按 / 搜索"
+          aria-label="Search"
+          required>
       </div>
     </form><hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
@@ -119,8 +129,7 @@
         <i class="fas fa-fw fa-palette"></i>
         <span class="d-xxl-none">配色</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end px-2" aria-labelledby="paletteDropdown">
-        <div class="row">
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
             <li class="col-4 my-1">
                 <a role="button" id="palette-blue" aria-label="藍色"
                     class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
@@ -181,7 +190,6 @@
                     class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
                 </a>
             </li>
-        </div>
     </ul>
 </li>
 <li class="nav-item dropdown col-6 col-xxl-auto">
@@ -229,15 +237,20 @@
 <div class="col-xxl-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
-    <ol class="breadcrumb"><li class="breadcrumb-item text-surface"><a href="https://coreynote.life/">主頁</a></li><li class="breadcrumb-item text-surface"><a href="https://coreynote.life/posts/">文章</a></li><li class="breadcrumb-item active">使用「Hugo」架設 Blog 起手勢！</li></ol>
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">主頁</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">文章</a></li><li class="breadcrumb-item active">使用「Hugo」架設 Blog 起手勢！</li></ol>
   </div>
 </nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
-  <div class="d-flex flex-row justify-content-center rounded rounded-5 post-panel position-fixed px-3 py-1 surface shadow">
+  <div class="d-flex flex-row justify-content-center rounded rounded-5 border border-primary post-panel position-fixed px-3 py-1 surface shadow">
     
     
 
     
-    <a class="action action-toc" href="#postTOC" aria-controls="Table of contents" role="button" title="Table of contents">
+    
+    
+  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="Table of contents">
+    <i class="fas fa-fw fa-list-alt"></i>
+  </a>
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="Table of contents">
   <i class="fas fa-fw fa-list-alt"></i>
 </a>
     <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="Copyright">
@@ -258,11 +271,11 @@
     <h1 class="card-title post-title my-2">使用「Hugo」架設 Blog 起手勢！</h1>
   </div>
   <div class="card-body"><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="創建於 2022-12-01 15:58:53 &#43;0800 CST。">2022-12-01</span><span class="post-reading-time me-1 mb-1">3 分鐘閱讀</span><a href="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
-      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="https://coreynote.life/tags/go-lang/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Go-Lang</a><a href="https://coreynote.life/tags/hugo/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Hugo</a>
+  <span class="post-date me-1 mb-1" title="創建於 2022-12-01 15:58:53 &#43;0800 CST，更新於 2023-02-07 08:24:25 &#43;0800 CST。">2022-12-01</span><span class="post-reading-time me-1 mb-1">3 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
+      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/go-lang/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Go-Lang</a><a href="/tags/hugo/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Hugo</a>
 </div>
 
-<div id="postTOC" class="mt-2 mb-3 d-block d-xxl-none">
+<div class="mt-2 mb-3 d-block d-xxl-none">
     <h2 class="text-surface mb-3">目錄</h2>
     <div id="post-toc-container">
         </div>
@@ -302,6 +315,7 @@
 <hr>
 <p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" loading="lazy" width="1493" height="391"style="width: 300px; " />
 </picture>
+
 </p>
 <h2 id="hugo-優點" data-numberify>Hugo 優點<a class="anchor ms-1" href="#hugo-優點"></a></h2>
 <ol>
@@ -352,117 +366,123 @@
 <h3 id="linux" data-numberify>Linux<a class="anchor ms-1" href="#linux"></a></h3>
 <p>如果尚未安裝套件管理工具「Snap」的話，可以參考 Linux 技術手札 <a href="https://www.ltsplus.com/linux/ubuntu-20-04-lts-install-snap" target="_blank" rel="noopener noreferrer">此篇文章<i class="fas fa-external-link-square-alt ms-1"></i></a> 安裝。</p>
 <p>確認 Snap 是否有安裝，可以執行以下指令看是否能查到版本號：</p>
-<pre tabindex="0"><code>snap version
-</code></pre><p>透過 Snap 安裝 Hugo：</p>
-<pre tabindex="0"><code>sudo snap install hugo
-</code></pre><h3 id="macos" data-numberify>macOS<a class="anchor ms-1" href="#macos"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">snap version
+</span></span></code></pre></div><p>透過 Snap 安裝 Hugo：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">sudo snap install hugo
+</span></span></code></pre></div><h3 id="macos" data-numberify>macOS<a class="anchor ms-1" href="#macos"></a></h3>
 <p>如果尚未安裝套件管理工具「Homebrew」的話，可以參考 <a href="https://brew.sh" target="_blank" rel="noopener noreferrer">此連結<i class="fas fa-external-link-square-alt ms-1"></i></a> 安裝。</p>
 <p>確認 Homebrew 是否有安裝，可以執行以下指令看是否能查到版本號：</p>
-<pre tabindex="0"><code>brew -v
-</code></pre><p>透過 Homebrew 安裝 Hugo：</p>
-<pre tabindex="0"><code>brew install hugo
-</code></pre><h3 id="windows" data-numberify>Windows<a class="anchor ms-1" href="#windows"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">brew -v
+</span></span></code></pre></div><p>透過 Homebrew 安裝 Hugo：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">brew install hugo
+</span></span></code></pre></div><h3 id="windows" data-numberify>Windows<a class="anchor ms-1" href="#windows"></a></h3>
 <p>如果尚未安裝套件管理工具「Chocolatey」的話，可以參考 <a href="https://chocolatey.org" target="_blank" rel="noopener noreferrer">此連結<i class="fas fa-external-link-square-alt ms-1"></i></a> 安裝。</p>
 <p>確認 Chocolatey 是否有安裝，可以執行以下指令看是否能查到版本號：</p>
-<pre tabindex="0"><code>choco -v
-</code></pre><p>透過 Chocolatey 安裝 Hugo：</p>
-<pre tabindex="0"><code>choco install hugo-extended -confirm
-</code></pre><h3 id="hugo-安裝完測試" data-numberify>Hugo 安裝完測試<a class="anchor ms-1" href="#hugo-安裝完測試"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">choco -v
+</span></span></code></pre></div><p>透過 Chocolatey 安裝 Hugo：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">choco install hugo-extended -confirm
+</span></span></code></pre></div><h3 id="hugo-安裝完測試" data-numberify>Hugo 安裝完測試<a class="anchor ms-1" href="#hugo-安裝完測試"></a></h3>
 <p>輸入以下指令檢視 Hugo 版本號：</p>
-<pre tabindex="0"><code>hugo version
-</code></pre><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-install.jpg" loading="lazy" width="942" height="550" />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo version
+</span></span></code></pre></div><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-install.jpg" loading="lazy" width="942" height="550" />
 </picture>
+
 </p>
-<p>有出現 <code>hugo v...</code> 開頭的訊息便表示成功安裝了！</p>
+<p>↑ 有出現 <code>hugo v...</code> 開頭的訊息便表示成功安裝了！</p>
 <h2 id="建立一個-hugo-專案" data-numberify>建立一個 Hugo 專案<a class="anchor ms-1" href="#建立一個-hugo-專案"></a></h2>
 <p>安裝完上述環境後，便可以透過以下指令建置新的 Hugo 專案：</p>
-<pre tabindex="0"><code>hugo new site [project name]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo new site [project name]
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl"># [project name] 可以替換成你想要的專案名稱
+</span></span></code></pre></div><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-project.jpg" loading="lazy" width="870" height="583" />
+</picture>
 
-# [project name] 可以替換成你想要的專案名稱
-</code></pre><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-project.jpg" loading="lazy" width="870" height="583" />
-</picture>
 </p>
-<p>執行指令後，會在指定目錄下產生 Hugo 網站的結構目錄</p>
+<p>↑ 執行指令後，會在指定目錄下產生 Hugo 網站的結構目錄</p>
 <p>輸入指令進到該專案目錄底下</p>
-<pre tabindex="0"><code>cd [project name]
-</code></pre><p>試著執行看看 Hugo 專案</p>
-<pre tabindex="0"><code>hugo server
-</code></pre><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-first-run.jpg" loading="lazy" width="691" height="419" />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">cd [project name]
+</span></span></code></pre></div><p>試著執行看看 Hugo 專案</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo server
+</span></span></code></pre></div><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-first-run.jpg" loading="lazy" width="691" height="419" />
 </picture>
+
 </p>
-<p>點開產生出的 localhost 網址，會發現網頁只有「Page Not Found」的訊息，代表站台雖然能執行但沒有佈景也沒有內容，目前還是空殼的狀態。</p>
+<p>↑ 點開產生出的 localhost 網址，會發現網頁只有「Page Not Found」的訊息，代表站台雖然能執行但沒有佈景也沒有內容，目前還是空殼的狀態。</p>
 <p>按下 Ctrl+C 關閉執行中的專案站台。</p>
 <h3 id="使用佈景主題" data-numberify>使用佈景主題<a class="anchor ms-1" href="#使用佈景主題"></a></h3>
 <p>一開始看上的佈景主題這時可以開始套用了。</p>
 <p>雖然每個佈景的安裝說明不盡相同，但大多都會採用「Git Submodule」的方式安裝，以下擷取自「Hugo Profile」佈景的 <a href="https://themes.gohugo.io/themes/hugo-profile" target="_blank" rel="noopener noreferrer">安裝文件<i class="fas fa-external-link-square-alt ms-1"></i></a> 供參考：</p>
-<pre tabindex="0"><code># 必須先初始化 Git
-git init
-
-# 透過 Git 將佈景主題 submodule 到 Hugo 專案內
-git submodule add https://github.com/gurusabarish/hugo-profile.git themes/hugo-profile
-</code></pre><p>接著到 Hugo 專案主目錄底下的「config.toml」啟用佈景：</p>
-<pre tabindex="0"><code>baseURL = &#39;http://example.org/&#39;
-languageCode = &#39;en-us&#39;
-title = &#39;My New Hugo Site&#39;
-
-# 新增底下這行，佈景名稱需對應 themes/ 路徑底下的佈景目錄名稱
-theme = &#34;hugo-profile&#34;
-</code></pre><p>剩下補上一些細部設定，開啟 home 連結和 post 連結：</p>
-<pre tabindex="0"><code>[params]
-  title = &#34;Hugo Profile&#34;
-  description = &#34;Text about my cool site&#34;
-
-[[menu.main]]
-  name = &#34;Blog posts&#34;
-  weight = 1
-  url  = &#34;posts/&#34;
-</code></pre><p>關於「Hugo Profile」佈景的其他設定項目，可以<a href="https://github.com/gurusabarish/hugo-profile/blob/master/exampleSite/config.yaml" target="_blank" rel="noopener noreferrer">參考文件<i class="fas fa-external-link-square-alt ms-1"></i></a> 。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="ln">1</span><span class="cl"><span class="o">#</span> <span class="nv">必須先初始化</span> <span class="nc">Git</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">git</span> <span class="nv">init</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="o">#</span> <span class="nv">透過</span> <span class="nc">Git</span> <span class="nv">將佈景主題</span> <span class="nv">submodule</span> <span class="nv">到</span> <span class="nc">Hugo</span> <span class="nv">專案內</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//github.com/gurusabarish/hugo-profile.git themes/hugo-profile
+</span></span></span></code></pre></div><p>接著到 Hugo 專案主目錄底下的「config.toml」啟用佈景：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">baseURL = &#39;http://example.org/&#39;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">languageCode = &#39;en-us&#39;
+</span></span><span class="line"><span class="ln">3</span><span class="cl">title = &#39;My New Hugo Site&#39;
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl"># 新增底下這行，佈景名稱需對應 themes/ 路徑底下的佈景目錄名稱
+</span></span><span class="line"><span class="ln">6</span><span class="cl">theme = &#34;hugo-profile&#34;
+</span></span></code></pre></div><p>剩下補上一些細部設定，開啟 home 連結和 post 連結：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[params]
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  title = &#34;Hugo Profile&#34;
+</span></span><span class="line"><span class="ln">3</span><span class="cl">  description = &#34;Text about my cool site&#34;
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">[[menu.main]]
+</span></span><span class="line"><span class="ln">6</span><span class="cl">  name = &#34;Blog posts&#34;
+</span></span><span class="line"><span class="ln">7</span><span class="cl">  weight = 1
+</span></span><span class="line"><span class="ln">8</span><span class="cl">  url  = &#34;posts/&#34;
+</span></span></code></pre></div><p>關於「Hugo Profile」佈景的其他設定項目，可以<a href="https://github.com/gurusabarish/hugo-profile/blob/master/exampleSite/config.yaml" target="_blank" rel="noopener noreferrer">參考文件<i class="fas fa-external-link-square-alt ms-1"></i></a> 。</p>
 <h4 id="補充" data-numberify>補充<a class="anchor ms-1" href="#補充"></a></h4>
 <p>Hugo 可支援的 config 風格不止一種，會發現每個佈景文件使用的目錄分類方式、格式或參數名稱都不盡相同，文檔格式就支援 toml、yaml、json 三種格式且皆可互換，可以適當的調整成自己習慣的風格，在參考各佈景的設定方法時還請注意一下。</p>
 <h3 id="建立第一篇文章" data-numberify>建立第一篇文章<a class="anchor ms-1" href="#建立第一篇文章"></a></h3>
 <p>為了在站台執行後能有文章顯示，可以執行以下指令建立文章：</p>
-<pre tabindex="0"><code>hugo new posts/first-post.md
-</code></pre><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-first-post.jpg" loading="lazy" width="1041" height="828" />
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo new posts/first-post.md
+</span></span></code></pre></div><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-first-post.jpg" loading="lazy" width="1041" height="828" />
 </picture>
 
-指令執行完會自動在指定路徑的目錄內建立文章範本。</p>
+
+↑ 指令執行完會自動在指定路徑的目錄內建立文章範本。</p>
 <p><code>---</code> 之上的是文章的設定參數，包含標題、時間、分類、標籤、是否為草稿&hellip; 等等，也請參考各自佈景文件說明。</p>
 <p>下半部份則是文本內容，
 預設使用的標記式語言是 Markdown，著名的線上協作筆記 <a href="https://hackmd.io" target="_blank" rel="noopener noreferrer">HackMD<i class="fas fa-external-link-square-alt ms-1"></i></a> 就是採用該標記語言去撰文，有熱心網友整理了實用的 <a href="https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA" target="_blank" rel="noopener noreferrer">Markdown 語法大全<i class="fas fa-external-link-square-alt ms-1"></i></a> 。</p>
 <p>我們先簡單的寫一下文章內容貼進 .md 檔內：</p>
-<pre tabindex="0"><code># Blog 測試
-
-## h2
-
-1. 一一一
-2. 二二二
-3. 三三三
-
-### h3
-
-* 123
-* 456
-* 789
-
-#### h4
-
-**粗體**
-_斜體_
-~~刪除線~~
-
-##### h5
-
-[超連結](https://www.google.com)
-</code></pre><p>試著執行看看 Hugo 專案：</p>
-<pre tabindex="0"><code># 加上 -D 參數會包含草稿一起秀出
-
-hugo server -D
-</code></pre><p>如果順利執行完，應該就能看到套有佈景主題效果的第一篇文章了！</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl"># Blog 測試
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">## h2
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">1. 一一一
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">2. 二二二
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">3. 三三三
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">### h3
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">* 123
+</span></span><span class="line"><span class="ln">12</span><span class="cl">* 456
+</span></span><span class="line"><span class="ln">13</span><span class="cl">* 789
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl">#### h4
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">**粗體**
+</span></span><span class="line"><span class="ln">18</span><span class="cl">_斜體_
+</span></span><span class="line"><span class="ln">19</span><span class="cl">~~刪除線~~
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">##### h5
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">[超連結](https://www.google.com)
+</span></span></code></pre></div><p>試著執行看看 Hugo 專案：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl"># 加上 -D 參數會包含草稿一起秀出
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server -D
+</span></span></code></pre></div><p>如果順利執行完，應該就能看到套有佈景主題效果的第一篇文章了！</p>
 <p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-theme-run-1.jpg" loading="lazy" width="1178" height="723"style="width: 300px; " />
 </picture>
+
 </p>
 <p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-theme-run-2.jpg" loading="lazy" width="1182" height="1165"style="width: 300px; " />
 </picture>
+
 </p>
 <h3 id="繼續設定樣式細節" data-numberify>繼續設定樣式細節<a class="anchor ms-1" href="#繼續設定樣式細節"></a></h3>
 <p>　　可以參考每個佈景主題提供的 Demo 範例，去做進一步的樣式設定，較完整的佈景主題目錄底下都會有一個「example」目錄，裡面有已經可以運行的範例可以參考（通常可以直接下 <code>hugo server</code> 運行起來）。</p>
@@ -471,8 +491,8 @@ hugo server -D
 <a href="https://gohugo.io/getting-started/configuration" target="_blank" rel="noopener noreferrer">https://gohugo.io/getting-started/configuration<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
 <h3 id="發佈網站" data-numberify>發佈網站<a class="anchor ms-1" href="#發佈網站"></a></h3>
 <p>　　網站樣式和各項設定都差不多後，可以輸入以下指令：</p>
-<pre tabindex="0"><code>hugo
-</code></pre><p>　　指令執行完， Hugo 會在專案主目錄下建立「public」靜態網頁檔，之後就可以使用這份靜態檔發佈到各家網頁代管服務使用，舉凡 GitHub Pages 和 Netlify 都很適合當作發佈平台。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo
+</span></span></code></pre></div><p>　　指令執行完， Hugo 會在專案主目錄下建立「public」靜態網頁檔，之後就可以使用這份靜態檔發佈到各家網頁代管服務使用，舉凡 GitHub Pages 和 Netlify 都很適合當作發佈平台。</p>
 <p>　　做到這裡如果都執行順利，恭喜你已經完成了本地端的網站架設，更進一步的部署設定可以參閱其他大大的教學文章，會有更詳細和專業的說明：</p>
 <p><a href="https://ithelp.ithome.com.tw/articles/10246099" target="_blank" rel="noopener noreferrer">Hugo Site 部署 - GitHub Pages<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
 <p><a href="https://ithelp.ithome.com.tw/articles/10246706" target="_blank" rel="noopener noreferrer">Hugo Site 部署 - Netlify<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
@@ -480,23 +500,23 @@ hugo server -D
 <h2 id="常用指令" data-numberify>常用指令<a class="anchor ms-1" href="#常用指令"></a></h2>
 <p>整理本篇出現的常用 Hugo 指令</p>
 <h3 id="檢視-hugo-版本號" data-numberify>檢視 Hugo 版本號：<a class="anchor ms-1" href="#檢視-hugo-版本號"></a></h3>
-<pre tabindex="0"><code>hugo version
-</code></pre><h3 id="創建-hugo-專案" data-numberify>創建 Hugo 專案：<a class="anchor ms-1" href="#創建-hugo-專案"></a></h3>
-<pre tabindex="0"><code>hugo new site [project name]
-</code></pre><h3 id="建立一篇新文章" data-numberify>建立一篇新文章：<a class="anchor ms-1" href="#建立一篇新文章"></a></h3>
-<pre tabindex="0"><code>hugo new posts/[new post name].md
-</code></pre><h3 id="本地端運行-hugo-專案" data-numberify>本地端運行 Hugo 專案：<a class="anchor ms-1" href="#本地端運行-hugo-專案"></a></h3>
-<pre tabindex="0"><code># 預設運行方式
-hugo server
-
-# 包含草稿文章一起顯示
-hugo server -D
-
-# 不限發佈日期文章一律顯示
-hugo server -F
-</code></pre><h3 id="發佈靜態網頁檔" data-numberify>發佈靜態網頁檔：<a class="anchor ms-1" href="#發佈靜態網頁檔"></a></h3>
-<pre tabindex="0"><code>hugo
-</code></pre><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo version
+</span></span></code></pre></div><h3 id="創建-hugo-專案" data-numberify>創建 Hugo 專案：<a class="anchor ms-1" href="#創建-hugo-專案"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo new site [project name]
+</span></span></code></pre></div><h3 id="建立一篇新文章" data-numberify>建立一篇新文章：<a class="anchor ms-1" href="#建立一篇新文章"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo new posts/[new post name].md
+</span></span></code></pre></div><h3 id="本地端運行-hugo-專案" data-numberify>本地端運行 Hugo 專案：<a class="anchor ms-1" href="#本地端運行-hugo-專案"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl"># 預設運行方式
+</span></span><span class="line"><span class="ln">2</span><span class="cl">hugo server
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"># 包含草稿文章一起顯示
+</span></span><span class="line"><span class="ln">5</span><span class="cl">hugo server -D
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"># 不限發佈日期文章一律顯示
+</span></span><span class="line"><span class="ln">8</span><span class="cl">hugo server -F
+</span></span></code></pre></div><h3 id="發佈靜態網頁檔" data-numberify>發佈靜態網頁檔：<a class="anchor ms-1" href="#發佈靜態網頁檔"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">hugo
+</span></span></code></pre></div><hr>
 <h1 id="參考來源與感謝" data-numberify>參考來源與感謝<a class="anchor ms-1" href="#參考來源與感謝"></a></h1>
 <p>　　因為在轉職空檔有一些時間整理自己的筆記和文章，而開始萌芽翻新自己部落格的想法。</p>
 <p>　　在架設 Blog 選用技術框架期間，看了不少使用心得和實戰經驗的比較，這過程感謝撰寫這些文章的大大們，給敝人不小提醒和少走彎路的機會，本篇文章部分也是參考這些文章去撰寫，當作一個自己的心路歷程小筆記，也非常推薦大家可以進一步去看看這些文章：</p>
@@ -509,7 +529,7 @@ hugo server -F
 </div>
 </div><div class="card-footer">
   <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-next">
-      <a href="https://coreynote.life/posts/2022/12/%E6%97%A5%E6%9C%AC%E7%A9%BA%E6%8B%8D%E6%A9%9F%E7%99%BB%E9%8C%84%E8%A8%BB%E5%86%8A/">日本空拍機登錄註冊</a>
+      <a href="/posts/2022/12/%E6%97%A5%E6%9C%AC%E7%A9%BA%E6%8B%8D%E6%A9%9F%E7%99%BB%E9%8C%84%E8%A8%BB%E5%86%8A/">日本空拍機登錄註冊</a>
       <i class="fas fa-fw fa-chevron-down post-next-icon ms-1" data-fa-transform="rotate-270"></i>
     </div></div>
 </div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
@@ -539,7 +559,7 @@ hugo server -F
     
 <div class="row component card">
     <div class="card-body">
-        <form action="https://coreynote.life/search/">
+        <form action="/search/">
             <div class="input-group">
                 <input name="q" class="form-control rounded" placeholder="搜尋">
                 <button class="btn btn-sm btn-search position-absolute end-0 border-0 border-start border-secondary p-2" type="submit">
@@ -557,13 +577,14 @@ hugo server -F
     <div class="accordion-header card-header border-0" id="profile-header">
       <a
         class="accordion-button d-lg-none mb-2 shadow-none p-0 bg-transparent text-surface"
-        type="button" data-bs-toggle="collapse" data-bs-target="#profile" aria-expanded="true" aria-controls="profile">
+        role="button" data-bs-toggle="collapse" href="#profile" aria-expanded="true" aria-controls="profile">
         Profile
       </a>
     </div>
     <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
       <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Corey" src="https://coreynote.life/images/profile.jpg" loading="lazy" data-viewer-invisible width="632" height="632" />
-</picture></div>
+</picture>
+</div>
       <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Corey</div><div class="profile-bio">Back-end (.NET Core C#) Developer</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i><a href='https://www.openstreetmap.org/relation/449220' target='_blank'>Taiwan</a></div></div>
 
 
@@ -584,9 +605,10 @@ hugo server -F
         <i class="fa-fw fa-2x fab fa-linkedin-in"
            style="color: #0a66c2;"></i>
       </a>
-  <a class="nav-link social-link" target="_blank" href="https://coreynote.life/tags/index.xml" title="RSS" rel="me">
-    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
-  </a>
+      <a class="nav-link social-link" target="_blank" href="https://www.youtube.com/channel/UCfAFaiB3ozsLYLCkeU1IJiQ" title="YouTube" rel="me">
+        <i class="fa-fw fa-2x fab fa-youtube"
+           style="color: #ff0000;"></i>
+      </a>
 </nav>
 </div>
   </div>
@@ -594,30 +616,30 @@ hugo server -F
 
 
 <div class="accordion taxonomies-toggle">
-    <section class="row card component accordion-item">
+    <div class="row card component accordion-item">
         <div class="accordion-header card-header border-0">
             <a
                 class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
-                type="button" data-bs-toggle="collapse" data-bs-target="#taxonomies-toggle" aria-expanded="true" aria-controls="taxonomies-toggle">
+                role="button" data-bs-toggle="collapse" href="#taxonomies-toggle" aria-expanded="true" aria-controls="taxonomies-toggle">
                 Taxonomies
             </a>
         </div>
         <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="taxonomies-toggle">
-            <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+            <ul class="nav nav-pills nav-fill" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="taxonomyCategoriesTab" data-bs-toggle="tab" data-bs-target="#taxonomyCategories" 
-                            type="button" role="tab" aria-controls="分類" aria-selected="true">
+                            type="button" role="tab" aria-controls="taxonomyCategories" aria-selected="true">
                             分類
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="taxonomyTagsTab" data-bs-toggle="tab" data-bs-target="#taxonomyTags" 
-                            type="button" role="tab" aria-controls="標籤" aria-selected="true">
+                            type="button" role="tab" aria-controls="taxonomyTags" aria-selected="true">
                             標籤
                         </button>
                     </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="taxonomyArchivesTab" data-bs-toggle="tab" data-bs-target="#taxonomyArchive" 
+                    <button class="nav-link" id="taxonomyArchivesTab" data-bs-toggle="tab" data-bs-target="#taxonomyArchives" 
                         type="button" role="tab" aria-controls="taxonomyArchives" aria-selected="true">
                         歸檔
                     </button>
@@ -626,38 +648,38 @@ hugo server -F
             
             <div class="tab-content mt-3">
                     <div class="tab-pane active" id="taxonomyCategories" role="tabpanel" aria-labelledby="taxonomyCategoriesTab" tabindex="0">
-                        <a href="https://coreynote.life/categories/%E6%94%9D%E5%BD%B1/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="攝影">
+                        <a href="/categories/%E6%94%9D%E5%BD%B1/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="攝影">
                             攝影
                             <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
                         </a>
-                        <a href="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="技術">
+                        <a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="技術">
                             技術
                             <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
                         </a>
                     </div>
                     <div class="tab-pane" id="taxonomyTags" role="tabpanel" aria-labelledby="taxonomyTagsTab" tabindex="0">
-                        <a href="https://coreynote.life/tags/%E7%A9%BA%E6%8B%8D%E6%A9%9F/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="空拍機">
+                        <a href="/tags/%E7%A9%BA%E6%8B%8D%E6%A9%9F/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="空拍機">
                             空拍機
                             <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
                         </a>
-                        <a href="https://coreynote.life/tags/go-lang/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="go-lang">
+                        <a href="/tags/go-lang/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="go-lang">
                             go-lang
                             <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
                         </a>
-                        <a href="https://coreynote.life/tags/hugo/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="hugo">
+                        <a href="/tags/hugo/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="hugo">
                             hugo
                             <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
                         </a>
-                        <a href="https://coreynote.life/tags/%E5%AE%89%E5%85%A8/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="安全">
+                        <a href="/tags/%E5%AE%89%E5%85%A8/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="安全">
                             安全
                             <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
                         </a>
-                        <a href="https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="日本">
+                        <a href="/tags/%E6%97%A5%E6%9C%AC/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="日本">
                             日本
                             <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
                         </a>
                     </div>
-                <div class="tab-pane" id="taxonomyArchive" role="tabpanel" aria-labelledby="taxonomyArchiveTab" tabindex="0">
+                <div class="tab-pane" id="taxonomyArchives" role="tabpanel" aria-labelledby="taxonomyArchivesTab" tabindex="0">
 
     <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2022">
     2022 <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
@@ -667,85 +689,126 @@ hugo server -F
                 </div>
             </div>
         </div>
-    </section>
-</div>
-<div class="accordion posts-toggle">
-    <section class="row card component accordion-item">
-        <div class="accordion-header card-header border-0">
-            <a
-                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
-                type="button" data-bs-toggle="collapse" data-bs-target="#posts-toggle" aria-expanded="true" aria-controls="posts-toggle">
-                文章
-            </a>
-        </div>
-        <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="posts-toggle">
-            <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="recent-posts-tab" data-bs-toggle="tab" data-bs-target="#recent-posts" 
-                        type="button" role="tab" aria-controls="recent-posts" aria-selected="true">
-                        最近文章
-                    </button>
-                </li>
-            </ul>
-            
-            <div class="tab-content mt-3">
-                <div class="tab-pane active" id="recent-posts" role="tabpanel" aria-labelledby="recent-posts-tab" tabindex="0">
-                    <ul class="post-list list-unstyled ms-1">
-                    <li class="mb-2">
-    <div class="d-flex">
-        <div class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
-            <a class="post-title" href="https://coreynote.life/posts/2022/12/%E7%A9%BA%E6%8B%8D%E6%A9%9F%E5%AE%89%E5%85%A8%E4%BD%BF%E7%94%A8sop/">空拍機安全使用SOP</a>
-            <div class="post-meta mt-2">
-                <span class="post-date">2022-12-17</span>
-            </div>
-        </div>
     </div>
+</div>
+    <div class="accordion posts-toggle">
+      <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+          <a
+            class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+            role="button"
+            data-bs-toggle="collapse"
+            href="#posts-toggle"
+            aria-expanded="true"
+            aria-controls="posts-toggle">
+            文章
+          </a>
+        </div>
+        <div
+          class="card-body collapse accordion-collapse accordion-body d-lg-block show"
+          id="posts-toggle">
+          <ul class="nav nav-pills nav-fill" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="recent-posts-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#recent-posts"
+                  type="button"
+                  role="tab"
+                  aria-controls="recent-posts"
+                  aria-selected="true">
+                  最近文章
+                </button>
+              </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+              <div
+                class="tab-pane active"
+                id="recent-posts"
+                role="tabpanel"
+                aria-labelledby="recent-posts-tab"
+                tabindex="0">
+                <ul class="post-list list-unstyled ms-1">
+                    <li class="mb-2">
+  <div class="d-flex">
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center">
+      <a class="post-title" href="/posts/2022/12/%E7%A9%BA%E6%8B%8D%E6%A9%9F%E5%AE%89%E5%85%A8%E4%BD%BF%E7%94%A8sop/">
+        空拍機安全使用SOP
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2022-12-17
+        </span>
+      </div>
+    </div>
+  </div>
                     </li>
                     <li class="mb-2">
-    <div class="d-flex">
-        <div class="flex-shrink-0 d-flex justify-content-center align-items-center" style="max-width: 100px"><picture><img class="img-fluid" alt="日本空拍機登錄註冊" src="https://coreynote.life/images/posts/dips2022/cover.jpg" loading="lazy"
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="日本空拍機登錄註冊" src="https://coreynote.life/images/posts/dips2022/cover.jpg" loading="lazy"
      width="1002"
      height="789"/>
   </picture>
-        </div>
-        <div class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
-            <a class="post-title" href="https://coreynote.life/posts/2022/12/%E6%97%A5%E6%9C%AC%E7%A9%BA%E6%8B%8D%E6%A9%9F%E7%99%BB%E9%8C%84%E8%A8%BB%E5%86%8A/">日本空拍機登錄註冊</a>
-            <div class="post-meta mt-2">
-                <span class="post-date">2022-12-17</span>
-            </div>
-        </div>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2022/12/%E6%97%A5%E6%9C%AC%E7%A9%BA%E6%8B%8D%E6%A9%9F%E7%99%BB%E9%8C%84%E8%A8%BB%E5%86%8A/">
+        日本空拍機登錄註冊
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2022-12-17
+        </span>
+      </div>
     </div>
+  </div>
                     </li>
                     <li class="mb-2">
-    <div class="d-flex">
-        <div class="flex-shrink-0 d-flex justify-content-center align-items-center" style="max-width: 100px"><picture><img class="img-fluid" alt="使用「Hugo」架設 Blog 起手勢！" src="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" loading="lazy"
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="使用「Hugo」架設 Blog 起手勢！" src="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" loading="lazy"
      width="1493"
      height="391"/>
   </picture>
-        </div>
-        <div class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
-            <a class="post-title" href="https://coreynote.life/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/">使用「Hugo」架設 Blog 起手勢！</a>
-            <div class="post-meta mt-2">
-                <span class="post-date">2022-12-01</span>
-            </div>
-        </div>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/">
+        使用「Hugo」架設 Blog 起手勢！
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2022-12-01
+        </span>
+      </div>
     </div>
+  </div>
                     </li>
-                    </ul>
-                </div>
-            </div>
+                </ul>
+              </div>
+          </div>
         </div>
-    </section>
-</div>
+      </div>
+    </div>
 <div class="accordion post-toc d-none d-lg-block">
   <div class="accordion-item row mb-4 card component" id="postTOC">
     <div class="card-header accordion-header">
       <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">目錄</h2>
-      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#post-toc" aria-expanded="false" aria-controls="post-toc">
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
         目錄
       </a>
     </div>
-    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc" aria-labelledby="post-toc-header">
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
       <nav id="TableOfContents">
   <ul>
     <li><a href="#選用技術特性">選用技術特性</a>
@@ -808,10 +871,10 @@ hugo server -F
     </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
   aria-labelledby="offcanvasActionsPanelLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title fs-4" id="offcanvasActionsPanelLabel">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
       <i class="fas fa-fw fa-th-large me-1"></i>
       操作
-    </h5>
+    </div>
     <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body mt-2"><div class="actions d-flex overflow-auto align-items-center">
@@ -826,19 +889,28 @@ hugo server -F
       </a>
     </div>
   </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Corey 種子的資訊生活筆記</p>
+    <p class="text-secondary mb-2"><small></small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2022-2023 Corey Ko. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
 </div>
 
 
-<nav class="social-links nav justify-content-center justify-content-between justify-content-lg-center mb-2">
+<nav class="social-links nav justify-content-center mb-2 mt-3">
 </nav>
-<div class="copyright mb-2">Copyright © 2022-2022 Corey Ko. All Rights Reserved.
-
 </div>
-<div class="powered-by mb-2">
-  Powered by <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
-</div></footer>
-<script data-precache src="https://coreynote.life/assets/main/bundle.min.b625840b37253c753f17795bbb1bb1c106603fb0038689fbc1513c98812e1af1.js" integrity="sha256-tiWECzclPHU/F3lbuxuxwQZgP7ADhon7wVE8mIEuGvE=" crossorigin="anonymous" async></script><script data-precache src="https://coreynote.life/assets/icons/bundle.min.4f3b3207ad6712b2cc7f2d00841abb7099b24a9b5a3cb139c1a17850b60ce11c.js" integrity="sha256-TzsyB61nErLMfy0AhBq7cJmySptaPLE5waF4ULYM4Rw=" crossorigin="anonymous" defer></script>
-<script data-precache src="https://coreynote.life/assets/viewer/bundle.min.e5a7213f2100ce0c5c22bd9f113527cd503672ffe57b00e9d6bf5f2abb0d86b2.js" integrity="sha256-5achPyEAzgxcIr2fETUnzVA2cv/lewDp1r9fKrsNhrI=" crossorigin="anonymous" defer></script>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.1817ef02a4e213b711997a6e64c10ced1ddfed4b65a0d62ae7de5ec34a65f885.js" integrity="sha256-GBfvAqTiE7cRmXpuZMEM7R3f7UtloNYq595ew0pl&#43;IU=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.92f8796940bd5ad21d48b819d77cd8751ad536294b24efaa81843de17f404b8f.js" integrity="sha256-kvh5aUC9WtIdSLgZ13zYdRrVNilLJO&#43;qgYQ94X9AS48=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.e5a7213f2100ce0c5c22bd9f113527cd503672ffe57b00e9d6bf5f2abb0d86b2.js" integrity="sha256-5achPyEAzgxcIr2fETUnzVA2cv/lewDp1r9fKrsNhrI=" crossorigin="anonymous" defer></script>
 
 
   </body>
