@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="position-relative" itemscope itemtype="http://schema.org/WebPage" lang="zh-hant"
   data-bs-theme="auto" data-palette="blue">
-  <head><script src="/assets/init/bundle.min.5fe4e5fee47d8c160de84eb100d2eef42ed8b04312af4a72c6f7850369674db0.js" integrity="sha256-X&#43;Tl/uR9jBYN6E6xANLu9C7YsEMSr0pyxveFA2lnTbA=" crossorigin="anonymous"></script>
+  <head><script src="/assets/init/bundle.min.4f39b56e88055f71f453c2ccb3bd66f3132de86f4e9f70c51f48b86aed4abd54.js" integrity="sha256-Tzm1bogFX3H0U8LMs71m8xMt6G9On3DFH0i4au1KvVQ=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>404 Page not found - Corey 種子的資訊生活筆記</title>
@@ -26,8 +26,9 @@
   <meta name="twitter:image" content="https://coreynote.life/images/logo.webp"/>
   <meta property="og:image:alt" content="404 Page not found" />
   <meta name="twitter:image:alt" content="404 Page not found" />
+  <link rel="manifest" href="/manifest.json">
 
-<link data-precache rel="stylesheet" href="/assets/main/bundle.min.7129f88d91c7b8720073b3d75b00397db473efa5e35b26a11c55a03cbd73ccb4.css" integrity="sha256-cSn4jZHHuHIAc7PXWwA5fbRz76XjWyahHFWgPL1zzLQ=" crossorigin="anonymous">
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.c31fe9e128682e013d13b9a15f5e54ffb47bd05be63335e77b03077679b798f6.css" integrity="sha256-wx/p4ShoLgE9E7mhX15U/7R70FvmMzXnewMHdnm3mPY=" crossorigin="anonymous">
 
     <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
 
@@ -102,22 +103,7 @@ Corey 種子的資訊生活筆記
             </ul>
           </li>
         </ul>
-        
-    <hr class="d-xxl-none">
-    <form class="search-bar ms-auto my-1" action="/search/" novalidate>
-      <div class="input-group input-group-sm align-items-center">
-        <span class="btn btn-search disabled position-absolute left-0 border-0 px-1">
-          <i class="fas fa-fw fa-search fa-lg"></i>
-        </span>
-        <input
-          class="my-1 form-control border-white rounded search-input bg-body"
-          name="q"
-          type="search"
-          placeholder="按 / 搜索"
-          aria-label="Search"
-          required>
-      </div>
-    </form><hr class="d-xxl-none">
+        <hr class="d-xxl-none">
         <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
 <li class="nav-item dropdown col-6 col-xxl-auto">
     <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -285,8 +271,18 @@ Corey 種子的資訊生活筆記
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
 </div>
 </footer>
-<script data-precache src="/assets/main/bundle.min.1817ef02a4e213b711997a6e64c10ced1ddfed4b65a0d62ae7de5ec34a65f885.js" integrity="sha256-GBfvAqTiE7cRmXpuZMEM7R3f7UtloNYq595ew0pl&#43;IU=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.92f8796940bd5ad21d48b819d77cd8751ad536294b24efaa81843de17f404b8f.js" integrity="sha256-kvh5aUC9WtIdSLgZ13zYdRrVNilLJO&#43;qgYQ94X9AS48=" crossorigin="anonymous" defer></script>
-<script data-precache src="/assets/viewer/bundle.min.e5a7213f2100ce0c5c22bd9f113527cd503672ffe57b00e9d6bf5f2abb0d86b2.js" integrity="sha256-5achPyEAzgxcIr2fETUnzVA2cv/lewDp1r9fKrsNhrI=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/main/bundle.min.523a1f997158f6adaa6bbac206b7062827afbf65999e1abda58bfcbe6aaa5d8f.js" integrity="sha256-UjofmXFY9q2qa7rCBrcGKCevv2WZnhq9pYv8vmqqXY8=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.92f8796940bd5ad21d48b819d77cd8751ad536294b24efaa81843de17f404b8f.js" integrity="sha256-kvh5aUC9WtIdSLgZ13zYdRrVNilLJO&#43;qgYQ94X9AS48=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.e5a7213f2100ce0c5c22bd9f113527cd503672ffe57b00e9d6bf5f2abb0d86b2.js" integrity="sha256-5achPyEAzgxcIr2fETUnzVA2cv/lewDp1r9fKrsNhrI=" crossorigin="anonymous" defer></script><script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('\/service-worker.min.js').then(function(reg) {
+      console.log('Successfully registered service worker', reg);
+    }).catch(function(err) {
+      console.warn('Error whilst registering service worker', err);
+    });
+  });
+}
+</script>
 
   </body>
 </html>
