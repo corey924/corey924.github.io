@@ -10,10 +10,10 @@
     <lastBuildDate>Thu, 01 Dec 2022 15:58:53 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/go-lang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用「Hugo」架設 Blog 起手勢！</title>
-      <link>https://coreynote.life/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/</link>
+      <link>https://coreynote.life/posts/2022/12/hello-hugo/</link>
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2022/12/%E4%BD%BF%E7%94%A8hugo%E6%9E%B6%E8%A8%AD-blog-%E8%B5%B7%E6%89%8B%E5%8B%A2/</guid>
+      <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
       <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些心得囉～
 選用技術特性使用近年很流行的「Static Site Generator」（靜態網站產生器）方式架站。有以下特點： 因為內容都是靜態產生，不需要後端處理，加上使用快取會比動態產生的網頁更有效率，請求速度很快。 不需要架設資料庫。 理論上比任何動態網站更安全。 目前主流的三大靜態網站產生器Jekyll
 由 Github 聯合創始人 Thomas Preston-Werner 使用 Ruby 語言所開發。
