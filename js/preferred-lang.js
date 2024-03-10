@@ -1,0 +1,1 @@
+(()=>{var o={fallback:"https://coreynote.life/",homes:{"zh-hant":"https://coreynote.life/"}};(()=>{let e=navigator.language||navigator.userLanguage;if(e in o.homes){window.location.href=o.homes[e];return}let n=e.split("-");for(let a in o.homes)if(a.indexOf(n[0])===0){window.location.href=o.homes[a];return}window.location.href=o.fallback})();})();

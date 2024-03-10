@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>go-lang on Corey 種子的資訊生活筆記</title>
+    <title>Go-Lang on Corey 種子的資訊生活筆記</title>
     <link>https://coreynote.life/tags/go-lang/</link>
-    <description>Recent content in go-lang on Corey 種子的資訊生活筆記</description>
+    <description>Recent content in Go-Lang on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2022-2023 Corey Ko. All Rights Reserved.
+    <language>zh-hant</language>
+    <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
     <lastBuildDate>Thu, 01 Dec 2022 15:58:53 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/go-lang/index.xml" rel="self" type="application/rss+xml" />
     <item>

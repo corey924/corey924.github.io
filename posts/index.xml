@@ -5,7 +5,8 @@
     <link>https://coreynote.life/posts/</link>
     <description>Recent content in 文章 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2022-2023 Corey Ko. All Rights Reserved.
+    <language>zh-hant</language>
+    <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright><atom:link href="https://coreynote.life/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>「韌帶撕裂性骨折」復健參考菜單</title>
@@ -84,6 +85,33 @@
       <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
       <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些]]></description>
     <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
+    </item>
+    
+    <item>
+      <title>Articles</title>
+      <link>https://coreynote.life/posts/1/01/_index.fr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coreynote.life/posts/1/01/_index.fr/</guid>
+      <description><![CDATA[]]></description>
+    </item>
+    
+    <item>
+      <title>文章</title>
+      <link>https://coreynote.life/posts/1/01/_index.zh-hans/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coreynote.life/posts/1/01/_index.zh-hans/</guid>
+      <description><![CDATA[]]></description>
+    </item>
+    
+    <item>
+      <title>投稿</title>
+      <link>https://coreynote.life/posts/1/01/_index.ja/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://coreynote.life/posts/1/01/_index.ja/</guid>
+      <description><![CDATA[]]></description>
     </item>
     
   </channel>
