@@ -2,89 +2,139 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>文章 on Corey 種子的資訊生活筆記</title>
-    <link>https://coreynote.life/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in 文章 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
-</copyright><atom:link href="https://coreynote.life/posts/index.xml" rel="self" type="application/rss+xml" />
+</copyright><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FF14快速入坑重點筆記</title>
+      <link>http://localhost:1313/posts/2023/12/ff14-quick-guide/</link>
+      <pubDate>Thu, 07 Dec 2023 00:38:48 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/2023/12/ff14-quick-guide/</guid>
+      <description><![CDATA[觀望期 這遊戲適不適合自己？ 介紹短片 我玩了半年FF14，所以這遊戲好玩嗎： https://youtu.be/mCwEmfQa4bI 最終幻想14值得你入坑的六大理由： https://www.bilibili.com/video/BV11a4y1h7WE 總結來說，符合以下幾點的人都非]]></description>
+    <enclosure url="http://localhost:1313/images/posts/ff14-quick-guide/cover.jpg" length="370616" type="image/.jpg" />
+    </item>
+    
+    <item>
+      <title>機車檢修重點</title>
+      <link>http://localhost:1313/posts/2023/11/trip-scooter/</link>
+      <pubDate>Sun, 26 Nov 2023 22:14:41 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/2023/11/trip-scooter/</guid>
+      <description><![CDATA[想說整理了幾年放著也是放著，就寫成文章提供給想要了解的網友。 ※ 請注意，以下的里程數據及建議保養作業是通用指南，具體保養頻率和價格可能因機車型]]></description>
+    <enclosure url="http://localhost:1313/images/posts/trip-scooter/cover.jpg" length="298668" type="image/.jpg" />
+    </item>
+    
+    <item>
+      <title>近年最常使用到的幾個正則表達驗證式</title>
+      <link>http://localhost:1313/posts/2023/10/validation-utils/</link>
+      <pubDate>Fri, 06 Oct 2023 21:30:35 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/2023/10/validation-utils/</guid>
+      <description><![CDATA[範例版本使用的是後端 .NET 8 框架和 C# 語言，如有其他語言風格的需求，請再稍微轉換一下就好。 使用預編譯的正則表達式來提高效能 1private static readonly Regex IdentityNoRegex = new(@&#34;^[A-Za-z][12][0-9]{8}$&#34;, RegexOptions.Compiled); 2private static readonly Regex]]></description>
+    <enclosure url="http://localhost:1313/images/posts/validation-utils/cover.jpg" length="327120" type="image/.jpg" />
+    </item>
+    
+    <item>
+      <title>民國與西元年前端簡易轉換元件</title>
+      <link>http://localhost:1313/posts/2023/08/year-converter/</link>
+      <pubDate>Sat, 19 Aug 2023 19:13:57 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/2023/08/year-converter/</guid>
+      <description><![CDATA[想說只是小功能就不特別發佈到 Github 上，寫成一篇短文說明，有遇到此問題的開發者可以參考看看。 使用方法 本範例主要是將民國年統一轉換成西元年，以利後端]]></description>
+    <enclosure url="http://localhost:1313/images/posts/year-converter/cover.jpg" length="26778" type="image/.jpg" />
+    </item>
+    
+    <item>
+      <title>&lt;datalist&gt; HTML 內建可搜尋下拉選單</title>
+      <link>http://localhost:1313/posts/2023/06/html-datalist/</link>
+      <pubDate>Mon, 26 Jun 2023 18:24:58 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/2023/06/html-datalist/</guid>
+      <description><![CDATA[此方法適合在小型功能裡，不想特地引用 Select2 等 Library 時，可以簡單快速的擁有可搜尋下拉選單的效果。 HTML 1&lt;div class=&#34;input-set&#34;&gt; 2 &lt;label for=&#34;item-name&#34]]></description>
+    <enclosure url="http://localhost:1313/images/posts/html-datalist/cover.jpg" length="32230" type="image/.jpg" />
+    </item>
+    
     <item>
       <title>「韌帶撕裂性骨折」復健參考菜單</title>
-      <link>https://coreynote.life/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</link>
+      <link>http://localhost:1313/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</link>
       <pubDate>Tue, 11 Apr 2023 15:45:30 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</guid>
+      <guid>http://localhost:1313/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</guid>
       <description><![CDATA[前言 「韌帶撕裂性骨折」的復原狀況和其他的韌帶斷裂復健、骨折復健會有一點不一樣，因為復健過程韌帶會一直拉扯骨折的部位，很痛且容易再次受傷，所以]]></description>
-    <enclosure url="https://coreynote.life/images/posts/anterior-cruciate-ligament-tear-with-fracture/cover.jpg" length="416622" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/anterior-cruciate-ligament-tear-with-fracture/cover.jpg" length="416622" type="image/.jpg" />
     </item>
     
     <item>
       <title>真深度旅行</title>
-      <link>https://coreynote.life/posts/2023/04/japan-skiing-injury/</link>
+      <link>http://localhost:1313/posts/2023/04/japan-skiing-injury/</link>
       <pubDate>Fri, 07 Apr 2023 20:01:41 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2023/04/japan-skiing-injury/</guid>
+      <guid>http://localhost:1313/posts/2023/04/japan-skiing-injury/</guid>
       <description><![CDATA[前言 這邊整理了我在日本滑雪受傷、急救回台灣手術的一段心路歷程，文章會用比較詼諧的語氣描述，部分人名會用代稱表示，還請不要太認真去考究XD 第一]]></description>
-    <enclosure url="https://coreynote.life/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
     </item>
     
     <item>
       <title>日本北東北旅遊住宿開箱心得 - 岩手安比高原篇</title>
-      <link>https://coreynote.life/posts/2023/02/japan-tohoku-appi-2023/</link>
+      <link>http://localhost:1313/posts/2023/02/japan-tohoku-appi-2023/</link>
       <pubDate>Wed, 22 Feb 2023 19:00:46 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2023/02/japan-tohoku-appi-2023/</guid>
+      <guid>http://localhost:1313/posts/2023/02/japan-tohoku-appi-2023/</guid>
       <description><![CDATA[前言 這次 2023 年「日本東北玩雪耍廢長征團」為期 23 天的旅行住了快十間旅館飯店，住宿的地方各有特色且都合格滿意，所以特別計畫做了這系列的住宿開箱心得]]></description>
-    <enclosure url="https://coreynote.life/images/posts/japan-tohoku-appi-2023/cover.jpg" length="1094591" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/japan-tohoku-appi-2023/cover.jpg" length="1094591" type="image/.jpg" />
     </item>
     
     <item>
       <title>日本北東北旅遊住宿開箱心得 - 青森篇</title>
-      <link>https://coreynote.life/posts/2023/02/japan-tohoku-aomori-2023/</link>
+      <link>http://localhost:1313/posts/2023/02/japan-tohoku-aomori-2023/</link>
       <pubDate>Thu, 09 Feb 2023 14:34:01 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2023/02/japan-tohoku-aomori-2023/</guid>
+      <guid>http://localhost:1313/posts/2023/02/japan-tohoku-aomori-2023/</guid>
       <description><![CDATA[前言 這次 2023 年「日本東北玩雪耍廢長征團」為期 23 天的旅行住了快十間旅館飯店，住宿的地方各有特色且都合格滿意，所以特別計畫做了這系列的住宿開箱心得]]></description>
-    <enclosure url="https://coreynote.life/images/posts/japan-tohoku-aomori-2023/cover.jpg" length="1406601" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/japan-tohoku-aomori-2023/cover.jpg" length="1406601" type="image/.jpg" />
     </item>
     
     <item>
       <title>日本北東北旅遊住宿開箱心得 - 秋田篇</title>
-      <link>https://coreynote.life/posts/2023/02/japan-tohoku-akita-2023/</link>
+      <link>http://localhost:1313/posts/2023/02/japan-tohoku-akita-2023/</link>
       <pubDate>Tue, 07 Feb 2023 10:10:31 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2023/02/japan-tohoku-akita-2023/</guid>
+      <guid>http://localhost:1313/posts/2023/02/japan-tohoku-akita-2023/</guid>
       <description><![CDATA[前言 這次 2023 年「日本東北玩雪耍廢長征團」為期 23 天的旅行住了快十間旅館飯店，住宿的地方各有特色且都合格滿意，所以特別計畫做了這系列的住宿開箱心得]]></description>
-    <enclosure url="https://coreynote.life/images/posts/japan-tohoku-akita-2023/cover.jpg" length="1121171" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/japan-tohoku-akita-2023/cover.jpg" length="1121171" type="image/.jpg" />
     </item>
     
     <item>
       <title>空拍機安全使用SOP</title>
-      <link>https://coreynote.life/posts/2022/12/drone-sop/</link>
+      <link>http://localhost:1313/posts/2022/12/drone-sop/</link>
       <pubDate>Sat, 17 Dec 2022 21:36:29 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2022/12/drone-sop/</guid>
+      <guid>http://localhost:1313/posts/2022/12/drone-sop/</guid>
       <description><![CDATA[※ 本篇操作手冊是以「DJI 大疆」出品的空拍機為主。※ 剛開始學著操作空拍機時，因為擔心自己漏掉一些安全步驟，把整個安全 SOP 都演練幾遍才敢正式起飛]]></description>
     </item>
     
     <item>
       <title>日本空拍機登錄註冊</title>
-      <link>https://coreynote.life/posts/2022/12/dips2022/</link>
+      <link>http://localhost:1313/posts/2022/12/dips2022/</link>
       <pubDate>Sat, 17 Dec 2022 17:28:53 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2022/12/dips2022/</guid>
+      <guid>http://localhost:1313/posts/2022/12/dips2022/</guid>
       <description><![CDATA[因為近期要去日本旅遊，想說把空拍機帶到日本飛看看，便開始研究怎麼合法的帶去當地飛行。 順便做了一下登錄註冊過程的筆記整理。 本文撰寫時間為：20]]></description>
-    <enclosure url="https://coreynote.life/images/posts/dips2022/cover.jpg" length="447774" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/dips2022/cover.jpg" length="447774" type="image/.jpg" />
     </item>
     
     <item>
       <title>使用「Hugo」架設 Blog 起手勢！</title>
-      <link>https://coreynote.life/posts/2022/12/hello-hugo/</link>
+      <link>http://localhost:1313/posts/2022/12/hello-hugo/</link>
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
+      <guid>http://localhost:1313/posts/2022/12/hello-hugo/</guid>
       <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些]]></description>
-    <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
+    <enclosure url="http://localhost:1313/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     
   </channel>

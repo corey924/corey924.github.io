@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Javascript on Corey 種子的資訊生活筆記</title>
+    <link>http://localhost:1313/tags/javascript/</link>
+    <description>Recent content in Javascript on Corey 種子的資訊生活筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hant</language>
+    <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
+</copyright>
+    <lastBuildDate>Sat, 19 Aug 2023 19:13:57 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>民國與西元年前端簡易轉換元件</title>
+      <link>http://localhost:1313/posts/2023/08/year-converter/</link>
+      <pubDate>Sat, 19 Aug 2023 19:13:57 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/2023/08/year-converter/</guid>
+      <description><![CDATA[想說只是小功能就不特別發佈到 Github 上，寫成一篇短文說明，有遇到此問題的開發者可以參考看看。 使用方法 本範例主要是將民國年統一轉換成西元年，以利後端]]></description>
+    <enclosure url="http://localhost:1313/images/posts/year-converter/cover.jpg" length="26778" type="image/.jpg" />
+    </item>
+    
+  </channel>
+</rss>
+

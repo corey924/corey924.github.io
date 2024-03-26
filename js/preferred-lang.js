@@ -1,1 +1,21 @@
-(()=>{var o={fallback:"https://coreynote.life/",homes:{"zh-hant":"https://coreynote.life/"}};(()=>{let e=navigator.language||navigator.userLanguage;if(e in o.homes){window.location.href=o.homes[e];return}let n=e.split("-");for(let a in o.homes)if(a.indexOf(n[0])===0){window.location.href=o.homes[a];return}window.location.href=o.fallback})();})();
+(() => {
+  // ns-params:@params
+  var params_default = { fallback: "http://localhost:1313/", homes: { "zh-hant": "http://localhost:1313/" } };
+
+  // <stdin>
+  (() => {
+    const lang = navigator.language || navigator.userLanguage;
+    if (lang in params_default.homes) {
+      window.location.href = params_default.homes[lang];
+      return;
+    }
+    const codes = lang.split("-");
+    for (let lang2 in params_default.homes) {
+      if (lang2.indexOf(codes[0]) === 0) {
+        window.location.href = params_default.homes[lang2];
+        return;
+      }
+    }
+    window.location.href = params_default.fallback;
+  })();
+})();

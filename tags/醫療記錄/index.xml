@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>醫療記錄 on Corey 種子的資訊生活筆記</title>
-    <link>https://coreynote.life/tags/%E9%86%AB%E7%99%82%E8%A8%98%E9%8C%84/</link>
+    <link>http://localhost:1313/tags/%E9%86%AB%E7%99%82%E8%A8%98%E9%8C%84/</link>
     <description>Recent content in 醫療記錄 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Fri, 07 Apr 2023 20:01:41 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/%E9%86%AB%E7%99%82%E8%A8%98%E9%8C%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Apr 2023 20:01:41 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E9%86%AB%E7%99%82%E8%A8%98%E9%8C%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>真深度旅行</title>
-      <link>https://coreynote.life/posts/2023/04/japan-skiing-injury/</link>
+      <link>http://localhost:1313/posts/2023/04/japan-skiing-injury/</link>
       <pubDate>Fri, 07 Apr 2023 20:01:41 +0800</pubDate>
       
-      <guid>https://coreynote.life/posts/2023/04/japan-skiing-injury/</guid>
+      <guid>http://localhost:1313/posts/2023/04/japan-skiing-injury/</guid>
       <description><![CDATA[前言 這邊整理了我在日本滑雪受傷、急救回台灣手術的一段心路歷程，文章會用比較詼諧的語氣描述，部分人名會用代稱表示，還請不要太認真去考究XD 第一]]></description>
-    <enclosure url="https://coreynote.life/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
+    <enclosure url="http://localhost:1313/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
     </item>
     
   </channel>
