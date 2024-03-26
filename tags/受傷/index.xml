@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>受傷 on Corey 種子的資訊生活筆記</title>
-    <link>http://localhost:1313/tags/%E5%8F%97%E5%82%B7/</link>
+    <link>https://coreynote.life/tags/%E5%8F%97%E5%82%B7/</link>
     <description>Recent content in 受傷 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Tue, 11 Apr 2023 15:45:30 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%8F%97%E5%82%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Apr 2023 15:45:30 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/%E5%8F%97%E5%82%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>「韌帶撕裂性骨折」復健參考菜單</title>
-      <link>http://localhost:1313/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</link>
+      <link>https://coreynote.life/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</link>
       <pubDate>Tue, 11 Apr 2023 15:45:30 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</guid>
+      <guid>https://coreynote.life/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</guid>
       <description><![CDATA[前言 「韌帶撕裂性骨折」的復原狀況和其他的韌帶斷裂復健、骨折復健會有一點不一樣，因為復健過程韌帶會一直拉扯骨折的部位，很痛且容易再次受傷，所以]]></description>
-    <enclosure url="http://localhost:1313/images/posts/anterior-cruciate-ligament-tear-with-fracture/cover.jpg" length="416622" type="image/.jpg" />
+    <enclosure url="https://coreynote.life/images/posts/anterior-cruciate-ligament-tear-with-fracture/cover.jpg" length="416622" type="image/.jpg" />
     </item>
     
     <item>
       <title>真深度旅行</title>
-      <link>http://localhost:1313/posts/2023/04/japan-skiing-injury/</link>
+      <link>https://coreynote.life/posts/2023/04/japan-skiing-injury/</link>
       <pubDate>Fri, 07 Apr 2023 20:01:41 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2023/04/japan-skiing-injury/</guid>
+      <guid>https://coreynote.life/posts/2023/04/japan-skiing-injury/</guid>
       <description><![CDATA[前言 這邊整理了我在日本滑雪受傷、急救回台灣手術的一段心路歷程，文章會用比較詼諧的語氣描述，部分人名會用代稱表示，還請不要太認真去考究XD 第一]]></description>
-    <enclosure url="http://localhost:1313/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
+    <enclosure url="https://coreynote.life/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
     </item>
     
   </channel>

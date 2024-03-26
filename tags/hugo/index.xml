@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hugo on Corey 種子的資訊生活筆記</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>https://coreynote.life/tags/hugo/</link>
     <description>Recent content in Hugo on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Thu, 01 Dec 2022 15:58:53 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 15:58:53 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用「Hugo」架設 Blog 起手勢！</title>
-      <link>http://localhost:1313/posts/2022/12/hello-hugo/</link>
+      <link>https://coreynote.life/posts/2022/12/hello-hugo/</link>
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2022/12/hello-hugo/</guid>
+      <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
       <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些]]></description>
-    <enclosure url="http://localhost:1313/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
+    <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     
   </channel>

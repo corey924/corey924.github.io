@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>技術 on Corey 種子的資訊生活筆記</title>
-    <link>http://localhost:1313/categories/%E6%8A%80%E8%A1%93/</link>
+    <link>https://coreynote.life/categories/%E6%8A%80%E8%A1%93/</link>
     <description>Recent content in 技術 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Fri, 06 Oct 2023 21:30:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Oct 2023 21:30:35 +0800</lastBuildDate><atom:link href="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>近年最常使用到的幾個正則表達驗證式</title>
-      <link>http://localhost:1313/posts/2023/10/validation-utils/</link>
+      <link>https://coreynote.life/posts/2023/10/validation-utils/</link>
       <pubDate>Fri, 06 Oct 2023 21:30:35 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2023/10/validation-utils/</guid>
+      <guid>https://coreynote.life/posts/2023/10/validation-utils/</guid>
       <description><![CDATA[範例版本使用的是後端 .NET 8 框架和 C# 語言，如有其他語言風格的需求，請再稍微轉換一下就好。 使用預編譯的正則表達式來提高效能 1private static readonly Regex IdentityNoRegex = new(@&#34;^[A-Za-z][12][0-9]{8}$&#34;, RegexOptions.Compiled); 2private static readonly Regex]]></description>
-    <enclosure url="http://localhost:1313/images/posts/validation-utils/cover.jpg" length="327120" type="image/.jpg" />
+    <enclosure url="https://coreynote.life/images/posts/validation-utils/cover.jpg" length="327120" type="image/.jpg" />
     </item>
     
     <item>
       <title>民國與西元年前端簡易轉換元件</title>
-      <link>http://localhost:1313/posts/2023/08/year-converter/</link>
+      <link>https://coreynote.life/posts/2023/08/year-converter/</link>
       <pubDate>Sat, 19 Aug 2023 19:13:57 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2023/08/year-converter/</guid>
+      <guid>https://coreynote.life/posts/2023/08/year-converter/</guid>
       <description><![CDATA[想說只是小功能就不特別發佈到 Github 上，寫成一篇短文說明，有遇到此問題的開發者可以參考看看。 使用方法 本範例主要是將民國年統一轉換成西元年，以利後端]]></description>
-    <enclosure url="http://localhost:1313/images/posts/year-converter/cover.jpg" length="26778" type="image/.jpg" />
+    <enclosure url="https://coreynote.life/images/posts/year-converter/cover.jpg" length="26778" type="image/.jpg" />
     </item>
     
     <item>
       <title>&lt;datalist&gt; HTML 內建可搜尋下拉選單</title>
-      <link>http://localhost:1313/posts/2023/06/html-datalist/</link>
+      <link>https://coreynote.life/posts/2023/06/html-datalist/</link>
       <pubDate>Mon, 26 Jun 2023 18:24:58 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2023/06/html-datalist/</guid>
+      <guid>https://coreynote.life/posts/2023/06/html-datalist/</guid>
       <description><![CDATA[此方法適合在小型功能裡，不想特地引用 Select2 等 Library 時，可以簡單快速的擁有可搜尋下拉選單的效果。 HTML 1&lt;div class=&#34;input-set&#34;&gt; 2 &lt;label for=&#34;item-name&#34]]></description>
-    <enclosure url="http://localhost:1313/images/posts/html-datalist/cover.jpg" length="32230" type="image/.jpg" />
+    <enclosure url="https://coreynote.life/images/posts/html-datalist/cover.jpg" length="32230" type="image/.jpg" />
     </item>
     
     <item>
       <title>使用「Hugo」架設 Blog 起手勢！</title>
-      <link>http://localhost:1313/posts/2022/12/hello-hugo/</link>
+      <link>https://coreynote.life/posts/2022/12/hello-hugo/</link>
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
-      <guid>http://localhost:1313/posts/2022/12/hello-hugo/</guid>
+      <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
       <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些]]></description>
-    <enclosure url="http://localhost:1313/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
+    <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     
   </channel>
