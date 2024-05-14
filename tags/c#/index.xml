@@ -8,14 +8,24 @@
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Fri, 06 Oct 2023 21:30:35 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/c" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jan 2024 14:38:28 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/c" rel="self" type="application/rss+xml" />
+    <item>
+      <title>簡易型 API 白名單驗證 Attribute</title>
+      <link>https://coreynote.life/posts/2024/01/api-security-attribute/</link>
+      <pubDate>Sun, 14 Jan 2024 14:38:28 +0800</pubDate>
+      
+      <guid>https://coreynote.life/posts/2024/01/api-security-attribute/</guid>
+      <description><![CDATA[範例使用的是後端 .NET 8 框架和 C# 語言。 比較好的設計方式是將 API 白名單驗證放在資料庫進行管理，增添「有效期限」、「即時封鎖」、「金鑰更新機制」&he]]></description>
+    <enclosure url="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" length="216056" type="image/.jpg" />
+    </item>
+    
     <item>
       <title>近年最常使用到的幾個正則表達驗證式</title>
       <link>https://coreynote.life/posts/2023/10/validation-utils/</link>
       <pubDate>Fri, 06 Oct 2023 21:30:35 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2023/10/validation-utils/</guid>
-      <description><![CDATA[範例版本使用的是後端 .NET 8 框架和 C# 語言，如有其他語言風格的需求，請再稍微轉換一下就好。 使用預編譯的正則表達式來提高效能 1private static readonly Regex IdentityNoRegex = new(@&#34;^[A-Za-z][12][0-9]{8}$&#34;, RegexOptions.Compiled); 2private static readonly Regex]]></description>
+      <description><![CDATA[範例使用的是後端 .NET 8 框架和 C# 語言，如有其他語言風格的需求，請再稍微轉換一下就好。 使用預編譯的正則表達式來提高效能 1private static readonly Regex IdentityNoRegex = new(@&#34;^[A-Za-z][12][0-9]{8}$&#34;, RegexOptions.Compiled); 2private static readonly Regex ResidentPermitRegex =]]></description>
     <enclosure url="https://coreynote.life/images/posts/validation-utils/cover.jpg" length="327120" type="image/.jpg" />
     </item>
     

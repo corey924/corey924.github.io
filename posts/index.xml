@@ -9,6 +9,16 @@
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright><atom:link href="https://coreynote.life/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>簡易型 API 白名單驗證 Attribute</title>
+      <link>https://coreynote.life/posts/2024/01/api-security-attribute/</link>
+      <pubDate>Sun, 14 Jan 2024 14:38:28 +0800</pubDate>
+      
+      <guid>https://coreynote.life/posts/2024/01/api-security-attribute/</guid>
+      <description><![CDATA[範例使用的是後端 .NET 8 框架和 C# 語言。 比較好的設計方式是將 API 白名單驗證放在資料庫進行管理，增添「有效期限」、「即時封鎖」、「金鑰更新機制」&he]]></description>
+    <enclosure url="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" length="216056" type="image/.jpg" />
+    </item>
+    
+    <item>
       <title>FF14快速入坑重點筆記</title>
       <link>https://coreynote.life/posts/2023/12/ff14-quick-guide/</link>
       <pubDate>Thu, 07 Dec 2023 00:38:48 +0800</pubDate>
@@ -34,7 +44,7 @@
       <pubDate>Fri, 06 Oct 2023 21:30:35 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2023/10/validation-utils/</guid>
-      <description><![CDATA[範例版本使用的是後端 .NET 8 框架和 C# 語言，如有其他語言風格的需求，請再稍微轉換一下就好。 使用預編譯的正則表達式來提高效能 1private static readonly Regex IdentityNoRegex = new(@&#34;^[A-Za-z][12][0-9]{8}$&#34;, RegexOptions.Compiled); 2private static readonly Regex]]></description>
+      <description><![CDATA[範例使用的是後端 .NET 8 框架和 C# 語言，如有其他語言風格的需求，請再稍微轉換一下就好。 使用預編譯的正則表達式來提高效能 1private static readonly Regex IdentityNoRegex = new(@&#34;^[A-Za-z][12][0-9]{8}$&#34;, RegexOptions.Compiled); 2private static readonly Regex ResidentPermitRegex =]]></description>
     <enclosure url="https://coreynote.life/images/posts/validation-utils/cover.jpg" length="327120" type="image/.jpg" />
     </item>
     
@@ -74,7 +84,7 @@
       <pubDate>Fri, 07 Apr 2023 20:01:41 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2023/04/japan-skiing-injury/</guid>
-      <description><![CDATA[前言 這邊整理了我在日本滑雪受傷、急救回台灣手術的一段心路歷程，文章會用比較詼諧的語氣描述，部分人名會用代稱表示，還請不要太認真去考究XD 第一]]></description>
+      <description><![CDATA[第一幕：啪一聲在滑雪場受傷了！？ 昨天下午第一次搭了日本的救護車趕到市區醫院急診。 起因是在一個視線有點不清楚的下坡，雪霧退掉後才發現朋友已經在]]></description>
     <enclosure url="https://coreynote.life/images/posts/japan-skiing-injury/cover.jpg" length="93190" type="image/.jpg" />
     </item>
     
@@ -84,7 +94,7 @@
       <pubDate>Wed, 22 Feb 2023 19:00:46 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2023/02/japan-tohoku-appi-2023/</guid>
-      <description><![CDATA[前言 這次 2023 年「日本東北玩雪耍廢長征團」為期 23 天的旅行住了快十間旅館飯店，住宿的地方各有特色且都合格滿意，所以特別計畫做了這系列的住宿開箱心得]]></description>
+      <description><![CDATA[前言 本系列住宿心得的住宿日期為 2022 年 12 月底至 2023 年 01 月中旬期間，未來的狀況和品質不一定會一樣，但隨著日本國際旅遊開放，我相信會越來越好就是了。 希]]></description>
     <enclosure url="https://coreynote.life/images/posts/japan-tohoku-appi-2023/cover.jpg" length="1094591" type="image/.jpg" />
     </item>
     
@@ -94,7 +104,7 @@
       <pubDate>Thu, 09 Feb 2023 14:34:01 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2023/02/japan-tohoku-aomori-2023/</guid>
-      <description><![CDATA[前言 這次 2023 年「日本東北玩雪耍廢長征團」為期 23 天的旅行住了快十間旅館飯店，住宿的地方各有特色且都合格滿意，所以特別計畫做了這系列的住宿開箱心得]]></description>
+      <description><![CDATA[前言 日本東北地幅遼闊，這次旅行著重在北東北，季節為冬季，總共會用：秋田篇、青森篇、岩手安比高原篇，分別介紹。 本系列住宿心得的住宿日期為 2022 年 12]]></description>
     <enclosure url="https://coreynote.life/images/posts/japan-tohoku-aomori-2023/cover.jpg" length="1406601" type="image/.jpg" />
     </item>
     
@@ -104,7 +114,7 @@
       <pubDate>Tue, 07 Feb 2023 10:10:31 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2023/02/japan-tohoku-akita-2023/</guid>
-      <description><![CDATA[前言 這次 2023 年「日本東北玩雪耍廢長征團」為期 23 天的旅行住了快十間旅館飯店，住宿的地方各有特色且都合格滿意，所以特別計畫做了這系列的住宿開箱心得]]></description>
+      <description><![CDATA[前言 日本東北地幅遼闊，這次旅行著重在北東北，季節為冬季，總共會用：秋田篇、青森篇、岩手安比高原篇，分別介紹。 本系列住宿心得的住宿日期為 2022 年 12]]></description>
     <enclosure url="https://coreynote.life/images/posts/japan-tohoku-akita-2023/cover.jpg" length="1121171" type="image/.jpg" />
     </item>
     
@@ -123,7 +133,7 @@
       <pubDate>Sat, 17 Dec 2022 17:28:53 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2022/12/dips2022/</guid>
-      <description><![CDATA[因為近期要去日本旅遊，想說把空拍機帶到日本飛看看，便開始研究怎麼合法的帶去當地飛行。 順便做了一下登錄註冊過程的筆記整理。 本文撰寫時間為：20]]></description>
+      <description><![CDATA[現行日本無人機法規（2022/06/20） 重量 100g 以上的機種必須「註冊」許可才能飛行。 無人機需要配置「Remote ID」裝置，部分比較新的機種]]></description>
     <enclosure url="https://coreynote.life/images/posts/dips2022/cover.jpg" length="447774" type="image/.jpg" />
     </item>
     
@@ -133,7 +143,7 @@
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
-      <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些]]></description>
+      <description><![CDATA[選用技術特性 使用近年很流行的「Static Site Generator」（靜態網站產生器）方式架站。有以下特點： 因為內容都是靜態產生，不需要後端處理]]></description>
     <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     

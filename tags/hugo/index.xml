@@ -15,7 +15,7 @@
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
       
       <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
-      <description><![CDATA[近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。 首篇當然就是整理一下架設這個 Blog 網站的一些]]></description>
+      <description><![CDATA[選用技術特性 使用近年很流行的「Static Site Generator」（靜態網站產生器）方式架站。有以下特點： 因為內容都是靜態產生，不需要後端處理]]></description>
     <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     

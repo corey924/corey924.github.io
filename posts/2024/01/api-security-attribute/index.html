@@ -4,28 +4,32 @@
   <head><script src="/assets/init/bundle.min.3c4099a80289758e2b138f6bcdf82568820b983f47a10afa81490b30a1614433.js" integrity="sha256-PECZqAKJdY4rE49rzfglaIILmD9HoQr6gUkLMKFhRDM=" crossorigin="anonymous"></script>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>技術 - 分類 - Corey 種子的資訊生活筆記</title>
+    <title>簡易型 API 白名單驗證 Attribute - Corey 種子的資訊生活筆記</title>
     <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_16x16_resize_box_3.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_32x32_resize_box_3.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_150x150_resize_box_3.png" sizes="150x150" type="image/png">
     <link rel="apple-touch-icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_180x180_resize_box_3.png" sizes="180x180" type="image/png">
     <link rel="icon" href="/favicon_hueb3f029597f80c815e98fdd6764a0834_1643_192x192_resize_box_3.png" sizes="192x192" type="image/png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
-<meta name="keywords" content="" />
-<meta name="description" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="技術"/>
-<meta name="twitter:description" content=""/>
-<meta property="og:title" content="技術" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/" />
-<meta itemprop="name" content="技術">
-<meta itemprop="description" content="">
-  <meta property="og:image" content="https://coreynote.life/images/logo.webp"/>
-  <meta name="twitter:image" content="https://coreynote.life/images/logo.webp"/>
-  <meta property="og:image:alt" content="技術" />
-  <meta name="twitter:image:alt" content="技術" />
+<meta name="keywords" content=".NET, C#, back-end, api, attribute" />
+<meta name="description" content="分享一個簡單易改的 API 驗證檢查方式" /><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" /><meta name="twitter:title" content="簡易型 API 白名單驗證 Attribute"/>
+<meta name="twitter:description" content="分享一個簡單易改的 API 驗證檢查方式"/>
+<meta property="og:title" content="簡易型 API 白名單驗證 Attribute" />
+<meta property="og:description" content="分享一個簡單易改的 API 驗證檢查方式" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://coreynote.life/posts/2024/01/api-security-attribute/" /><meta property="og:image" content="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-14T14:38:28+08:00" />
+<meta property="article:modified_time" content="2024-05-14T15:47:23+08:00" />
+<meta itemprop="name" content="簡易型 API 白名單驗證 Attribute">
+<meta itemprop="description" content="分享一個簡單易改的 API 驗證檢查方式"><meta itemprop="datePublished" content="2024-01-14T14:38:28+08:00" />
+<meta itemprop="dateModified" content="2024-05-14T15:47:23+08:00" />
+<meta itemprop="wordCount" content="761"><meta itemprop="image" content="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" />
+<meta itemprop="keywords" content="back-end,C#," />
+  <meta property="og:image:alt" content="簡易型 API 白名單驗證 Attribute" />
+  <meta name="twitter:image:alt" content="簡易型 API 白名單驗證 Attribute" />
   <link rel="manifest" href="/manifest.json">
-<link rel="alternate" type="application/rss+xml" href="/categories/%E6%8A%80%E8%A1%93/index.xml" title="Corey 種子的資訊生活筆記" />
+
 <link data-precache rel="stylesheet" href="/assets/main/bundle.min.ab2688f4e46877268559681c42e4e72ce13572b8417dc3c33659e395efb33f58.css" integrity="sha256-qyaI9ORodyaFWWgcQuTnLOE1crhBfcPDNlnjle+zP1g=" crossorigin="anonymous">
 
     <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
@@ -217,104 +221,180 @@ Corey 種子的資訊生活筆記
 <div class="col-xxl-8">
   <div class="container"><nav class="row card component" aria-label="breadcrumb">
   <div class="card-body pb-0">
-    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">主頁</a></li><li class="breadcrumb-item text-surface"><a href="/categories/">分類</a></li><li class="breadcrumb-item active">技術</li></ol>
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">主頁</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">文章</a></li><li class="breadcrumb-item active">簡易型 API 白名單驗證 Attribute</li></ol>
   </div>
-</nav>
-  <div class="posts mb-4"><article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/posts/2024/01/api-security-attribute/">簡易型 API 白名單驗證 Attribute</a>
-    </h2>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    
+    
+    
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="版權">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="切換側邊欄">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
   </div>
-  <div class="card-body"><picture><img class="img-fluid" alt="簡易型 API 白名單驗證 Attribute" src="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" loading="lazy"
-     width="512"
-     height="512"/>
-  </picture><div class="post-meta mb-3">
+</div><article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title my-2">簡易型 API 白名單驗證 Attribute</h1>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
   <span class="post-date me-1 mb-1" title="創建於 2024-01-14 14:38:28 &#43;0800 CST，更新於 2024-05-14 15:47:23 &#43;0800 CST。">2024-01-14</span><span class="post-reading-time me-1 mb-1">2 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
       <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/back-end/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Back-End</a><a href="/tags/c" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">C#</a>
 </div>
-
-    <div class="post-summary"><p>分享一個簡單易改的 API 驗證檢查方式</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/posts/2024/01/api-security-attribute/">閱讀更多</a></div>
+<picture class="d-flex justify-content-center"><img class="post-featured-img h-auto w-auto mb-3" alt="簡易型 API 白名單驗證 Attribute" src="https://coreynote.life/images/posts/api-security-attribute/cover.jpg"/>
+    </picture>
+      <p class="lead mb-3 text-body-emphasis">分享一個簡單易改的 API 驗證檢查方式</p><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><hr>
+<p>範例使用的是後端 .NET 8 框架和 C# 語言。</p>
+<p>比較好的設計方式是將 API 白名單驗證放在資料庫進行管理，增添「有效期限」、「即時封鎖」、「金鑰更新機制」&hellip;等功能，此範例僅提供一個想法，實際應用請依照專案需求進行擴充。</p>
+<p>因為開放給第三方使用 API 的情境很多，過於複雜的設計對於小專案來說不太適合，因此想了一個最小可行的方式，以「API Attribute」的方式，設計一個可以簡單擴充和應用的安全驗證機制。</p>
+<p>我們可以先將要驗證的 API 服務白名單寫在 appsettings.json 內：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JSON" data-lang="JSON"><span class="line"><span class="ln"> 1</span><span class="cl">  <span class="s2">&#34;ExternalServices&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nt">&#34;Sample&#34;</span><span class="p">:</span> <span class="p">{</span>       <span class="c1">// 服務名稱
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>      <span class="nt">&#34;ApiKey&#34;</span><span class="p">:</span> <span class="s2">&#34;Ecbu7wrgwB.hmMp3Dhkmxc?e#K@$=ct@YppY97y.KNf%+St4.z*wV6QdEazRQUx=&#34;</span><span class="p">,</span>   <span class="c1">// 自訂驗證金鑰
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>      <span class="nt">&#34;AllowedIPs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="s2">&#34;::1&#34;</span><span class="p">,</span>        <span class="c1">// 本地開發端
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>        <span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span>  <span class="c1">// 支援 IP address
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>        <span class="s2">&#34;google.com&#34;</span>  <span class="c1">// 支援 Domain name 驗證
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>      <span class="p">]</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>這邊重申一下，比較好的設計方式是將 API 白名單驗證放在資料庫進行管理；寫在 appsettings.json 做法的好處是，不用每次對方請求 API 時都得跟資料庫連線。</p>
+<p>在 Web API 專案內新增一個目錄<code>/Filters</code>，底下建立 Attribute 繼承：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ApiSecurityAttribute</span> <span class="p">:</span> <span class="n">ActionFilterAttribute</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="cs">/// 服務名稱</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="kd">public</span> <span class="n">required</span> <span class="kt">string</span> <span class="n">ServiceName</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  <span class="kd">public</span> <span class="kd">override</span> <span class="kd">async</span> <span class="n">Task</span> <span class="n">OnActionExecutionAsync</span><span class="p">(</span><span class="n">ActionExecutingContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">ActionExecutionDelegate</span> <span class="n">next</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="kt">var</span> <span class="n">configuration</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">HttpContext</span><span class="p">.</span><span class="n">RequestServices</span><span class="p">.</span><span class="n">GetRequiredService</span><span class="p">&lt;</span><span class="n">IConfiguration</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="kt">var</span> <span class="n">serviceConfig</span> <span class="p">=</span> <span class="n">configuration</span><span class="p">.</span><span class="n">GetSection</span><span class="p">(</span><span class="s">$&#34;AppSettings:ExternalServices:{ServiceName}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="kt">var</span> <span class="n">apiKey</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">HttpContext</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Headers</span><span class="p">[</span><span class="s">&#34;X-API-KEY&#34;</span><span class="p">].</span><span class="n">FirstOrDefault</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">apiKey</span><span class="p">)</span> <span class="p">||</span> <span class="n">apiKey</span> <span class="p">!=</span> <span class="n">serviceConfig</span><span class="p">[</span><span class="s">&#34;ApiKey&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">      <span class="n">context</span><span class="p">.</span><span class="n">Result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">NotFoundResult</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">      <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="kt">var</span> <span class="n">remoteIp</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">HttpContext</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">RemoteIpAddress</span><span class="p">?.</span><span class="n">ToString</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="kt">var</span> <span class="n">originalHost</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">HttpContext</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Headers</span><span class="p">[</span><span class="s">&#34;X-Forwarded-Host&#34;</span><span class="p">].</span><span class="n">FirstOrDefault</span><span class="p">()</span> <span class="p">??</span> <span class="n">context</span><span class="p">.</span><span class="n">HttpContext</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Host</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="kt">var</span> <span class="n">allowedIPsAndDomains</span> <span class="p">=</span> <span class="n">serviceConfig</span><span class="p">.</span><span class="n">GetSection</span><span class="p">(</span><span class="s">&#34;AllowedIPs&#34;</span><span class="p">).</span><span class="n">Get</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">[]&gt;();</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">allowedIPsAndDomains</span> <span class="p">!=</span> <span class="kc">null</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">remoteIp</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">      <span class="kt">var</span> <span class="n">matchTasks</span> <span class="p">=</span> <span class="n">allowedIPsAndDomains</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">allowed</span> <span class="p">=&gt;</span> <span class="n">MatchAsync</span><span class="p">(</span><span class="n">allowed</span><span class="p">,</span> <span class="n">remoteIp</span><span class="p">,</span> <span class="n">originalHost</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">      <span class="kt">var</span> <span class="n">results</span> <span class="p">=</span> <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">WhenAll</span><span class="p">(</span><span class="n">matchTasks</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">      <span class="k">if</span> <span class="p">(!</span><span class="n">results</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">match</span> <span class="p">=&gt;</span> <span class="n">match</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="n">context</span><span class="p">.</span><span class="n">Result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">NotFoundResult</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">      <span class="n">context</span><span class="p">.</span><span class="n">Result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">NotFoundResult</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">      <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="k">await</span> <span class="n">next</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">
+</span></span><span class="line"><span class="ln">44</span><span class="cl">  <span class="kd">private</span> <span class="kd">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">MatchAsync</span><span class="p">(</span><span class="kt">string</span> <span class="n">allowed</span><span class="p">,</span> <span class="kt">string</span> <span class="n">remoteIp</span><span class="p">,</span> <span class="kt">string</span> <span class="n">hostName</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">    <span class="c1">// IP 檢查</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">IPAddress</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">allowed</span><span class="p">,</span> <span class="k">out</span> <span class="n">_</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">      <span class="k">return</span> <span class="n">allowed</span> <span class="p">==</span> <span class="n">remoteIp</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">
+</span></span><span class="line"><span class="ln">52</span><span class="cl">    <span class="c1">// Domain name 檢查</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">hostName</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">allowed</span><span class="p">))</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl">
+</span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>以上程式碼中，當驗證失敗會回傳「404 NotFound」。</p>
+<p>接下來只要在要驗證的 API Controller 內，加進上述寫好的 Attribute：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="ln"> 1</span><span class="cl">  <span class="cs">/// &lt;summary&gt;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="cs">/// API驗證測試</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="cs">/// &lt;/summary&gt;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="cs">/// &lt;returns&gt;&lt;/returns&gt;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="na">  [HttpPost(&#34;test&#34;)]</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="na">  [ApiSecurity(ServiceName = &#34;Sample&#34;)]</span>   <span class="c1">// ServiceName 取自 appsettings 的服務名稱</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="kd">public</span> <span class="n">IActionResult</span> <span class="n">Test</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">return</span> <span class="n">Ok</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>最後，請要使用的第三方服務，提供 IP 或 Domain 白名單，寫進 appsettings.json 內的 &ldquo;AllowedIPs&rdquo; 清單，並請對方在 Request 時在 Headers 增加 &ldquo;X-API-KEY&rdquo; 填入指定 API 金鑰：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Request Headers
+</span></span><span class="line"><span class="ln">2</span><span class="cl">&#34;X-API-KEY&#34;: &#34;Ecbu7wrgwB.hmMp3Dhkmxc?e#K@$=ct@YppY97y.KNf%+St4.z*wV6QdEazRQUx=&#34;
+</span></span></code></pre></div><p>以上提供一個最小、靈活且有基本安全性的方案，隨時可再依需求追加其他功能。</p>
+</div>
+</div>
+</div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/posts/2023/12/ff14-quick-guide/">FF14快速入坑重點筆記</a>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">版權</h2>
     </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/posts/2023/10/validation-utils/">近年最常使用到的幾個正則表達驗證式</a>
-    </h2>
-  </div>
-  <div class="card-body"><picture><img class="img-fluid" alt="近年最常使用到的幾個正則表達驗證式" src="https://coreynote.life/images/posts/validation-utils/cover.jpg" loading="lazy"
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          相關文章
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture><img class="img-fluid" alt="近年最常使用到的幾個正則表達驗證式" src="https://coreynote.life/images/posts/validation-utils/cover.jpg" loading="lazy"
      width="1024"
      height="1024"/>
-  </picture><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="創建於 2023-10-06 21:30:35 &#43;0800 CST，更新於 2024-05-14 15:47:23 &#43;0800 CST。">2023-10-06</span><span class="post-reading-time me-1 mb-1">9 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
-      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/back-end/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Back-End</a><a href="/tags/c" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">C#</a>
+  </picture>
+
+  <a class="post-title" href="/posts/2023/10/validation-utils/">
+    近年最常使用到的幾個正則表達驗證式
+  </a>
+  <div class="post-meta mb-0">
+    2023-10-06
+
+  </div>
 </div>
 
-    <div class="post-summary"><p>鑒於網路上不少相關文章都很老舊了，因此順便挑幾個這幾年我在後端最常使用的正則表達驗證式整理一下。</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/posts/2023/10/validation-utils/">閱讀更多</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/posts/2023/08/year-converter/">民國與西元年前端簡易轉換元件</a>
-    </h2>
-  </div>
-  <div class="card-body"><picture><img class="img-fluid" alt="民國與西元年前端簡易轉換元件" src="https://coreynote.life/images/posts/year-converter/cover.jpg" loading="lazy"
-     width="600"
-     height="600"/>
-  </picture><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="創建於 2023-08-19 19:13:57 &#43;0800 CST，更新於 2024-05-14 15:47:23 &#43;0800 CST。">2023-08-19</span><span class="post-reading-time me-1 mb-1">2 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
-      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/front-end/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Front-End</a><a href="/tags/javascript/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Javascript</a>
-</div>
-
-    <div class="post-summary"><p>台灣傳統窗口很常收到民國年或西元年的生日資料，但在後臺人工輸入時通常要統一年份單位，在轉換上很常造成輸入人員的困擾，因此在接案過程替業主想到的一個前端做法。</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/posts/2023/08/year-converter/">閱讀更多</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/posts/2023/06/html-datalist/">&lt;Datalist&gt; HTML 內建可搜尋下拉選單</a>
-    </h2>
-  </div>
-  <div class="card-body"><picture><img class="img-fluid" alt="&lt;datalist&gt; HTML 內建可搜尋下拉選單" src="https://coreynote.life/images/posts/html-datalist/cover.jpg" loading="lazy"
-     width="506"
-     height="274"/>
-  </picture><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="創建於 2023-06-26 18:24:58 &#43;0800 CST，更新於 2024-05-14 15:47:23 &#43;0800 CST。">2023-06-26</span><span class="post-reading-time me-1 mb-1">1 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
-      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/front-end/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Front-End</a>
-</div>
-
-    <div class="post-summary"><p>在某次聚會發現很多人不知道 HTML 有內建這種簡單的可搜尋下拉選單，稍微說明一下使用方法。</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/posts/2023/06/html-datalist/">閱讀更多</a></div>
-    </div>
-  </div>
-</article>
-<article class="row card post component">
-  <div class="card-header">
-    <h2 class="card-title post-title my-2 fs-4">
-      <a href="/posts/2022/12/hello-hugo/">使用「Hugo」架設 Blog 起手勢！</a>
-    </h2>
-  </div>
-  <div class="card-body"><picture><img class="img-fluid" alt="使用「Hugo」架設 Blog 起手勢！" src="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" loading="lazy"
-     width="1493"
-     height="391"/>
-  </picture><div class="post-meta mb-3">
-  <span class="post-date me-1 mb-1" title="創建於 2022-12-01 15:58:53 &#43;0800 CST，更新於 2024-05-14 15:47:23 &#43;0800 CST。">2022-12-01</span><span class="post-reading-time me-1 mb-1">7 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
-      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/go-lang/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Go-Lang</a><a href="/tags/hugo/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Hugo</a>
-</div>
-
-    <div class="post-summary"><p>近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。首篇當然就是整理一下架設這個 Blog 網站的一些心得囉～</p><div><a class="btn btn-sm btn-outline-primary btn-read-more" href="/posts/2022/12/hello-hugo/">閱讀更多</a></div>
-    </div>
-  </div>
-</article>
-
-  </div><div class="row table-responsive mb-3"></div>
-
-</div>
-
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section></div>
 </div>
 <aside class="col-xxl-4 sidebar d-flex">
   <div class="container d-flex flex-column">
@@ -710,9 +790,6 @@ Corey 種子的資訊生活筆記
 
 
 <nav class="social-links nav justify-content-center mb-2 mt-3">
-  <a class="nav-link social-link p-0 me-1 mb-2" target="_blank" href="/categories/%E6%8A%80%E8%A1%93/index.xml" title="RSS" rel="me">
-    <i class="fas fa-fw fa-2x fa-rss" style="color: #ea6221;"></i>
-  </a>
 </nav>
 </div>
   <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
