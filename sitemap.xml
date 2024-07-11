@@ -2,6 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://coreynote.life/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/eorzea-cafe/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/fan-festival/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/ff14/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/posts/2024/02/ff14-fan-festival-2024/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/square-enix-cafe/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E6%9D%B1%E4%BA%AC/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/categories/%E6%97%85%E8%A1%8C/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/categories/%E9%81%8A%E6%88%B2/</loc>
+    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://coreynote.life/tags/back-end/</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -9,11 +59,6 @@
   </url><url>
     <loc>https://coreynote.life/tags/c</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/</loc>
-    <lastmod>2024-06-05T19:08:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -27,11 +72,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/tags/ff14/</loc>
-    <lastmod>2024-06-05T19:08:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://coreynote.life/posts/2023/12/ff14-quick-guide/</loc>
     <lastmod>2024-06-05T19:08:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -42,17 +82,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/categories/%E9%81%8A%E6%88%B2/</loc>
-    <lastmod>2024-06-05T19:08:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://coreynote.life/tags/%E4%BF%9D%E9%A4%8A/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/categories/%E6%97%85%E8%A1%8C/</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -108,11 +138,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E5%BE%A9%E5%81%A5/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
