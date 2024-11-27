@@ -8,7 +8,7 @@ CoreyBlog
 
 ## Features
 
-* Hugo v0.124-extended
+* Hugo v0.139.2-extended
 
 
 ## 模板引用

@@ -4,7 +4,7 @@
     <title>Front-End on Corey 種子的資訊生活筆記</title>
     <link>https://coreynote.life/tags/front-end/</link>
     <description>Recent content in Front-End on Corey 種子的資訊生活筆記</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
@@ -13,9 +13,16 @@
       <title>民國與西元年前端簡易轉換元件</title>
       <link>https://coreynote.life/posts/2023/08/year-converter/</link>
       <pubDate>Sat, 19 Aug 2023 19:13:57 +0800</pubDate>
-      
       <guid>https://coreynote.life/posts/2023/08/year-converter/</guid>
-      <description><![CDATA[想說只是小功能就不特別發佈到 Github 上，寫成一篇短文說明，有遇到此問題的開發者可以參考看看。 使用方法 本範例主要是將民國年統一轉換成西元年，以利後端]]></description>
+      <description><![CDATA[<hr>
+<p>想說只是小功能就不特別發佈到 Github 上，寫成一篇短文說明，有遇到此問題的開發者可以參考看看。
+<picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/year-converter/year-converter.jpg?v=2dd4dfed9fcdbbfa7d745822a0432e73" loading="lazy" width="483" height="98" />
+</picture>
+
+</p>
+
+<h3 id="使用方法" data-numberify>使用方法<a class="anchor ms-1" href="#使用方法"></a></h3>
+<p>本範例主要是將民國年統一轉換成西元年，以利後端資料庫在儲存時間戳時能統一時間格式。其他案例可以參考此做法調整，像是農曆轉西元年之類的。但不適合給前臺一般使用者使用，在沒教使用方法前，使用者會不知道該怎麼輸入數值，建議僅提供內部作業人員使用。</p>]]></description>
     <enclosure url="https://coreynote.life/images/posts/year-converter/cover.jpg" length="26778" type="image/.jpg" />
     </item>
     
@@ -23,9 +30,32 @@
       <title>&lt;datalist&gt; HTML 內建可搜尋下拉選單</title>
       <link>https://coreynote.life/posts/2023/06/html-datalist/</link>
       <pubDate>Mon, 26 Jun 2023 18:24:58 +0800</pubDate>
-      
       <guid>https://coreynote.life/posts/2023/06/html-datalist/</guid>
-      <description><![CDATA[此方法適合在小型功能裡，不想特地引用 Select2 等 Library 時，可以簡單快速的擁有可搜尋下拉選單的效果。 HTML 1&lt;div class=&#34;input-set&#34;&gt; 2 &lt;label for=&#34;item-name&#34]]></description>
+      <description><![CDATA[<hr>
+<p>此方法適合在小型功能裡，不想特地引用 Select2 等 Library 時，可以簡單快速的擁有可搜尋下拉選單的效果。</p>
+
+<h3 id="html" data-numberify>HTML<a class="anchor ms-1" href="#html"></a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-set&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;item-name&#34;</span><span class="p">&gt;</span>作品名稱<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> 
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">         <span class="na">id</span><span class="o">=</span><span class="s">&#34;item-name&#34;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">         <span class="na">name</span><span class="o">=</span><span class="s">&#34;item-name&#34;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">         <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">         <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入作品名稱&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">         <span class="na">autocomplete</span><span class="o">=</span><span class="s">&#34;off&#34;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">         <span class="na">list</span><span class="o">=</span><span class="s">&#34;item-name-options&#34;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">&lt;</span><span class="nt">datalist</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;item-name-options&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;PLUTO 冥王&#34;</span><span class="p">&gt;</span>PLUTO 冥王<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;海盜戰記&#34;</span><span class="p">&gt;</span>海盜戰記<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;排球少年&#34;</span><span class="p">&gt;</span>排球少年<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;乒乓&#34;</span><span class="p">&gt;</span>乒乓<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;迷宮飯&#34;</span><span class="p">&gt;</span>迷宮飯<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">&lt;/</span><span class="nt">datalist</span><span class="p">&gt;</span>
+</span></span></code></pre></div>
+<h3 id="codepen-demo" data-numberify>CodePen Demo<a class="anchor ms-1" href="#codepen-demo"></a></h3>
+<p><a href="https://codepen.io/corey924/pen/wvZeNOq" target="_blank" rel="noopener noreferrer">https://codepen.io/corey924/pen/wvZeNOq<i class="fas fa-external-link-square-alt ms-1"></i></a></p>]]></description>
     <enclosure url="https://coreynote.life/images/posts/html-datalist/cover.jpg" length="32230" type="image/.jpg" />
     </item>
     

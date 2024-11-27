@@ -57,7 +57,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/tags/c</loc>
+    <loc>https://coreynote.life/tags/c%23/</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -224,6 +224,10 @@
   </url><url>
     <loc>https://coreynote.life/posts/2022/12/hello-hugo/</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/authors/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

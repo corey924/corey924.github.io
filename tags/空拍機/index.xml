@@ -4,7 +4,7 @@
     <title>空拍機 on Corey 種子的資訊生活筆記</title>
     <link>https://coreynote.life/tags/%E7%A9%BA%E6%8B%8D%E6%A9%9F/</link>
     <description>Recent content in 空拍機 on Corey 種子的資訊生活筆記</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
@@ -13,18 +13,34 @@
       <title>空拍機安全使用SOP</title>
       <link>https://coreynote.life/posts/2022/12/drone-sop/</link>
       <pubDate>Sat, 17 Dec 2022 21:36:29 +0800</pubDate>
-      
       <guid>https://coreynote.life/posts/2022/12/drone-sop/</guid>
-      <description><![CDATA[※ 本篇操作手冊是以「DJI 大疆」出品的空拍機為主。※ 剛開始學著操作空拍機時，因為擔心自己漏掉一些安全步驟，把整個安全 SOP 都演練幾遍才敢正式起飛]]></description>
+      <description><![CDATA[<hr>
+<p><strong>※ 本篇操作手冊是以「DJI 大疆」出品的空拍機為主。※</strong></p>
+<p>剛開始學著操作空拍機時，因為擔心自己漏掉一些安全步驟，把整個安全 SOP 都演練幾遍才敢正式起飛。</p>]]></description>
     </item>
     
     <item>
       <title>日本空拍機登錄註冊</title>
       <link>https://coreynote.life/posts/2022/12/dips2022/</link>
       <pubDate>Sat, 17 Dec 2022 17:28:53 +0800</pubDate>
-      
       <guid>https://coreynote.life/posts/2022/12/dips2022/</guid>
-      <description><![CDATA[現行日本無人機法規（2022/06/20） 重量 100g 以上的機種必須「註冊」許可才能飛行。 無人機需要配置「Remote ID」裝置，部分比較新的機種]]></description>
+      <description><![CDATA[<hr>
+
+<h2 id="現行日本無人機法規20220620" data-numberify>現行日本無人機法規（2022/06/20）<a class="anchor ms-1" href="#現行日本無人機法規20220620"></a></h2>
+<ul>
+<li>重量 100g 以上的機種必須「註冊」許可才能飛行。</li>
+<li>無人機需要配置「Remote ID」裝置，部分比較新的機種有內建，如果沒有內建則需要加裝 Remote ID 外掛。</li>
+<li>禁止飛超過 150M 高度</li>
+</ul>
+<p>其他規定跟台灣的空拍法規差不多，簡單翻譯一下：
+<picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/dips2022/rule-1.png?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" width="720" height="247" />
+</picture>
+
+
+<picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/dips2022/rule-2.jpg?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" width="720" height="432" />
+</picture>
+
+</p>]]></description>
     <enclosure url="https://coreynote.life/images/posts/dips2022/cover.jpg" length="447774" type="image/.jpg" />
     </item>
     

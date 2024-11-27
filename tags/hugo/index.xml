@@ -4,7 +4,7 @@
     <title>Hugo on Corey 種子的資訊生活筆記</title>
     <link>https://coreynote.life/tags/hugo/</link>
     <description>Recent content in Hugo on Corey 種子的資訊生活筆記</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
@@ -13,9 +13,24 @@
       <title>使用「Hugo」架設 Blog 起手勢！</title>
       <link>https://coreynote.life/posts/2022/12/hello-hugo/</link>
       <pubDate>Thu, 01 Dec 2022 15:58:53 +0800</pubDate>
-      
       <guid>https://coreynote.life/posts/2022/12/hello-hugo/</guid>
-      <description><![CDATA[選用技術特性 使用近年很流行的「Static Site Generator」（靜態網站產生器）方式架站。有以下特點： 因為內容都是靜態產生，不需要後端處理]]></description>
+      <description><![CDATA[<hr>
+
+<h2 id="選用技術特性" data-numberify>選用技術特性<a class="anchor ms-1" href="#選用技術特性"></a></h2>
+<ul>
+<li>使用近年很流行的「Static Site Generator」（靜態網站產生器）方式架站。有以下特點：
+<ol>
+<li>因為內容都是靜態產生，不需要後端處理，加上使用快取會比動態產生的網頁更有效率，請求速度很快。</li>
+<li>不需要架設資料庫。</li>
+<li>理論上比任何動態網站更安全。</li>
+</ol>
+</li>
+</ul>
+
+<h3 id="目前主流的三大靜態網站產生器" data-numberify>目前主流的三大靜態網站產生器<a class="anchor ms-1" href="#目前主流的三大靜態網站產生器"></a></h3>
+<ol>
+<li>
+<p><a href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">Jekyll<i class="fas fa-external-link-square-alt ms-1"></i></a></p>]]></description>
     <enclosure url="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png" length="54367" type="image/.png" />
     </item>
     
