@@ -34,7 +34,7 @@
   <meta itemprop="description" content="近期萌生想自己架設 Blog 網站的想法，一方面玩一下其他技術跨架，一方面整理一下自己儲存的各種筆記文章發佈。首篇當然就是整理一下架設這個 Blog 網站的一些心得囉～">
   <meta itemprop="datePublished" content="2022-12-01T15:58:53+08:00">
   <meta itemprop="dateModified" content="2024-05-14T15:47:23+08:00">
-  <meta itemprop="wordCount" content="3285">
+  <meta itemprop="wordCount" content="3338">
   <meta itemprop="image" content="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png">
   <meta itemprop="keywords" content="hugo,blog">
   <meta property="og:image:alt" content="使用「Hugo」架設 Blog 起手勢！" />
@@ -46,6 +46,8 @@
     <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
 
 
+
+<link rel="stylesheet" href="https://coreynote.life/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6D79P6TM0"></script>
 <script>
@@ -293,21 +295,21 @@ Corey 種子的資訊生活筆記
 <h3 id="目前主流的三大靜態網站產生器" data-numberify>目前主流的三大靜態網站產生器<a class="anchor ms-1" href="#目前主流的三大靜態網站產生器"></a></h3>
 <ol>
 <li>
-<p><a href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">Jekyll<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
-<p>由 Github 聯合創始人 Thomas Preston-Werner 使用 Ruby 語言所開發。</p>
+<p><a href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">Jekyll<i class="fas fa-external-link-square-alt ms-1"></i></a><br>
+由 Github 聯合創始人 Thomas Preston-Werner 使用 Ruby 語言所開發。</p>
 </li>
 <li>
-<p><a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
-<p>由台灣人 <a href="https://zespia.me/about" target="_blank" rel="noopener noreferrer">陳嘉輝（Tommy Chen）<i class="fas fa-external-link-square-alt ms-1"></i></a> 使用 JavaScript on Node.js 所開發。</p>
+<p><a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo<i class="fas fa-external-link-square-alt ms-1"></i></a><br>
+由台灣人 <a href="https://zespia.me/about" target="_blank" rel="noopener noreferrer">陳嘉輝（Tommy Chen）<i class="fas fa-external-link-square-alt ms-1"></i></a> 使用 JavaScript on Node.js 所開發。</p>
 </li>
 <li>
-<p><a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
-<p>由 Steve Francia 原創，自 v0.14 (2015年) 由 Bjørn Erik Pedersen 主力開發，使用 Go 語言的開放原始碼專案。</p>
+<p><a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo<i class="fas fa-external-link-square-alt ms-1"></i></a><br>
+由 Steve Francia 原創，自 v0.14 (2015年) 由 Bjørn Erik Pedersen 主力開發，使用 Go 語言的開放原始碼專案。</p>
 </li>
 </ol>
-<p>更進一步的比較文章已經很多大大分享，可以先參考以下這篇說明（如何正確選擇靜態網站產生器：Jekyll vs. Hugo vs. Hexo）：
+<p>更進一步的比較文章已經很多大大分享，可以先參考以下這篇說明（如何正確選擇靜態網站產生器：Jekyll vs. Hugo vs. Hexo）：<br>
 <a href="https://www.techiediaries.com/jekyll-hugo-hexo" target="_blank" rel="noopener noreferrer">How to Choose the Right Static Generator: Jekyll vs. Hugo vs. Hexo<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
-<p>本篇文章會著重在我選擇使用「Hugo」的觀點上，
+<p>本篇文章會著重在我選擇使用「Hugo」的觀點上，<br>
 不過有些功能還尚未深入使用，如果有其他發現或有想要補充的會再更新本文。</p>
 <hr>
 <p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-logo-wide.png?width=300px?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" width="1493" height="391"style="width: 300px; " />
@@ -328,14 +330,14 @@ Corey 種子的資訊生活筆記
 <li>沒有內建佈景風格（需要選一個第三方設計好的佈景安裝）。</li>
 <li>需要了解一些 Go 語言的使用方法（對想學習或已經熟悉的人來說不算缺點）。</li>
 </ol>
-<p>最後因為 Go 程式語言本來就在我的學習清單內，加上它瑕不掩瑜的速度優勢，Hugo 就從中脫穎而出了。
+<p>最後因為 Go 程式語言本來就在我的學習清單內，加上它瑕不掩瑜的速度優勢，Hugo 就從中脫穎而出了。<br>
 台灣之光 Hexo 不好意思了！</p>
 <hr>
 
 <h1 id="hugo-簡易起手式" data-numberify>Hugo 簡易起手式<a class="anchor ms-1" href="#hugo-簡易起手式"></a></h1>
 
 <h2 id="佈景主題風格" data-numberify>佈景主題風格<a class="anchor ms-1" href="#佈景主題風格"></a></h2>
-<p>　　如果還沒看過任何 Hugo 佈景風格的話，建議可以先看一下有沒有自己喜歡的佈景，這是其中一個管道：
+<p>　　如果還沒看過任何 Hugo 佈景風格的話，建議可以先看一下有沒有自己喜歡的佈景，這是其中一個管道：<br>
 <a href="https://themes.gohugo.io/tags/blog" target="_blank" rel="noopener noreferrer">Hugo Themes<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
 <p>　　會建議沒有看過的人先看一下佈景範例的原因是：<strong>「網站最終得要是自己喜歡的樣子」</strong></p>
 <p>　　雖然聽起來是廢話吼，但真的找不到喜歡的佈景，這個時候跳槽到 Hexo 也不會太遲XD（Hexo 也很多好看的佈景風格，舉例：<a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener noreferrer">hexo-theme-butterfly<i class="fas fa-external-link-square-alt ms-1"></i></a>）。</p>
@@ -344,7 +346,7 @@ Corey 種子的資訊生活筆記
 
 <h2 id="編輯工具" data-numberify>編輯工具<a class="anchor ms-1" href="#編輯工具"></a></h2>
 <p>　　本篇使用的都是微軟出品的 Visual Studio Code（簡稱 VS Code）作為架站和撰文用的 IDE。去年 2021 年統計，使用頻率最高的開發工具便是佔 71.06% 的 VS Code；很多前端、Go Lang 工程師也都是使用此款 IDE，這邊就不再多做介紹了。</p>
-<p>這邊提供一下官方下載點：
+<p>這邊提供一下官方下載點：<br>
 <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">Visual Studio Code - Code Editing. Redefined<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
 
 <h3 id="hugo-推薦-vs-code-外掛" data-numberify>Hugo 推薦 VS Code 外掛<a class="anchor ms-1" href="#hugo-推薦-vs-code-外掛"></a></h3>
@@ -363,8 +365,9 @@ Corey 種子的資訊生活筆記
 <h2 id="版本控制工具" data-numberify>版本控制工具<a class="anchor ms-1" href="#版本控制工具"></a></h2>
 <p>　　這邊建議使用 Git 作為該專案版本控制工具。</p>
 <p>　　Hugo 大多文件都會提到使用 Git 去安裝佈景主題，部屬到 Github Pages 網頁代管服務也是必須使用到 Git；如果目前環境上沒有，建議可以先安裝起來。</p>
-<p>因為 Git 也算是當代必學的版控工具了，本篇就不多做闡述，詳細安裝、使用方法可以參考：
+<p>因為 Git 也算是當代必學的版控工具了，本篇就不多做闡述，詳細安裝、使用方法可以參考：<br>
 <a href="https://git-scm.com/book/zh-tw/v2/%E9%96%8B%E5%A7%8B-Git-%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8" target="_blank" rel="noopener noreferrer">Git 安裝教學<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
+<hr>
 
 <h2 id="安裝-hugo-cli" data-numberify>安裝 Hugo CLI<a class="anchor ms-1" href="#安裝-hugo-cli"></a></h2>
 <p>　　以下範例會預設安裝「Hugo extended」（擴展版本），好處是內建了許多配置工具，像是自動轉譯 SASS/SCSS 的功能；套用佈景時比較不容易遇到錯誤。</p>
@@ -375,6 +378,9 @@ Corey 種子的資訊生活筆記
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">snap version
 </span></span></code></pre></div><p>透過 Snap 安裝 Hugo：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">sudo snap install hugo
+</span></span></code></pre></div><p>透過 Snap 更新 Hugo：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">sudo snap upgrade hugo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo snap upgrade hugo-extended --force
 </span></span></code></pre></div>
 <h3 id="macos" data-numberify>macOS<a class="anchor ms-1" href="#macos"></a></h3>
 <p>如果尚未安裝套件管理工具「Homebrew」的話，可以參考 <a href="https://brew.sh" target="_blank" rel="noopener noreferrer">此連結<i class="fas fa-external-link-square-alt ms-1"></i></a> 安裝。</p>
@@ -382,6 +388,9 @@ Corey 種子的資訊生活筆記
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">brew -v
 </span></span></code></pre></div><p>透過 Homebrew 安裝 Hugo：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">brew install hugo
+</span></span></code></pre></div><p>透過 Homebrew 更新 Hugo：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">brew upgrade hugo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">brew upgrade hugo-extended --force
 </span></span></code></pre></div>
 <h3 id="windows" data-numberify>Windows<a class="anchor ms-1" href="#windows"></a></h3>
 <p>如果尚未安裝套件管理工具「Chocolatey」的話，可以參考 <a href="https://chocolatey.org" target="_blank" rel="noopener noreferrer">此連結<i class="fas fa-external-link-square-alt ms-1"></i></a> 安裝。</p>
@@ -389,6 +398,9 @@ Corey 種子的資訊生活筆記
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">choco -v
 </span></span></code></pre></div><p>透過 Chocolatey 安裝 Hugo：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">choco install hugo-extended -confirm
+</span></span></code></pre></div><p>透過 Chocolatey 更新 Hugo：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">choco upgrade hugo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">choco upgrade hugo-extended --force
 </span></span></code></pre></div>
 <h3 id="hugo-安裝完測試" data-numberify>Hugo 安裝完測試<a class="anchor ms-1" href="#hugo-安裝完測試"></a></h3>
 <p>輸入以下指令檢視 Hugo 版本號：</p>
@@ -398,6 +410,7 @@ Corey 種子的資訊生活筆記
 
 </p>
 <p>↑ 有出現 <code>hugo v...</code> 開頭的訊息便表示成功安裝了！</p>
+<hr>
 
 <h2 id="建立一個-hugo-專案" data-numberify>建立一個 Hugo 專案<a class="anchor ms-1" href="#建立一個-hugo-專案"></a></h2>
 <p>安裝完上述環境後，便可以透過以下指令建置新的 Hugo 專案：</p>
@@ -455,10 +468,10 @@ Corey 種子的資訊生活筆記
 </span></span></code></pre></div><p><picture><img class="img-fluid " alt="" src="https://coreynote.life/images/posts/hello-hugo/hugo-first-post.jpg?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" width="1041" height="828" />
 </picture>
 
-
+<br>
 ↑ 指令執行完會自動在指定路徑的目錄內建立文章範本。</p>
 <p><code>---</code> 之上的是文章的設定參數，包含標題、時間、分類、標籤、是否為草稿&hellip; 等等，也請參考各自佈景文件說明。</p>
-<p>下半部份則是文本內容，
+<p>下半部份則是文本內容，<br>
 預設使用的標記式語言是 Markdown，著名的線上協作筆記 <a href="https://hackmd.io" target="_blank" rel="noopener noreferrer">HackMD<i class="fas fa-external-link-square-alt ms-1"></i></a> 就是採用該標記語言去撰文，有熱心網友整理了實用的 <a href="https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA" target="_blank" rel="noopener noreferrer">Markdown 語法大全<i class="fas fa-external-link-square-alt ms-1"></i></a> 。</p>
 <p>我們先簡單的寫一下文章內容貼進 .md 檔內：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl"># Blog 測試
@@ -501,7 +514,7 @@ Corey 種子的資訊生活筆記
 <h3 id="繼續設定樣式細節" data-numberify>繼續設定樣式細節<a class="anchor ms-1" href="#繼續設定樣式細節"></a></h3>
 <p>　　可以參考每個佈景主題提供的 Demo 範例，去做進一步的樣式設定，較完整的佈景主題目錄底下都會有一個「example」目錄，裡面有已經可以運行的範例可以參考（通常可以直接下 <code>hugo server</code> 運行起來）。</p>
 <p>　　嘗試在各種設定間找出適合自己的風格吧！</p>
-<p>　　另外 Hugo 官方文件也有提供一份標準版的 Configure 設定文件，大部分佈景主題都是以這份文件內的參數進行延伸設計：
+<p>　　另外 Hugo 官方文件也有提供一份標準版的 Configure 設定文件，大部分佈景主題都是以這份文件內的參數進行延伸設計：<br>
 <a href="https://gohugo.io/getting-started/configuration" target="_blank" rel="noopener noreferrer">https://gohugo.io/getting-started/configuration<i class="fas fa-external-link-square-alt ms-1"></i></a></p>
 
 <h3 id="發佈網站" data-numberify>發佈網站<a class="anchor ms-1" href="#發佈網站"></a></h3>
