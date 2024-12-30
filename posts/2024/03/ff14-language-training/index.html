@@ -1,0 +1,1206 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="zh-hant"
+  data-bs-theme="auto" data-palette="blue">
+  <head><script src="/assets/init/bundle.min.0d2c3ac521a97b78e6862ac25c26e07361b10c57d4b93ecdfc31500c8a7217a9.js" integrity="sha256-DSw6xSGpe3jmhirCXCbgc2GxDFfUuT7N/DFQDIpyF6k=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印 - Corey 種子的資訊生活筆記</title>
+    <link rel="icon" href="/favicon_hu3114967913224354367.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hu9093956758845270585.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hu4886201479850587583.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hu15089515540396104241.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hu7913873548135594394.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="FF14, FFXIV, FINAL FANTASY XIV, 最終幻想14, Python, Game Localization, NLP, Machine Learning, Translation, Hugging Face, Data Cleaning" />
+<meta name="description" content="使用 Python 與 Hugging Face 實現 FF14 遊戲翻譯的中文語系模型訓練與測試過程" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://coreynote.life/images/posts/ff14-language-training/cover.jpg">
+  <meta name="twitter:title" content="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印">
+  <meta name="twitter:description" content="使用 Python 與 Hugging Face 實現 FF14 遊戲翻譯的中文語系模型訓練與測試過程">
+<meta property="og:url" content="https://coreynote.life/posts/2024/03/ff14-language-training/">
+  <meta property="og:site_name" content="Corey 種子的資訊生活筆記">
+  <meta property="og:title" content="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印">
+  <meta property="og:description" content="使用 Python 與 Hugging Face 實現 FF14 遊戲翻譯的中文語系模型訓練與測試過程">
+  <meta property="og:locale" content="zh_hant">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-30T18:07:54+08:00">
+    <meta property="article:modified_time" content="2024-03-30T18:07:54+08:00">
+    <meta property="article:tag" content="FF14">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Online-Game">
+    <meta property="og:image" content="https://coreynote.life/images/posts/ff14-language-training/cover.jpg">
+
+  <meta itemprop="name" content="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印">
+  <meta itemprop="description" content="使用 Python 與 Hugging Face 實現 FF14 遊戲翻譯的中文語系模型訓練與測試過程">
+  <meta itemprop="datePublished" content="2024-03-30T18:07:54+08:00">
+  <meta itemprop="dateModified" content="2024-03-30T18:07:54+08:00">
+  <meta itemprop="wordCount" content="3283">
+  <meta itemprop="image" content="https://coreynote.life/images/posts/ff14-language-training/cover.jpg">
+  <meta itemprop="keywords" content="FF14,FFXIV,FINAL FANTASY XIV,最終幻想14,Python,Game Localization,NLP,Machine Learning,Translation,Hugging Face,Data Cleaning">
+  <meta property="og:image:alt" content="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印" />
+  <meta name="twitter:image:alt" content="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印" />
+  <link rel="manifest" href="/manifest.json">
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.7097cda25b48ea67d11fc38c6ed0326e0aa855a30cd67bdaaf77c2bbc603c5e1.css" integrity="sha256-cJfNoltI6mfRH8OMbtAybgqoVaMM1nvar3fCu8YDxeE=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" href="https://coreynote.life/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B6D79P6TM0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B6D79P6TM0');
+</script>
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://coreynote.life/">
+    <picture><img class="logo " alt="Logo" src="https://coreynote.life/images/logo.webp?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" width="512" height="512" />
+</picture>
+Corey 種子的資訊生活筆記
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Corey 種子的資訊生活筆記</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto">
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-fw fa-bars me-1"></i>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://coreynote.life/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns text-info"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">專欄</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">專欄列表</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://coreynote.life/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-warning"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">分類</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">分類列表</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://coreynote.life/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">標籤</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">標籤列表</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">配色</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="藍色"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="藍灰色"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="棕色"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="青色"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="綠色"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="靛青色"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="橙色"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="粉色"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="紫色"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="紅色"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="藍綠色"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="黃色"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">模式</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> 淺色
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> 深色
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> 自動
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.cf5a54615ecc21c2199aa9ef22909ad0031f626c5d24a17d468e1aaa8616b707.js" integrity="sha256-z1pUYV7MIcIZmqnvIpCa0AMfYmxdJKF9Ro4aqoYWtwc=" crossorigin="anonymous"></script>
+
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">你的瀏覽器不支持 JavaScript。</div>
+</noscript>
+
+<div class="content-posts col-xxl-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">主頁</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">文章</a></li><li class="breadcrumb-item active">FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    
+    
+    
+  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="目錄">
+    <i class="fas fa-fw fa-list-alt"></i>
+  </a>
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="目錄">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="版權">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="切換側邊欄">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title my-2">FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印</h1>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="創建於 2024-03-30 18:07:54 &#43;0800 CST。">2024-03-30</span><span class="post-reading-time me-1 mb-1">7 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
+      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/categories/%E9%81%8A%E6%88%B2/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
+      <i class="fas fa-fw fa-folder me-1"></i>遊戲</a><a href="/tags/ff14/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">FF14</a><a href="/tags/online-game/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Online-Game</a><a href="/tags/python/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Python</a>
+</div>
+<picture class="d-flex justify-content-center"><img class="post-featured-img h-auto w-auto mb-3" alt="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印" src="https://coreynote.life/images/posts/ff14-language-training/cover.jpg"/>
+    </picture>
+      <p class="lead mb-3 text-body-emphasis">使用 Python 與 Hugging Face 實現 FF14 遊戲翻譯的中文語系模型訓練與測試過程</p>
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">目錄</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><hr>
+
+<h2 id="緣起" data-numberify>緣起<a class="anchor ms-1" href="#緣起"></a></h2>
+<p>多語言的大型網路遊戲 FF14，作為擁有豐富文本內容的 MMORPG，其文本涉及大量專有名詞與情感表達，很難用普通的機器翻譯做到精確的語境翻譯。</p>
+<p>基於此，我萌生了開發 FF14 中文語系模型的念頭，希望能透過機器學習技術，翻譯遊戲內的專有名詞和劇情術語，從日文與英文與既存中文，推算未翻譯的文本為繁體中文。</p>
+<p>這篇文章記錄了我在開發過程中如何從數據清理，到訓練翻譯模型，以及遇到的挑戰與解決方法。</p>
+<hr>
+
+<h2 id="環境設置" data-numberify>環境設置<a class="anchor ms-1" href="#環境設置"></a></h2>
+<p>在開始之前，特別提醒：<br>
+使用 PyTorch 進行機器學習模型訓練時，若希望利用 GPU 加速，請注意 CUDA 版本的相容性。</p>
+<p>截至目前，PyTorch 官方提供的預建二進位檔（prebuilt binaries）主要支援 CUDA 11.8 和 12.1 版本。 若你安裝了 CUDA 12.5 或更新版本，可能會遇到相容性問題，導致無法正確使用 GPU。 因此，建議將 CUDA 降級至 12.1 版本，並確保同時安裝相容的 cuDNN 版本（如 v8.8.1），以確保與 PyTorch 的良好相容性。</p>
+<p>此外，請確認你的 NVIDIA 顯示卡驅動程式已更新至與所需 CUDA 版本相容的版本。需要注意的是，PyTorch 的預建二進位檔已包含所需的 CUDA 執行時（runtime），因此即使系統中未安裝完整的 CUDA 工具包（toolkit），也能正常運行。 但若你需要自行編譯 PyTorch 或自訂 CUDA 擴展，則需要安裝對應版本的 CUDA 工具包。</p>
+<p>為獲取最新的相容性資訊，建議參考 PyTorch 官方網站的<a href="https://pytorch.org/blog/deprecation-cuda-python-support" target="_blank" rel="noopener noreferrer">相容性支援表<i class="fas fa-external-link-square-alt ms-1"></i></a>，以確保你的開發環境與所使用的軟體版本相容。</p>
+<hr>
+
+<h2 id="開始數據清理與準備" data-numberify>開始：數據清理與準備<a class="anchor ms-1" href="#開始數據清理與準備"></a></h2>
+<p>遊戲內翻譯數據多來自 CSV 文件，每條數據包含日文、英文和繁體中文三種語言的對應文本。但這些數據格式可能參差不齊，因此數據清理是第一步。</p>
+<p>資料處理是整個專案的基石。使用 <code>pandas</code> 對 CSV 文件進行處理，並應用正則表達式來清理數據。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">zipfile</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除HTML標記</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[.*?\]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除中括號內的內容</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\(.*?\)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除括號內的內容</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ObjectParameter\(\d+\)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除 ObjectParameter</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([a-z])([A-Z])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1 \2&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 在小寫字母和大寫字母之間添加空格</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除多餘的空格</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;nan&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除 &#39;nan&#39;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># 移除所有非字母數字和空格字符</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># 去除首尾空白字符</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">return</span> <span class="n">text</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="k">def</span> <span class="nf">read_csv_files</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">dataframes</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Searching in directory: </span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">                    <span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                    <span class="c1"># 忽略前兩行</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">                    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">                    <span class="c1"># 清洗數據</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">                    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">                        <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">                    <span class="n">dataframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Successfully read </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error reading </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="k">return</span> <span class="n">dataframes</span>
+</span></span></code></pre></div><p>這段程式負責讀取散亂的 CSV 語系文件，並對數據進行清理。清理過程包括移除標籤、多餘的空格、括號內的內容等。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">def</span> <span class="nf">extract_files</span><span class="p">(</span><span class="n">zip_path</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">def</span> <span class="nf">ensure_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column_names</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">column_names</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="k">def</span> <span class="nf">merge_translation_files</span><span class="p">(</span><span class="n">jp_dfs</span><span class="p">,</span> <span class="n">en_dfs</span><span class="p">,</span> <span class="n">tw_dfs</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">batch_count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;jp_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;jp_text2&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text2&#39;</span><span class="p">,</span> <span class="s1">&#39;tw_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;tw_text2&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/languages/merged.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jp_dfs</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="n">jp_batch</span> <span class="o">=</span> <span class="n">jp_dfs</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="n">en_batch</span> <span class="o">=</span> <span class="n">en_dfs</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="n">tw_batch</span> <span class="o">=</span> <span class="n">tw_dfs</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="k">for</span> <span class="n">jp_df</span><span class="p">,</span> <span class="n">en_df</span><span class="p">,</span> <span class="n">tw_df</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">jp_batch</span><span class="p">,</span> <span class="n">en_batch</span><span class="p">,</span> <span class="n">tw_batch</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                    <span class="c1"># 檢查每個數據框的列數是否足夠</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">jp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">                        <span class="n">jp_df</span> <span class="o">=</span> <span class="n">ensure_columns</span><span class="p">(</span><span class="n">jp_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="n">jp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">jp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                        <span class="n">jp_df</span> <span class="o">=</span> <span class="n">ensure_columns</span><span class="p">(</span><span class="n">jp_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="n">jp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">
+</span></span><span class="line"><span class="ln">31</span><span class="cl">                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">en_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                        <span class="n">en_df</span> <span class="o">=</span> <span class="n">ensure_columns</span><span class="p">(</span><span class="n">en_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="n">en_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">en_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">                        <span class="n">en_df</span> <span class="o">=</span> <span class="n">ensure_columns</span><span class="p">(</span><span class="n">en_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="n">en_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">
+</span></span><span class="line"><span class="ln">36</span><span class="cl">                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tw_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">                        <span class="n">tw_df</span> <span class="o">=</span> <span class="n">ensure_columns</span><span class="p">(</span><span class="n">tw_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="n">tw_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">tw_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">                        <span class="n">tw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">                            <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="n">jp_df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">],</span> <span class="s1">&#39;tw_text1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">jp_df</span><span class="p">),</span> <span class="s1">&#39;tw_text2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">jp_df</span><span class="p">)})</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">
+</span></span><span class="line"><span class="ln">42</span><span class="cl">                    <span class="n">jp_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;jp_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;jp_text2&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">                    <span class="n">en_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text2&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">                    <span class="n">tw_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;tw_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;tw_text2&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">
+</span></span><span class="line"><span class="ln">46</span><span class="cl">                    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">jp_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">en_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">tw_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">                    <span class="n">valid_rows</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jp_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text1&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">
+</span></span><span class="line"><span class="ln">49</span><span class="cl">                    <span class="c1"># 移除無效數據</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">                    <span class="n">valid_rows</span> <span class="o">=</span> <span class="n">valid_rows</span><span class="p">[(</span><span class="n">valid_rows</span><span class="p">[</span><span class="s1">&#39;jp_text1&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid_rows</span><span class="p">[</span><span class="s1">&#39;en_text1&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">
+</span></span><span class="line"><span class="ln">52</span><span class="cl">                    <span class="k">if</span> <span class="ow">not</span> <span class="n">valid_rows</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">                        <span class="n">valid_rows</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">batch_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8-sig&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">                                          <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl">                        <span class="n">batch_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl">                        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Processed batch </span><span class="si">{</span><span class="n">batch_count</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl">
+</span></span><span class="line"><span class="ln">58</span><span class="cl">                <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Merge error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">60</span><span class="cl">
+</span></span><span class="line"><span class="ln">61</span><span class="cl">    <span class="k">return</span> <span class="n">batch_count</span>
+</span></span><span class="line"><span class="ln">62</span><span class="cl">
+</span></span><span class="line"><span class="ln">63</span><span class="cl">
+</span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="k">def</span> <span class="nf">concatenate_batches</span><span class="p">(</span><span class="n">batch_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">65</span><span class="cl">    <span class="n">all_batch_dfs</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="ln">66</span><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_count</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">67</span><span class="cl">        <span class="n">batch_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/languages/merged_batch_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">68</span><span class="cl">        <span class="n">all_batch_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch_df</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">69</span><span class="cl">    <span class="k">if</span> <span class="n">all_batch_dfs</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl">        <span class="n">all_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_batch_dfs</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">71</span><span class="cl">        <span class="k">return</span> <span class="n">all_df</span>
+</span></span><span class="line"><span class="ln">72</span><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">73</span><span class="cl">        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>  <span class="c1"># 返回空的DataFrame</span>
+</span></span></code></pre></div><p>這段程式負責解壓縮壓縮檔，並將日文、英文和繁體中文的數據合併到一個文件中。在合併過程中，我們檢查每個數據框的列數是否足夠，並對缺失的列進行填充。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 使用</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">zip_path</span> <span class="o">=</span> <span class="s1">&#39;data/languages.zip&#39;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">extract_path</span> <span class="o">=</span> <span class="s1">&#39;data/languages&#39;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">extract_files</span><span class="p">(</span><span class="n">zip_path</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">jp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="s1">&#39;jp&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">en_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">tw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="s1">&#39;tw&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">jp_dfs</span> <span class="o">=</span> <span class="n">read_csv_files</span><span class="p">(</span><span class="n">jp_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">en_dfs</span> <span class="o">=</span> <span class="n">read_csv_files</span><span class="p">(</span><span class="n">en_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">tw_dfs</span> <span class="o">=</span> <span class="n">read_csv_files</span><span class="p">(</span><span class="n">tw_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Read </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jp_dfs</span><span class="p">)</span><span class="si">}</span><span class="s2"> Japanese files, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">en_dfs</span><span class="p">)</span><span class="si">}</span><span class="s2"> English files, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tw_dfs</span><span class="p">)</span><span class="si">}</span><span class="s2"> Chinese files&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">if</span> <span class="n">jp_dfs</span> <span class="ow">and</span> <span class="n">en_dfs</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">batch_count</span> <span class="o">=</span> <span class="n">merge_translation_files</span><span class="p">(</span><span class="n">jp_dfs</span><span class="p">,</span> <span class="n">en_dfs</span><span class="p">,</span> <span class="n">tw_dfs</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;合併的數據已保存到 data/languages/merged.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Japanese and English lists are empty, cannot merge files&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>這段程式將上述函數組合在一起，並對數據進行合併。</p>
+
+<h3 id="檢查與驗證" data-numberify>檢查與驗證<a class="anchor ms-1" href="#檢查與驗證"></a></h3>
+<ol>
+<li>
+<p><strong>壓縮檔解壓縮是否正常運行？</strong><br>
+程式使用 <code>zipfile.ZipFile</code>，可穩定解壓。</p>
+</li>
+<li>
+<p><strong>資料清洗是否全面？</strong><br>
+正規表示式處理了常見的雜訊格式，並將空白字串清除。</p>
+</li>
+<li>
+<p><strong>多檔案讀取有沒有潛在風險？</strong><br>
+加入了例外處理機制（<code>try-except</code>），能在出錯時記錄檔案名稱。</p>
+</li>
+</ol>
+<p>經過清理後，數據格式統一，為後續模型訓練打下基礎。</p>
+<hr>
+
+<h2 id="模型選擇與實現" data-numberify>模型選擇與實現<a class="anchor ms-1" href="#模型選擇與實現"></a></h2>
+<p>翻譯模型選用 Hugging Face 提供的 <code>MarianMTModel</code>，這是一款專為多語言翻譯設計的模型。我們使用日文到英文的預訓練模型，並加入繁體中文進行微調。</p>
+
+<h3 id="模型訓練程式" data-numberify>模型訓練程式<a class="anchor ms-1" href="#模型訓練程式"></a></h3>
+<p>訓練過程中，我將數據切塊（chunking），避免一次處理過多數據造成記憶體不足：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">MarianMTModel</span><span class="p">,</span> <span class="n">MarianTokenizer</span><span class="p">,</span> <span class="n">Seq2SeqTrainingArguments</span><span class="p">,</span> <span class="n">Seq2SeqTrainer</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">evaluate</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">def</span> <span class="nf">read_and_chunk_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="k">yield</span> <span class="n">chunk</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="k">def</span> <span class="nf">process_chunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">jp_en_tw_pairs</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[[</span><span class="s1">&#39;jp_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text1&#39;</span><span class="p">,</span> <span class="s1">&#39;tw_text1&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">jp_en_tw_pairs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jp_text&#39;</span><span class="p">,</span> <span class="s1">&#39;en_text&#39;</span><span class="p">,</span> <span class="s1">&#39;tw_text&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">jp_en_tw_pairs</span> <span class="o">=</span> <span class="n">jp_en_tw_pairs</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">jp_en_tw_pairs</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">jp_en_tw_pairs</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="k">return</span> <span class="n">dataset</span>
+</span></span></code></pre></div><p>這段程式將數據切塊，並將每個切塊轉換為 <code>Dataset</code> 對象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">def</span> <span class="nf">train_chunk</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">training_args</span><span class="p">,</span> <span class="n">checkpoint_dir</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1"># 檢查數據集的大小，確保有足夠的樣本進行訓練和驗證</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Skipping chunk with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples due to insufficient data&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1"># 拆分數據集為訓練集和驗證集</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">train_test_split</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">datasets</span> <span class="o">=</span> <span class="n">DatasetDict</span><span class="p">({</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">train_test_split</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">train_test_split</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]})</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1"># 編碼函數</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">def</span> <span class="nf">preprocess_function</span><span class="p">(</span><span class="n">examples</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">jp</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span> <span class="n">en</span> <span class="k">for</span> <span class="n">jp</span><span class="p">,</span> <span class="n">en</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">examples</span><span class="p">[</span><span class="s1">&#39;jp_text&#39;</span><span class="p">],</span> <span class="n">examples</span><span class="p">[</span><span class="s1">&#39;en_text&#39;</span><span class="p">])]</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">targets</span> <span class="o">=</span> <span class="n">examples</span><span class="p">[</span><span class="s1">&#39;tw_text&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">model_inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;max_length&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="n">labels</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;max_length&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="n">model_inputs</span><span class="p">[</span><span class="s2">&#34;labels&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">&#34;input_ids&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">return</span> <span class="n">model_inputs</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="c1"># 預處理數據</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="n">tokenized_datasets</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">preprocess_function</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="c1"># 加載評估指標</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="n">metric</span> <span class="o">=</span> <span class="n">evaluate</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&#34;sacrebleu&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="k">def</span> <span class="nf">compute_metrics</span><span class="p">(</span><span class="n">eval_pred</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">eval_pred</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">decoded_preds</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">batch_decode</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">decoded_labels</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">batch_decode</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="n">labels</span> <span class="o">=</span> <span class="p">[[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">decoded_labels</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">predictions</span><span class="o">=</span><span class="n">decoded_preds</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="c1"># 初始化訓練器</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Seq2SeqTrainer</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">        <span class="n">args</span><span class="o">=</span><span class="n">training_args</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">        <span class="n">train_dataset</span><span class="o">=</span><span class="n">tokenized_datasets</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="n">eval_dataset</span><span class="o">=</span><span class="n">tokenized_datasets</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">        <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">        <span class="n">compute_metrics</span><span class="o">=</span><span class="n">compute_metrics</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">
+</span></span><span class="line"><span class="ln">44</span><span class="cl">    <span class="c1"># 繼續訓練</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">    <span class="k">if</span> <span class="n">checkpoint_dir</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">        <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">resume_from_checkpoint</span><span class="o">=</span><span class="n">checkpoint_dir</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">        <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">
+</span></span><span class="line"><span class="ln">50</span><span class="cl">    <span class="c1"># 保存模型檢查點</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="n">trainer</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">)</span>
+</span></span></code></pre></div><p>這段程式負責訓練模型，且為避免訓練到一半中斷，我們加入了檢查點機制，以便在中斷後繼續訓練。<br>
+在訓練過程中，我們將數據集拆分為訓練集和驗證集，並使用 <code>Seq2SeqTrainer</code> 進行訓練。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 使用</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"># 初始化模型和分詞器</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;Helsinki-NLP/opus-mt-ja-en&#39;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">MarianTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">MarianMTModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># 訓練參數設置</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="n">training_args</span> <span class="o">=</span> <span class="n">Seq2SeqTrainingArguments</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">output_dir</span><span class="o">=</span><span class="s1">&#39;models/trained_model&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">evaluation_strategy</span><span class="o">=</span><span class="s2">&#34;epoch&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">2e-5</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">per_device_eval_batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">save_total_limit</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">num_train_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">predict_with_generate</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"># 檢查 CUDA 是否可用</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;CUDA is available. Using GPU.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;CUDA is not available. Using CPU.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="c1"># 讀取和處理數據的每個塊，並訓練模型</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;data/languages/merged.csv&#39;</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># 可以根據記憶體大小調整塊大小</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="c1"># 保存檢查點的目錄</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="n">checkpoint_dir</span> <span class="o">=</span> <span class="s1">&#39;models/trained_model/checkpoints&#39;</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="c1"># 找到最新的檢查點</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="n">latest_checkpoint</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="n">checkpoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;checkpoint-&#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="k">if</span> <span class="n">checkpoints</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">        <span class="n">latest_checkpoint</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">checkpoints</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getctime</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">        <span class="n">latest_checkpoint</span> <span class="o">=</span> <span class="n">checkpoint_dir</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">
+</span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">read_and_chunk_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">)):</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">    <span class="n">dataset</span> <span class="o">=</span> <span class="n">process_chunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="n">train_chunk</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">training_args</span><span class="p">,</span> <span class="n">latest_checkpoint</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Chunk </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> training complete&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">
+</span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="c1"># 保存最終訓練好的模型</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="s1">&#39;models/trained_model&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="n">tokenizer</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="s1">&#39;models/trained_model&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">
+</span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Model training complete and saved to &#39;models/trained_model&#39;&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>這段程式將上述函數組合在一起，並訓練模型。</p>
+
+<h3 id="檢查與驗證-1" data-numberify>檢查與驗證<a class="anchor ms-1" href="#檢查與驗證-1"></a></h3>
+<ol>
+<li>
+<p><strong>日文與英文的拼接是否合適？</strong><br>
+透過字串合併，構建多語言上下文，提高翻譯準確率。</p>
+</li>
+<li>
+<p><strong>預處理是否考慮到空值？</strong><br>
+程式中添加了 <code>dropna()</code>，避免空值導致錯誤。</p>
+</li>
+<li>
+<p><strong>訓練參數是否符合需求？</strong><br>
+批量大小和學習率經調整，適合於有限的 GPU 訓練資源。</p>
+</li>
+</ol>
+<hr>
+
+<h2 id="測試與驗證" data-numberify>測試與驗證<a class="anchor ms-1" href="#測試與驗證"></a></h2>
+<p>最後一步是測試訓練好的模型是否能滿足預期。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">MarianMTModel</span><span class="p">,</span> <span class="n">MarianTokenizer</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"># 加載已保存的模型和分詞器</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;models/trained_model&#39;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">MarianMTModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">MarianTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"># 檢查 CUDA 是否可用</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"># 測試翻譯函數</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">jp_text</span><span class="p">,</span> <span class="n">en_text</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="n">text</span> <span class="o">=</span> <span class="n">jp_text</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span> <span class="o">+</span> <span class="n">en_text</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Combined text: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 調試信息：輸入的日文和英文結合後的文本</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&#34;pt&#34;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Tokenized inputs: </span><span class="si">{</span><span class="n">inputs</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 調試信息：分詞後的輸入</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="n">translated</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_beams</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">early_stopping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Translated tokens: </span><span class="si">{</span><span class="n">translated</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 調試信息：翻譯後的標記</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="n">translation</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">batch_decode</span><span class="p">(</span><span class="n">translated</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Decoded translation: </span><span class="si">{</span><span class="n">translation</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 調試信息：解碼後的翻譯</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="k">return</span> <span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error during translation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">
+</span></span><span class="line"><span class="ln">30</span><span class="cl">
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="c1"># 示例翻譯</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="n">jp_text</span> <span class="o">=</span> <span class="s2">&#34;こんにちは&#34;</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="n">en_text</span> <span class="o">=</span> <span class="s2">&#34;Hello&#34;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="n">translation</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="n">jp_text</span><span class="p">,</span> <span class="n">en_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Translation: </span><span class="si">{</span><span class="n">translation</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">
+</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="c1"># 添加更多的測試例子</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="n">test_cases</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="p">(</span><span class="s2">&#34;アルフィノ&#34;</span><span class="p">,</span> <span class="s2">&#34;Alphinaud&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="p">(</span><span class="s2">&#34;アリゼー&#34;</span><span class="p">,</span> <span class="s2">&#34;Alisaie&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="p">(</span><span class="s2">&#34;ヤ・シュトラ&#34;</span><span class="p">,</span> <span class="s2">&#34;Y&#39;shtola&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="p">(</span><span class="s2">&#34;はい&#34;</span><span class="p">,</span> <span class="s2">&#34;Yes&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="p">(</span><span class="s2">&#34;いいえ&#34;</span><span class="p">,</span> <span class="s2">&#34;No&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">
+</span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="k">for</span> <span class="n">jp</span><span class="p">,</span> <span class="n">en</span> <span class="ow">in</span> <span class="n">test_cases</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Testing with: Japanese=&#39;</span><span class="si">{</span><span class="n">jp</span><span class="si">}</span><span class="s2">&#39; and English=&#39;</span><span class="si">{</span><span class="n">en</span><span class="si">}</span><span class="s2">&#39;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">    <span class="n">translation</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="n">jp</span><span class="p">,</span> <span class="n">en</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Translation: </span><span class="si">{</span><span class="n">translation</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>測試的結果揭示了模型的優化空間，例如詞彙上下文可能不足，或是輸出受限於原始模型的語言範圍。</p>
+
+<h3 id="檢查與驗證-2" data-numberify>檢查與驗證<a class="anchor ms-1" href="#檢查與驗證-2"></a></h3>
+
+<h4 id="1-翻譯結果總是不準確" data-numberify>1. 翻譯結果總是不準確<a class="anchor ms-1" href="#1-翻譯結果總是不準確"></a></h4>
+<ul>
+<li>問題：模型初次訓練後，生成的中文結果多為無意義的字符。</li>
+<li>解決方案：反覆調整資料集，且調整訓練參數，如增加 <code>num_train_epochs</code>，並確保數據清理的完整性。但因為手邊的 GPU 資源有限，無法進行更多的嘗試。</li>
+</ul>
+
+<h4 id="2-記憶體不足" data-numberify>2. 記憶體不足<a class="anchor ms-1" href="#2-記憶體不足"></a></h4>
+<ul>
+<li>問題：一次加載過多數據會導致訓練中斷。</li>
+<li>解決方案：使用 <code>chunksize</code> 分塊處理數據，並對數據集進行分批訓練。</li>
+</ul>
+
+<h4 id="3-測試時翻譯錯誤" data-numberify>3. 測試時翻譯錯誤<a class="anchor ms-1" href="#3-測試時翻譯錯誤"></a></h4>
+<ul>
+<li>問題：測試時日文和英文拼接格式影響翻譯效果。</li>
+<li>解決方案：對測試文本進行標準化，並確保訓練時使用相同格式。</li>
+</ul>
+<hr>
+
+<h2 id="結語" data-numberify>結語<a class="anchor ms-1" href="#結語"></a></h2>
+<p>這次專案深刻體會到機器學習專案中數據清理的重要性，以及如何通過調整超參數來提升模型表現。<br>
+希望這篇文章能為有興趣開發遊戲語系翻譯模型的朋友提供一些啟發！</p>
+</div>
+</div>
+</div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/posts/2024/02/ff14-fan-festival-2024/">FF14 2024 粉絲節東京場</a>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">版權</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          相關文章
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture><img class="img-fluid" alt="FF14 2024 粉絲節東京場" src="https://coreynote.life/images/posts/ff14-fan-festival-2024/cover.jpg" loading="lazy"
+     width="1104"
+     height="736"/>
+  </picture>
+
+  <a class="post-title" href="/posts/2024/02/ff14-fan-festival-2024/">
+    FF14 2024 粉絲節東京場
+  </a>
+  <div class="post-meta mb-0">
+    2024-02-11
+
+  </div>
+</div>
+
+          </div><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture><img class="img-fluid" alt="FF14快速入坑重點筆記" src="https://coreynote.life/images/posts/ff14-quick-guide/cover.jpg" loading="lazy"
+     width="1920"
+     height="1080"/>
+  </picture>
+
+  <a class="post-title" href="/posts/2023/12/ff14-quick-guide/">
+    FF14快速入坑重點筆記
+  </a>
+  <div class="post-meta mb-0">
+    2023-12-07
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section></div>
+</div>
+<aside class="col-xxl-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+<div class="row component card">
+    <div class="card-body">
+        <form action="/search/">
+            <div class="input-group">
+                <input name="q" class="form-control rounded" placeholder="搜尋">
+                <button class="btn btn-sm btn-search position-absolute end-0 border-0 border-start border-secondary p-2" type="submit">
+                    <i class="fas fa-fw fa-search text-primary"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    
+<div class="accordion profile">
+  <div class="accordion-item card row text-center component">
+    <div class="accordion-header card-header border-0" id="profile-header">
+      <a
+        class="accordion-button d-lg-none mb-2 shadow-none p-0 bg-transparent text-surface"
+        role="button" data-bs-toggle="collapse" href="#profile" aria-expanded="true" aria-controls="profile">
+        Profile
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Corey" src="https://coreynote.life/images/profile.jpg?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" data-viewer-invisible width="632" height="632" />
+</picture>
+</div>
+      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Corey</div><div class="profile-bio">Freelance | Full-Stack Developer | Web Development Project Manager</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i><a href='https://www.openstreetmap.org/relation/449220' target='_blank'>Taiwan</a></div></div>
+
+
+<nav class="social-links nav justify-content-center mt-1 justify-content-around">
+      <a class="nav-link social-link" target="_blank" href="https://facebook.com/corey924" title="臉書" rel="me">
+        <i class="fa-fw fa-2x fab fa-facebook-f"
+           style="color: #1877f2;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://github.com/corey924" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://www.instagram.com/corey.924" title="Instagram" rel="me">
+        <i class="fa-fw fa-2x fab fa-instagram"
+           style="color: #c03957;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/corey-ko-6957ba70" title="領英" rel="me">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"
+           style="color: #0a66c2;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://www.youtube.com/channel/UCfAFaiB3ozsLYLCkeU1IJiQ" title="YouTube" rel="me">
+        <i class="fa-fw fa-2x fab fa-youtube"
+           style="color: #ff0000;"></i>
+      </a>
+</nav>
+</div>
+  </div>
+</div>
+
+
+<div class="accordion taxonomies-toggle">
+    <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#taxonomies-toggle" aria-expanded="true" aria-controls="taxonomies-toggle">
+                Taxonomies
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="taxonomies-toggle">
+            <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="taxonomyCategoriesTab" data-bs-toggle="tab" data-bs-target="#taxonomyCategories" 
+                            type="button" role="tab" aria-controls="taxonomyCategories" aria-selected="true">
+                            分類
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="taxonomyTagsTab" data-bs-toggle="tab" data-bs-target="#taxonomyTags" 
+                            type="button" role="tab" aria-controls="taxonomyTags" aria-selected="true">
+                            標籤
+                        </button>
+                    </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="taxonomyArchivesTab" data-bs-toggle="tab" data-bs-target="#taxonomyArchives" 
+                        type="button" role="tab" aria-controls="taxonomyArchives" aria-selected="true">
+                        歸檔
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3">
+                    <div class="tab-pane active" id="taxonomyCategories" role="tabpanel" aria-labelledby="taxonomyCategoriesTab" tabindex="0">
+                        <a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="技術">
+                            技術
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/categories/%E6%97%85%E8%A1%8C/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="旅行">
+                            旅行
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/categories/%E9%81%8A%E6%88%B2/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="遊戲">
+                            遊戲
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/categories/%E6%94%9D%E5%BD%B1/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="攝影">
+                            攝影
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/categories/%E4%BF%9D%E5%81%A5/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="保健">
+                            保健
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                    </div>
+                    <div class="tab-pane" id="taxonomyTags" role="tabpanel" aria-labelledby="taxonomyTagsTab" tabindex="0">
+                        <a href="/tags/%E6%97%A5%E6%9C%AC/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="日本">
+                            日本
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/ff14/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="FF14">
+                            FF14
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/%E4%BD%8F%E5%AE%BF/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="住宿">
+                            住宿
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/back-end/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Back-End">
+                            Back-End
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/c%23/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="C#">
+                            C#
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/front-end/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Front-End">
+                            Front-End
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/online-game/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Online-Game">
+                            Online-Game
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/%E5%8F%97%E5%82%B7/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="受傷">
+                            受傷
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/%E7%A9%BA%E6%8B%8D%E6%A9%9F/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="空拍機">
+                            空拍機
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/eorzea-cafe/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Eorzea-Cafe">
+                            Eorzea-Cafe
+                            <span class="badge badge-sm text-secondary bg-white ms-1">1</span>
+                        </a>
+                        <a href="https://coreynote.life/tags" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title='全部'>
+                        全部
+                        <span class="badge badge-sm text-secondary bg-white ms-1">25</span>
+                        </a>
+                    </div>
+                <div class="tab-pane" id="taxonomyArchives" role="tabpanel" aria-labelledby="taxonomyArchivesTab" tabindex="0">
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2024">
+    2024 <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2023">
+    2023 <span class="badge badge-sm text-secondary bg-white ms-1">10</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2022">
+    2022 <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="accordion posts-toggle">
+      <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+          <a
+            class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+            role="button"
+            data-bs-toggle="collapse"
+            href="#posts-toggle"
+            aria-expanded="true"
+            aria-controls="posts-toggle">
+            文章
+          </a>
+        </div>
+        <div
+          class="card-body collapse accordion-collapse accordion-body d-lg-block show"
+          id="posts-toggle">
+          <ul class="nav nav-pills nav-fill" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="recent-posts-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#recent-posts"
+                  type="button"
+                  role="tab"
+                  aria-controls="recent-posts"
+                  aria-selected="true">
+                  最近文章
+                </button>
+              </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+              <div
+                class="tab-pane active"
+                id="recent-posts"
+                role="tabpanel"
+                aria-labelledby="recent-posts-tab"
+                tabindex="0">
+                <ul class="post-list list-unstyled ms-1">
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印" src="https://coreynote.life/images/posts/ff14-language-training/cover.jpg" loading="lazy"
+     width="512"
+     height="512"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2024/03/ff14-language-training/">
+        FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2024-03-30
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="FF14 2024 粉絲節東京場" src="https://coreynote.life/images/posts/ff14-fan-festival-2024/cover.jpg" loading="lazy"
+     width="1104"
+     height="736"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2024/02/ff14-fan-festival-2024/">
+        FF14 2024 粉絲節東京場
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2024-02-11
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="簡易型 API 白名單驗證 Attribute" src="https://coreynote.life/images/posts/api-security-attribute/cover.jpg" loading="lazy"
+     width="512"
+     height="512"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2024/01/api-security-attribute/">
+        簡易型 API 白名單驗證 Attribute
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2024-01-14
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="FF14快速入坑重點筆記" src="https://coreynote.life/images/posts/ff14-quick-guide/cover.jpg" loading="lazy"
+     width="1920"
+     height="1080"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2023/12/ff14-quick-guide/">
+        FF14快速入坑重點筆記
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2023-12-07
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="機車檢修重點" src="https://coreynote.life/images/posts/trip-scooter/cover.jpg" loading="lazy"
+     width="1024"
+     height="1024"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2023/11/trip-scooter/">
+        機車檢修重點
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2023-11-26
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">目錄</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        目錄
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ol>
+    <li><a href="#緣起">緣起</a></li>
+    <li><a href="#環境設置">環境設置</a></li>
+    <li><a href="#開始數據清理與準備">開始：數據清理與準備</a>
+      <ol>
+        <li><a href="#檢查與驗證">檢查與驗證</a></li>
+      </ol>
+    </li>
+    <li><a href="#模型選擇與實現">模型選擇與實現</a>
+      <ol>
+        <li><a href="#模型訓練程式">模型訓練程式</a></li>
+        <li><a href="#檢查與驗證-1">檢查與驗證</a></li>
+      </ol>
+    </li>
+    <li><a href="#測試與驗證">測試與驗證</a>
+      <ol>
+        <li><a href="#檢查與驗證-2">檢查與驗證</a>
+          <ol>
+            <li><a href="#1-翻譯結果總是不準確">1. 翻譯結果總是不準確</a></li>
+            <li><a href="#2-記憶體不足">2. 記憶體不足</a></li>
+            <li><a href="#3-測試時翻譯錯誤">3. 測試時翻譯錯誤</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#結語">結語</a></li>
+  </ol>
+</nav>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      操作
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> 返回
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> 刷新
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> 複製連結
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Corey 種子的資訊生活筆記</p>
+    <p class="text-secondary mb-2"><small></small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.9569c090563145260584701d65065f905e6ad326be573ca5864efa540bcd58db.js" integrity="sha256-lWnAkFYxRSYFhHAdZQZfkF5q0ya&#43;Vzylhk76VAvNWNs=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.0a0d0099935beee41b7a7bf4543cd55e793e5f830a571b0794ef8c3602c5823c.js" integrity="sha256-Cg0AmZNb7uQbenv0VDzVXnk&#43;X4MKVxsHlO&#43;MNgLFgjw=" crossorigin="anonymous" defer></script>
+<script src="/js/sw-register.js" defer></script>
+
+  </body>
+</html>

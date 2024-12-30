@@ -3,52 +3,72 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://coreynote.life/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/tags/eorzea-cafe/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/tags/fan-festival/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/ff14/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/posts/2024/02/ff14-fan-festival-2024/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <loc>https://coreynote.life/posts/2024/03/ff14-language-training/</loc>
+    <lastmod>2024-03-30T18:07:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/tags/square-enix-cafe/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <loc>https://coreynote.life/tags/online-game/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <loc>https://coreynote.life/tags/python/</loc>
+    <lastmod>2024-03-30T18:07:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/tags/%E6%9D%B1%E4%BA%AC/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/categories/%E6%97%85%E8%A1%8C/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <loc>https://coreynote.life/categories/%E6%8A%80%E8%A1%93/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/categories/%E9%81%8A%E6%88%B2/</loc>
-    <lastmod>2024-07-12T00:30:43+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/eorzea-cafe/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/fan-festival/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/posts/2024/02/ff14-fan-festival-2024/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/square-enix-cafe/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E6%9D%B1%E4%BA%AC/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/categories/%E6%97%85%E8%A1%8C/</loc>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -62,23 +82,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://coreynote.life/categories/%E6%8A%80%E8%A1%93/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://coreynote.life/posts/2024/01/api-security-attribute/</loc>
     <lastmod>2024-05-14T15:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/posts/2023/12/ff14-quick-guide/</loc>
-    <lastmod>2024-06-05T19:08:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/tags/online-game/</loc>
-    <lastmod>2024-06-05T19:08:59+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -123,22 +133,22 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/posts/2023/04/anterior-cruciate-ligament-tear-with-fracture/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E5%8F%97%E5%82%B7/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/categories/%E4%BF%9D%E5%81%A5/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E5%BE%A9%E5%81%A5/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -153,17 +163,17 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/posts/2023/02/japan-tohoku-appi-2023/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E4%BD%8F%E5%AE%BF/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E5%B2%A9%E6%89%8B/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -193,7 +203,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E7%A9%BA%E6%8B%8D%E6%A9%9F/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -203,27 +213,27 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/categories/%E6%94%9D%E5%BD%B1/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/posts/2022/12/dips2022/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/go-lang/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/hugo/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/posts/2022/12/hello-hugo/</loc>
-    <lastmod>2024-05-14T15:47:23+08:00</lastmod>
+    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

@@ -8,7 +8,19 @@
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Sun, 14 Jan 2024 14:38:28 +0800</lastBuildDate><atom:link href="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Mar 2024 18:07:54 +0800</lastBuildDate><atom:link href="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FF14 中文語系訓練模型：從數據清理到翻譯模型的一步一腳印</title>
+      <link>https://coreynote.life/posts/2024/03/ff14-language-training/</link>
+      <pubDate>Sat, 30 Mar 2024 18:07:54 +0800</pubDate>
+      <guid>https://coreynote.life/posts/2024/03/ff14-language-training/</guid>
+      <description><![CDATA[<hr>
+
+<h2 id="緣起" data-numberify>緣起<a class="anchor ms-1" href="#緣起"></a></h2>
+<p>多語言的大型網路遊戲 FF14，作為擁有豐富文本內容的 MMORPG，其文本涉及大量專有名詞與情感表達，很難用普通的機器翻譯做到精確的語境翻譯。</p>]]></description>
+    <enclosure url="https://coreynote.life/images/posts/ff14-language-training/cover.jpg" length="89702" type="image/.jpg" />
+    </item>
+    
     <item>
       <title>簡易型 API 白名單驗證 Attribute</title>
       <link>https://coreynote.life/posts/2024/01/api-security-attribute/</link>
