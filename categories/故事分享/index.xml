@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>故事分享 on Corey 種子的資訊生活筆記</title>
+    <link>http://localhost:1313/categories/%E6%95%85%E4%BA%8B%E5%88%86%E4%BA%AB/</link>
+    <description>Recent content in 故事分享 on Corey 種子的資訊生活筆記</description>
+    <generator>Hugo</generator>
+    <language>zh-hant</language>
+    <copyright>Copyright © 2022-2024 Corey Ko. All Rights Reserved.
+</copyright>
+    <lastBuildDate>Wed, 03 Apr 2024 22:14:41 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%85%E4%BA%8B%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自由接案與技術管理：如何在遠端工作中找到自己的方向？</title>
+      <link>http://localhost:1313/posts/2024/04/freelance-remote-management/</link>
+      <pubDate>Wed, 03 Apr 2024 22:14:41 +0800</pubDate>
+      <guid>http://localhost:1313/posts/2024/04/freelance-remote-management/</guid>
+      <description><![CDATA[<p>作為一名技術背景出身的自由接案者，我的職業生涯經歷了從全職技術開發，到遠端自主工作的轉變。這段旅程讓我體會到自由工作的彈性與挑戰，也讓我開始關注如何在個人工作效率與團隊合作中找到平衡，進一步發展技術管理的能力。</p>]]></description>
+    <enclosure url="http://localhost:1313/images/posts/freelance-remote-management/cover.jpg" length="88087" type="image/.jpg" />
+    </item>
+    
+  </channel>
+</rss>
+
