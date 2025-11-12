@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>職捱 on Corey 種子的資訊生活筆記</title>
-    <link>http://localhost:7507/categories/%E8%81%B7%E6%8D%B1/</link>
-    <description>Recent content in 職捱 on Corey 種子的資訊生活筆記</description>
+    <title>職涯思考 on Corey 種子的資訊生活筆記</title>
+    <link>http://localhost:7507/tags/%E8%81%B7%E6%B6%AF%E6%80%9D%E8%80%83/</link>
+    <description>Recent content in 職涯思考 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2025 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Wed, 12 Nov 2025 15:30:00 +0800</lastBuildDate><atom:link href="http://localhost:7507/categories/%E8%81%B7%E6%8D%B1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Nov 2025 15:30:00 +0800</lastBuildDate><atom:link href="http://localhost:7507/tags/%E8%81%B7%E6%B6%AF%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2025｜我把「退休」改叫「養老」：一份理財目標筆記</title>
       <link>http://localhost:7507/posts/2025/11/retirement-financial-planning-taiwan-2025/</link>
