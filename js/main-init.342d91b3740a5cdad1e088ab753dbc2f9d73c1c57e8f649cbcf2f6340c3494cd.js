@@ -1,6 +1,6 @@
 (() => {
   // ns-params:@params
-  var params_default = { baseURL: "http://localhost:5477/" };
+  var params_default = { baseURL: "http://localhost:11351/" };
 
   // ns-hugo:D:\Project\Other\Blog\CoreyBlog\themes\hugo-theme-bootstrap\assets\js\local-storage\index.ts
   var PathLocalStorage = class {
