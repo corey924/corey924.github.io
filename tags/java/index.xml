@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Java on Corey 種子的資訊生活筆記</title>
+    <link>https://coreynote.life/tags/java/</link>
+    <description>Recent content in Java on Corey 種子的資訊生活筆記</description>
+    <generator>Hugo</generator>
+    <language>zh-hant</language>
+    <copyright>Copyright © 2022-2026 Corey Ko. All Rights Reserved.
+</copyright>
+    <lastBuildDate>Mon, 30 Mar 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GenAI 時代，選程式語言的方式正在改變</title>
+      <link>https://coreynote.life/posts/2026/03/genai-language-choice-2026/</link>
+      <pubDate>Mon, 30 Mar 2026 20:30:00 +0800</pubDate>
+      <guid>https://coreynote.life/posts/2026/03/genai-language-choice-2026/</guid>
+      <description><![CDATA[<hr>
+<p><strong>GenAI 工具讓跨語言的門檻大幅降低了。</strong></p>
+<p>以前從 Python 跳 TypeScript、從 C# 跳 Java，至少得花幾週熟悉語法和框架慣例。現在有 Copilot、Claude，叫 AI 幫你用不熟的語言寫出堪用的 code，比想像中容易。GitHub Octoverse 2025 也提到約 80% 的新開發者在第一週就開始用 Copilot。</p>]]></description>
+    <enclosure url="https://coreynote.life/images/posts/genai-language-choice-2026/cover.jpg" length="451415" type="image/.jpg" />
+    </item>
+    
+  </channel>
+</rss>
+
