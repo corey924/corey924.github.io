@@ -10,12 +10,12 @@
 </copyright>
     <lastBuildDate>Mon, 30 Mar 2026 20:30:00 +0800</lastBuildDate><atom:link href="https://coreynote.life/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GenAI 時代，選程式語言的方式正在改變</title>
+      <title>GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？</title>
       <link>https://coreynote.life/posts/2026/03/genai-language-choice-2026/</link>
       <pubDate>Mon, 30 Mar 2026 20:30:00 +0800</pubDate>
       <guid>https://coreynote.life/posts/2026/03/genai-language-choice-2026/</guid>
       <description><![CDATA[<hr>
-<p><strong>GenAI 工具讓跨語言的門檻大幅降低了。</strong></p>
+<p><strong>在現代 Web 與企業應用開發領域，GenAI 工具讓跨語言的門檻大幅降低了。</strong></p>
 <p>以前從 Python 跳 TypeScript、從 C# 跳 Java，至少得花幾週熟悉語法和框架慣例。現在有 Copilot、Claude，叫 AI 幫你用不熟的語言寫出堪用的 code，比想像中容易。GitHub Octoverse 2025 也提到約 80% 的新開發者在第一週就開始用 Copilot。</p>]]></description>
     <enclosure url="https://coreynote.life/images/posts/genai-language-choice-2026/cover.jpg" length="451415" type="image/.jpg" />
     </item>
