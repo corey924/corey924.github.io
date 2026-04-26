@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Claude Code on Corey 種子的資訊生活筆記</title>
+    <link>https://coreynote.life/tags/claude-code/</link>
+    <description>Recent content in Claude Code on Corey 種子的資訊生活筆記</description>
+    <generator>Hugo</generator>
+    <language>zh-hant</language>
+    <copyright>Copyright © 2022-2026 Corey Ko. All Rights Reserved.
+</copyright>
+    <lastBuildDate>Sat, 25 Apr 2026 12:30:00 +0800</lastBuildDate><atom:link href="https://coreynote.life/tags/claude-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂</title>
+      <link>https://coreynote.life/posts/2026/04/zerospec/</link>
+      <pubDate>Sat, 25 Apr 2026 12:30:00 +0800</pubDate>
+      <guid>https://coreynote.life/posts/2026/04/zerospec/</guid>
+      <description><![CDATA[<hr>
+
+<h2 id="工具一直在換做法一直在調" data-numberify>工具一直在換，做法一直在調<a class="anchor ms-1" href="#工具一直在換做法一直在調"></a></h2>
+<p>AI 開發工具的更新速度，這兩年大家有目共睹。模型在升級、agent 在換代、新的 workflow 和框架三不五時就冒一個出來——從 Copilot、Cursor、Claude Code、Codex 到 Gemini CLI，最近又多了 Antigravity 這類 agentic IDE。</p>]]></description>
+    <enclosure url="https://coreynote.life/images/posts/zerospec/cover.jpg" length="683867" type="image/.jpg" />
+    </item>
+    
+  </channel>
+</rss>
+

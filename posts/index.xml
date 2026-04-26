@@ -9,6 +9,18 @@
     <copyright>Copyright © 2022-2026 Corey Ko. All Rights Reserved.
 </copyright><atom:link href="https://coreynote.life/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂</title>
+      <link>https://coreynote.life/posts/2026/04/zerospec/</link>
+      <pubDate>Sat, 25 Apr 2026 12:30:00 +0800</pubDate>
+      <guid>https://coreynote.life/posts/2026/04/zerospec/</guid>
+      <description><![CDATA[<hr>
+
+<h2 id="工具一直在換做法一直在調" data-numberify>工具一直在換，做法一直在調<a class="anchor ms-1" href="#工具一直在換做法一直在調"></a></h2>
+<p>AI 開發工具的更新速度，這兩年大家有目共睹。模型在升級、agent 在換代、新的 workflow 和框架三不五時就冒一個出來——從 Copilot、Cursor、Claude Code、Codex 到 Gemini CLI，最近又多了 Antigravity 這類 agentic IDE。</p>]]></description>
+    <enclosure url="https://coreynote.life/images/posts/zerospec/cover.jpg" length="683867" type="image/.jpg" />
+    </item>
+    
+    <item>
       <title>GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？</title>
       <link>https://coreynote.life/posts/2026/03/genai-language-choice-2026/</link>
       <pubDate>Mon, 30 Mar 2026 20:30:00 +0800</pubDate>

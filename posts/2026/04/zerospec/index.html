@@ -1,0 +1,852 @@
+<!doctype html>
+<html class="position-relative" itemscope itemtype="https://schema.org/WebPage" lang="zh-hant"
+  data-bs-theme="auto" data-palette="blue">
+  <head><script src="/assets/init/bundle.min.0d2c3ac521a97b78e6862ac25c26e07361b10c57d4b93ecdfc31500c8a7217a9.js" integrity="sha256-DSw6xSGpe3jmhirCXCbgc2GxDFfUuT7N/DFQDIpyF6k=" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂 - Corey 種子的資訊生活筆記</title>
+    <link rel="icon" href="/favicon_hu3114967913224354367.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/favicon_hu9093956758845270585.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon_hu4886201479850587583.png" sizes="150x150" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon_hu15089515540396104241.png" sizes="180x180" type="image/png">
+    <link rel="icon" href="/favicon_hu7913873548135594394.png" sizes="192x192" type="image/png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f42c1">
+<meta name="keywords" content="ZeroSpec, AGENTS, GitHub Copilot, Claude Code, Gemini CLI, GenAI, Spec-Driven Development" />
+<meta name="description" content="用 GPT、Claude、Gemini 寫程式常覺得不穩？這兩年我發現，很多問題不是單純換工具就能解決，而是 AI 一開始就讀到不完整的專案資訊。ZeroSpec 是我整理出的一套作法。" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://coreynote.life/images/posts/zerospec/cover.jpg">
+  <meta name="twitter:title" content="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂">
+  <meta name="twitter:description" content="用 GPT、Claude、Gemini 寫程式常覺得不穩？這兩年我發現，很多問題不是單純換工具就能解決，而是 AI 一開始就讀到不完整的專案資訊。ZeroSpec 是我整理出的一套作法。">
+<meta property="og:url" content="https://coreynote.life/posts/2026/04/zerospec/">
+  <meta property="og:site_name" content="Corey 種子的資訊生活筆記">
+  <meta property="og:title" content="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂">
+  <meta property="og:description" content="用 GPT、Claude、Gemini 寫程式常覺得不穩？這兩年我發現，很多問題不是單純換工具就能解決，而是 AI 一開始就讀到不完整的專案資訊。ZeroSpec 是我整理出的一套作法。">
+  <meta property="og:locale" content="zh_hant">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-25T12:30:00+08:00">
+    <meta property="article:modified_time" content="2026-04-26T12:35:42+08:00">
+    <meta property="article:tag" content="ZeroSpec">
+    <meta property="article:tag" content="GitHub Copilot">
+    <meta property="article:tag" content="Claude Code">
+    <meta property="article:tag" content="Gemini CLI">
+    <meta property="article:tag" content="AGENTS">
+    <meta property="article:tag" content="GenAI">
+    <meta property="og:image" content="https://coreynote.life/images/posts/zerospec/cover.jpg">
+
+  <meta itemprop="name" content="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂">
+  <meta itemprop="description" content="用 GPT、Claude、Gemini 寫程式常覺得不穩？這兩年我發現，很多問題不是單純換工具就能解決，而是 AI 一開始就讀到不完整的專案資訊。ZeroSpec 是我整理出的一套作法。">
+  <meta itemprop="datePublished" content="2026-04-25T12:30:00+08:00">
+  <meta itemprop="dateModified" content="2026-04-26T12:35:42+08:00">
+  <meta itemprop="wordCount" content="2975">
+  <meta itemprop="image" content="https://coreynote.life/images/posts/zerospec/cover.jpg">
+  <meta itemprop="keywords" content="ZeroSpec,AGENTS,GitHub Copilot,Claude Code,Gemini CLI,GenAI,Spec-Driven Development">
+  <meta property="og:image:alt" content="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂" />
+  <meta name="twitter:image:alt" content="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂" />
+  <link rel="manifest" href="/manifest.json">
+
+<link data-precache rel="stylesheet" href="/assets/main/bundle.min.98ad5b5f46bd521854cced30408d178077140e4d7c349313fe89dfe0dfbcfa30.css" integrity="sha256-mK1bX0a9UhhUzO0wQI0XgHcUDk18NJMT/onf4N+8+jA=" crossorigin="anonymous">
+
+    <link data-precache rel="stylesheet" href="/assets/viewer/bundle.min.eb914844636cd41f221f109e99c887bbc3b6b5ffb2af7c664b284cea2d1b54b7.css" integrity="sha256-65FIRGNs1B8iHxCemciHu8O2tf&#43;yr3xmSyhM6i0bVLc=" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" href="https://coreynote.life/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B6D79P6TM0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B6D79P6TM0');
+</script>
+
+</head>
+  <body><header class="mb-4 sticky-top">
+  
+<nav class="top-app-bar shadow navbar navbar-expand-xxl">
+  <div class="container">
+<a class="navbar-brand d-flex align-items-center flex-grow-1 flex-xxl-grow-0 justify-content-xxl-start ms-2 ms-xxl-0 mx-auto me-xxl-2"
+    href="https://coreynote.life/">
+    <picture><img class="logo " alt="Logo" src="https://coreynote.life/images/logo.webp?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" width="512" height="512" />
+</picture>
+Corey 種子的資訊生活筆記
+</a>
+
+    <div class="offcanvas-xxl offcanvas-end flex-grow-1" data-bs-scroll="true" tabindex="-1" id="navbarMenus" aria-labelledby="navbarMenusLabel">
+      <div class="offcanvas-header px-4 pb-0">
+        <div class="offcanvas-title h5" id="navbarMenusLabel">Corey 種子的資訊生活筆記</div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#navbarMenus" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body p-4 pt-0 p-xxl-0">
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center me-auto">
+          <li class="nav-item col-12 col-xxl-auto dropdown px-0">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdownBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-fw fa-bars me-1"></i>Blog
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog" data-bs-popper="none">
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://coreynote.life/series/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-columns text-info"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">專欄</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">專欄列表</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://coreynote.life/categories/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-folder text-warning"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">分類</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">分類列表</p>
+                  </div></a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-wrap text-xxl-nowrap"
+                  href="https://coreynote.life/tags/">
+                    <span class="dropdown-item-icon me-2 p-2 rounded">
+                      <i class="fas fa-fw fa-tags text-success"></i>
+                    </span>
+                  <div class="dropdown-item-content">
+                    <p class="dropdown-item-title mb-1">標籤</p>
+                      <p class="dropdown-item-description mb-0 text-secondary">標籤列表</p>
+                  </div></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <hr class="d-xxl-none">
+        <ul class="navbar-nav flex-row flex-wrap align-items-center ms-md-auto">
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="paletteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-fw fa-palette"></i>
+        <span class="d-xxl-none">配色</span>
+    </a>
+    <ul class="palette-dropdown-menu dropdown-menu dropdown-menu-end px-2 row g-2" aria-labelledby="paletteDropdown">
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue" aria-label="藍色"
+                    class="btn btn-sm w-100 palette text-bg-blue" data-palette="blue">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-blue-gray" aria-label="藍灰色"
+                    class="btn btn-sm w-100 palette text-bg-blue-gray" data-palette="blue-gray">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-brown" aria-label="棕色"
+                    class="btn btn-sm w-100 palette text-bg-brown" data-palette="brown">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-cyan" aria-label="青色"
+                    class="btn btn-sm w-100 palette text-bg-cyan" data-palette="cyan">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-green" aria-label="綠色"
+                    class="btn btn-sm w-100 palette text-bg-green" data-palette="green">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-indigo" aria-label="靛青色"
+                    class="btn btn-sm w-100 palette text-bg-indigo" data-palette="indigo">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-orange" aria-label="橙色"
+                    class="btn btn-sm w-100 palette text-bg-orange" data-palette="orange">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-pink" aria-label="粉色"
+                    class="btn btn-sm w-100 palette text-bg-pink" data-palette="pink">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-purple" aria-label="紫色"
+                    class="btn btn-sm w-100 palette text-bg-purple" data-palette="purple">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-red" aria-label="紅色"
+                    class="btn btn-sm w-100 palette text-bg-red" data-palette="red">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-teal" aria-label="藍綠色"
+                    class="btn btn-sm w-100 palette text-bg-teal" data-palette="teal">
+                </a>
+            </li>
+            <li class="col-4 my-1">
+                <a role="button" id="palette-yellow" aria-label="黃色"
+                    class="btn btn-sm w-100 palette text-bg-yellow" data-palette="yellow">
+                </a>
+            </li>
+    </ul>
+</li>
+<li class="nav-item dropdown col-6 col-xxl-auto">
+    <a class="nav-link px-0 py-2 px-xxl-1" href="#" id="modeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="mode-icon fas fa-fw fa-adjust" id="modeIcon"></i>
+        <span class="d-xxl-none">模式</span>
+    </a>
+    <ul class="mode-dropdown-menu dropdown-menu dropdown-menu-end" aria-labelledby="modeDropdown">
+        <li class="mode-item" data-color-mode="light" data-icon="sun">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-sun"></i> 淺色
+            </button>
+        </li>
+        <li class="mode-item" data-color-mode="dark" data-icon="moon">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-moon"></i> 深色
+            </button>
+        </li>
+        <li class="mode-item active" data-color-mode="auto" data-icon="adjust">
+            <button class="dropdown-item">
+                <i class="mode-icon fas fa-fw fa-adjust"></i> 自動
+            </button>
+        </li>
+    </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex">
+      <button class="navbar-toggler order-5 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMenus"
+        aria-controls="navbarMenus" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+    <main class="container has-sidebar" data-kind="page"><script data-precache src="/js/main-init.cf5a54615ecc21c2199aa9ef22909ad0031f626c5d24a17d468e1aaa8616b707.js" integrity="sha256-z1pUYV7MIcIZmqnvIpCa0AMfYmxdJKF9Ro4aqoYWtwc=" crossorigin="anonymous"></script>
+
+      <div class="row content"><noscript>
+    <div class="alert alert-danger" role="alert">你的瀏覽器不支持 JavaScript。</div>
+</noscript>
+
+<div class="content-posts col-xxl-8">
+  <div class="container"><nav class="row card component" aria-label="breadcrumb">
+  <div class="card-body pb-0">
+    <ol class="hbs-breadcrumb breadcrumb flex-nowrap"><li class="breadcrumb-item text-surface"><a href="/">主頁</a></li><li class="breadcrumb-item text-surface"><a href="/posts/">文章</a></li><li class="breadcrumb-item active">我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂</li></ol>
+  </div>
+</nav><div class="post-panel-wrapper position-relative d-flex justify-content-center">
+  <div class="d-flex flex-row justify-content-center rounded-5 border post-panel position-fixed px-3 py-1 surface shadow-1">
+    
+    
+
+    
+    
+    
+  <a class="action action-toc d-none d-xxl-block" href="#postTOC" role="button" title="目錄">
+    <i class="fas fa-fw fa-list-alt"></i>
+  </a>
+<a class="action action-toc d-block d-xxl-none" href="#post-toc-container" role="button" title="目錄">
+  <i class="fas fa-fw fa-list-alt"></i>
+</a>
+    <a class="action action-copyright" href="#post-copyright" role="button" aria-label="Copyright" title="版權">
+  <i class="fas fa-fw fa-copyright"></i>
+</a>
+    
+    
+<a id="sidebarToggler" class="action action-sidebar-toggler d-none d-xxl-block" role="button" title="切換側邊欄">
+  <i class="fas fa-fw fa-expand-alt" data-fa-transform="rotate-45"></i>
+</a>
+
+    
+  </div>
+</div><article class="row card component mb-4 post">
+  <div class="card-header ">
+    <h1 class="card-title post-title my-2">我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂</h1>
+  </div>
+  <div class="card-body"><div class="post-meta mb-3">
+  <span class="post-date me-1 mb-1" title="創建於 2026-04-25 12:30:00 &#43;0800 CST，更新於 2026-04-26 12:35:42 &#43;0800 CST。">2026-04-25</span><span class="post-reading-time me-1 mb-1">6 分鐘閱讀</span><a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-category">
+      <i class="fas fa-fw fa-folder me-1"></i>技術</a><a href="/tags/agents/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">AGENTS</a><a href="/tags/claude-code/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Claude Code</a><a href="/tags/gemini-cli/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">Gemini CLI</a><a href="/tags/genai/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">GenAI</a><a href="/tags/github-copilot/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">GitHub Copilot</a><a href="/tags/zerospec/" class="btn btn-sm btn-secondary mb-1 me-2 py-0 pe-1 post-taxonomy post-taxonomy-sm post-tag">ZeroSpec</a>
+</div>
+<picture class="d-flex justify-content-center"><img class="post-featured-img h-auto w-auto mb-3" alt="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂" src="https://coreynote.life/images/posts/zerospec/cover.jpg"/>
+    </picture>
+      <p class="lead mb-3 text-body-emphasis">用 GPT、Claude、Gemini 寫程式常覺得不穩？這兩年我發現，很多問題不是單純換工具就能解決，而是 AI 一開始就讀到不完整的專案資訊。ZeroSpec 是我整理出的一套作法。</p>
+<div class="mt-2 mb-3 d-block d-xxl-none">
+    <h2 class="text-surface mb-3">目錄</h2>
+    <div id="post-toc-container">
+        </div>
+    <hr class="text-secondary">
+</div><div class="post-content mb-3" data-bs-spy="scroll" data-bs-target="#TableOfContents" tabindex="0">
+        <div id="post-content-body"><hr>
+
+<h2 id="工具一直在換做法一直在調" data-numberify>工具一直在換，做法一直在調<a class="anchor ms-1" href="#工具一直在換做法一直在調"></a></h2>
+<p>AI 開發工具的更新速度，這兩年大家有目共睹。模型在升級、agent 在換代、新的 workflow 和框架三不五時就冒一個出來——從 Copilot、Cursor、Claude Code、Codex 到 Gemini CLI，最近又多了 Antigravity 這類 agentic IDE。</p>
+<p>這些工具我自己也常常交叉用來開發系統、Debug、起草規格、補測試、整理重複性文件，確實省了不少時間。但同時另一面也跟著長出來：每次出新工具或新做法，就想試試看；試了覺得不錯，開始調整習慣；調到一半，下一波又來了。</p>
+<p>久了之後你會發現，很多時間其實花在「換做法」上面，而不是在累積一套穩定的協作方式。基本觀念還沒紮根，工具又換了一輪，原本的工作也不一定有省到時間。</p>
+<p>所以我後來開始想：如果工具一直在變，有沒有什麼是不太會跟著一起動的？</p>
+<hr>
+
+<h2 id="很多問題是因為-ai-手上沒有正確的地圖" data-numberify>很多問題，是因為 AI 手上沒有正確的地圖<a class="anchor ms-1" href="#很多問題是因為-ai-手上沒有正確的地圖"></a></h2>
+<p>用 AI 寫程式最常碰到的問題，說穿了就是上下文不完整。</p>
+<p>它不是不會走路，而是手上拿到的地圖太舊，甚至根本沒有地圖。</p>
+<p>AI 不知道哪份文件才是最新依據，不知道模組之間怎麼分工，也不知道哪些規則只是團隊習慣、哪些是不能踩的底線。結果就是：改錯模組、引用舊版 API、把該留在 service 層的邏輯塞回 controller，或是直接繞過既有的狀態管理方式。</p>
+<p>這類問題就算換更強的模型，也不一定會自動消失。因為那些沒有被寫下來的規則，模型只能猜。</p>
+<p>Stack Overflow Developer Survey 2025 的資料也蠻呼應這個感覺：66% 的開發者提到，最大的挫折是 AI 的答案「幾乎對，但不完全對」；45.2% 則覺得 AI 的程式碼乍看太完整，反而 debug AI 產出的程式碼更花時間。</p>
+<p>METR 2025 的研究也指出，資深開源開發者在自己熟悉的成熟專案中處理真實 issue 時，使用 AI 工具在該研究情境下反而慢了約 19%。不過這比較適合看成 early-2025 特定情境下的提醒，不代表所有 AI coding 情境都會變慢。</p>
+<p>我不會把這解讀成「AI 沒用」。比較像是一個提醒：真實專案裡有太多隱性規則、歷史包袱和團隊默契。如果這些上下文沒有被整理出來，AI 很容易給出看起來合理、但落地時需要大量修正的答案。</p>
+<hr>
+
+<h2 id="與其追工具不如先整理專案" data-numberify>與其追工具，不如先整理專案<a class="anchor ms-1" href="#與其追工具不如先整理專案"></a></h2>
+<p>想通這一層之後，我把注意力從「該用哪個工具」移到了另一個問題：</p>
+<p><strong>我的專案有沒有整理到 AI 看得懂？</strong></p>
+<p>不管你用的是 Copilot、Claude 還是 Cursor，進到一個陌生專案後碰到的問題差不多——找不到架構規則、不確定模組邊界、不知道哪些文件是最新的。這時候你再怎麼換模型，結果通常只是在不同的錯法之間切換而已。</p>
+<p>所以我後來在意的，不是多學一套提示詞技巧，而是怎麼把最小必要的上下文整理出來：架構邊界在哪裡、主要模組怎麼找、哪份文件才是 source of truth（唯一可信來源）。先把這些交代清楚，後面不管接什麼工具，或是和其他工程師一起協作，都會少很多問題。</p>
+<p>Anthropic 在 2025 年有篇工程文章把這件事系統化為「Context Engineering」——比 prompt engineering 更上一層的工程問題，核心原則是找到最小的一組高訊號 token，讓 AI 每次進來都能拿到剛好夠用的地圖。換句話說，整理專案不只是好習慣，而是讓 AI 可靠運作的工程前提。</p>
+<hr>
+
+<h2 id="從個人習慣到正式歸納" data-numberify>從個人習慣到正式歸納<a class="anchor ms-1" href="#從個人習慣到正式歸納"></a></h2>
+<p>其實這些做法，我自己用了有一段時間了。在日常開發裡慢慢摸出一套不太會因為 LLM 更版就失效的協作手法——只是一直沒有正式整理過，外表看起來就像幾個提示詞技巧，沒什麼特別的。我本來覺得，這些東西只要常用 AI，多少都會自己摸出一套。</p>
+<p>不過最近幾個月在工作中觀察到一件事：大家在 AI 爆炸的時代，更傾向追蹤新工具、自創自己的 workflow。對比較沒經驗的使用者來說，眼花撩亂。但說穿了，很多基本功其實差不多：先整理上下文、先講清楚規則、先確認實作邊界。只是這些事不好教，也不好量化，大多還是靠自己慢慢摸索。</p>
+<p>這段時間我也越來越確定一件事：要維護一套依賴特定 AI 功能的框架非常費時。不管你是使用者還是開發者，都得面對手邊的設計隨時可能因為模型更版而被淘汰的問題。2025 到 2026 這段時間，工具和框架的迭代速度已經快到追不完了。</p>
+<p>所以我構思了一段時間後，把自己在開發流程中一定會用到的幾個 AI 協作環節，整理成比較固定的步驟，並且反覆用不同 GenAI 去驗證執行結果——盡量確保這套做法會隨著模型變強而更順，而不是因為用了少見的語法，在某次更版後突然失靈。</p>
+<p>會取名 ZeroSpec，是因為它處理的是第零層——在任何 workflow 開始之前的上下文準備（Layer 0），而且刻意做成 zero-dependency，不綁任何平台或 runtime。Zero 是這兩件事的交集，Spec 則是它整理的內容：讓專案的規格和規則被 AI 穩定讀到。</p>
+<hr>
+
+<h2 id="zerospec-做的事" data-numberify>ZeroSpec 做的事<a class="anchor ms-1" href="#zerospec-做的事"></a></h2>
+<p><a href="https://github.com/corey924/ZeroSpec" target="_blank" rel="noopener noreferrer">ZeroSpec<i class="fas fa-external-link-square-alt ms-1"></i></a> 不是 runtime、不是平台工具，也不是自動化 workflow。</p>
+<p>它比較像是一套 zero-dependency（零依賴）的 Markdown baseline：在 AI coding agent 動手改程式前，先把架構規則、模組導覽和 source of truth 放到它找得到的位置。</p>
+<p>簡單講就是 <strong>Layer 0：Context Readiness</strong>。</p>
+<p>也就是在所有開發流程開始之前，先替專案整理一份「AI 和人都看得懂的地圖」。</p>
+<p>這裡我講的 SDD，不是「寫一份規格書丟給 AI 就結束」。比較精準地說，它是一種把需求、規則、設計判斷先整理成可討論、可追蹤的規格，再讓 AI 或工程師進入實作的開發方法。</p>
+<p>ZeroSpec 處理的是更前面的基礎：讓 AI 不要一進專案就迷路。</p>
+<p>如果後續想導入 OpenSpec、Spec Kit 這類更完整的 SDD 工具，ZeroSpec 不會取代它們。它比較像是先把 Layer 0 補好，讓後面的 Layer 1 workflow 更容易接上。</p>
+<hr>
+
+<h2 id="為什麼是-markdown為什麼-zero-dependency" data-numberify>為什麼是 Markdown、為什麼 zero-dependency<a class="anchor ms-1" href="#為什麼是-markdown為什麼-zero-dependency"></a></h2>
+<p>做成 plain Markdown 是刻意的。</p>
+<p>人可以直接讀，AI 也讀得懂。可以進 Git、走 PR、做 diff，團隊維護不需要另外學工具。不依賴任何 runtime，也不會因為某個平台改版或下架就整套報廢。</p>
+<p>這也回到前面講的——我不想把工作方法綁在特定工具上。工具會換、模型會升級，但專案的基本規則和導覽資訊如果留得下來，至少不用每次都從零開始。</p>
+<p>而且這個方向也不只是我自己在做。<br>
+GitHub Copilot 已經支援 repository custom instructions，Copilot coding agent 也支援 AGENTS.md 這類 agent instructions。AGENTS.md 這個開放格式現在由 Linux Foundation 旗下的 Agentic AI Foundation 維護，目前超過 6 萬個 open-source 專案採用，相容 Cursor、Codex、Gemini CLI、Windsurf、Junie 等主流工具。AGENTS.md 官網也曾舉例，OpenAI 主 repo 一度有 88 個 AGENTS.md。換句話說，「先替 AI 整理好專案操作說明」這件事，已經不只是個人習慣，而是業界正在走向的工程規範。</p>
+<hr>
+
+<h2 id="小結" data-numberify>小結<a class="anchor ms-1" href="#小結"></a></h2>
+<p>ZeroSpec 適合已經在用 AI 開發、但常覺得產出不穩定的人，也適合想導入 AI 協作但不想一開始就上完整框架的團隊。專案越大、規則越多、文件越分散，感受會越明顯。一次性的 POC 或小工具就不一定需要。</p>
+<p>AI 工具會一直變，模型也會一直進步。提示詞會漂移，平台也可能改規則。</p>
+<p>但「一個專案需要被正確理解」這件事，大概不太會變。</p>
+<p>這也是我想整理 ZeroSpec 的原因：與其一直追下一個更強的工具，不如先把專案整理到 AI 看得懂。</p>
+<p>如果你也在類似的狀況下摸索 AI 協作，歡迎到 <a href="https://github.com/corey924/ZeroSpec" target="_blank" rel="noopener noreferrer">ZeroSpec 的 repo<i class="fas fa-external-link-square-alt ms-1"></i></a> 看看、提 issue 或補充經驗。它也可以跟 OpenSpec、Spec Kit 這類更完整的 SDD 框架搭配使用——把 Layer 0 補起來，後面導入 Layer 1 會比較順。</p>
+<hr>
+
+<h2 id="參考資料" data-numberify>參考資料<a class="anchor ms-1" href="#參考資料"></a></h2>
+<ul>
+<li><a href="https://github.com/corey924/ZeroSpec" target="_blank" rel="noopener noreferrer">ZeroSpec on GitHub<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noopener noreferrer">OpenSpec on GitHub (Fission-AI/OpenSpec)<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer">Spec Kit on GitHub (github/spec-kit)<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://survey.stackoverflow.co/2025/ai/" target="_blank" rel="noopener noreferrer">Stack Overflow Developer Survey 2025<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener noreferrer">METR：Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot" target="_blank" rel="noopener noreferrer">GitHub Docs：Adding repository custom instructions for GitHub Copilot<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://agents.md/" target="_blank" rel="noopener noreferrer">AGENTS.md 開放標準（Linux Foundation / Agentic AI Foundation）<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">Anthropic Engineering：Effective Context Engineering for AI Agents<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+<li><a href="https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/" target="_blank" rel="noopener noreferrer">GitHub Blog：5 Tips for Writing Better Custom Instructions for Copilot<i class="fas fa-external-link-square-alt ms-1"></i></a></li>
+</ul>
+</div>
+</div>
+</div><div class="card-footer">
+  <div class="post-navs d-flex justify-content-evenly"><div class="post-nav post-prev">
+      <i class="fas fa-fw fa-chevron-down post-prev-icon me-1" data-fa-transform="rotate-90"></i>
+      <a href="/posts/2026/03/genai-language-choice-2026/">GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？</a>
+    </div></div>
+</div></article><div class="post-copyright mb-3 row card component" id="post-copyright">
+    <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">版權</h2>
+    </div>
+    <div class="card-body"><a class="d-flex align-items-center flex-column" target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh_TW">
+  <span><i class="fab fa-fw fa-2x fa-creative-commons"></i><i class="fab fa-fw fa-2x fa-creative-commons-by"></i><i class="fab fa-fw fa-2x fa-creative-commons-nc"></i><i class="fab fa-fw fa-2x fa-creative-commons-nd"></i></span>
+  CC BY-NC-ND 4.0 
+</a>
+
+
+    </div>
+</div><section class="related-posts row card component">
+      <div class="card-header">
+        <h2 class="card-title fs-4 my-2 text-surface">
+          相關文章
+        </h2>
+      </div>
+      <div class="card-body slide px-1">
+        <div class="slide-inner row gx-0"><div class="col-12 col-md-6 col-lg-4 me-2">
+            <div class="post-card card card-body p-0 border-0 surface">
+  
+  <picture><img class="img-fluid" alt="GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？" src="https://coreynote.life/images/posts/genai-language-choice-2026/cover.jpg" loading="lazy"
+     width="1745"
+     height="1752"/>
+  </picture>
+
+  <a class="post-title" href="/posts/2026/03/genai-language-choice-2026/">
+    GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？
+  </a>
+  <div class="post-meta mb-0">
+    2026-03-30
+
+  </div>
+</div>
+
+          </div></div>
+        <button class="slide-control-left">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i>
+          <span class="visually-hidden">Left</span>
+        </button>
+        <button class="slide-control-right">
+          <i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-270"></i>
+          <span class="visually-hidden">Right</span>
+        </button>
+      </div>
+    </section></div>
+</div>
+<aside class="col-xxl-4 sidebar d-flex">
+  <div class="container d-flex flex-column">
+    
+<div class="row component card">
+    <div class="card-body">
+        <form action="/search/">
+            <div class="input-group">
+                <input name="q" class="form-control rounded" placeholder="搜尋">
+                <button class="btn btn-sm btn-search position-absolute end-0 border-0 border-start border-secondary p-2" type="submit">
+                    <i class="fas fa-fw fa-search text-primary"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    
+<div class="accordion profile">
+  <div class="accordion-item card row text-center component">
+    <div class="accordion-header card-header border-0" id="profile-header">
+      <a
+        class="accordion-button d-lg-none mb-2 shadow-none p-0 bg-transparent text-surface"
+        role="button" data-bs-toggle="collapse" href="#profile" aria-expanded="true" aria-controls="profile">
+        Profile
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="profile" aria-labelledby="profile-header">
+      <div class="col-12 d-flex align-items-center justify-content-center"><picture><img class="profile-avatar rounded-circle " alt="Corey" src="https://coreynote.life/images/profile.jpg?v=f930288389daa2c16ace4bff6c15e504" loading="lazy" data-viewer-invisible width="632" height="632" />
+</picture>
+</div>
+      <div class="col-12 profile-meta"><div class="profile-name fw-fold fs-lg">Corey</div><div class="profile-bio">Freelance | Full-Stack Developer | Web Development Project Manager</div><div class="profile-location"><i class="fas fa-fw fa-map-marker-alt"></i><a href='https://www.openstreetmap.org/relation/449220' target='_blank'>Taiwan</a></div></div>
+
+
+<nav class="social-links nav justify-content-center mt-1 justify-content-around">
+      <a class="nav-link social-link" target="_blank" href="https://facebook.com/corey924" title="臉書" rel="me">
+        <i class="fa-fw fa-2x fab fa-facebook-f"
+           style="color: #1877f2;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://github.com/corey924" title="GitHub" rel="me">
+        <i class="fa-fw fa-2x fab fa-github"
+          ></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://www.instagram.com/corey.924" title="Instagram" rel="me">
+        <i class="fa-fw fa-2x fab fa-instagram"
+           style="color: #c03957;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://linkedin.com/in/corey-ko-6957ba70" title="領英" rel="me">
+        <i class="fa-fw fa-2x fab fa-linkedin-in"
+           style="color: #0a66c2;"></i>
+      </a>
+      <a class="nav-link social-link" target="_blank" href="https://www.youtube.com/channel/UCfAFaiB3ozsLYLCkeU1IJiQ" title="YouTube" rel="me">
+        <i class="fa-fw fa-2x fab fa-youtube"
+           style="color: #ff0000;"></i>
+      </a>
+</nav>
+</div>
+  </div>
+</div>
+
+
+<div class="accordion taxonomies-toggle">
+    <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+            <a
+                class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+                role="button" data-bs-toggle="collapse" href="#taxonomies-toggle" aria-expanded="true" aria-controls="taxonomies-toggle">
+                Taxonomies
+            </a>
+        </div>
+        <div class="card-body collapse accordion-collapse accordion-body d-lg-block show" id="taxonomies-toggle">
+            <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="taxonomyCategoriesTab" data-bs-toggle="tab" data-bs-target="#taxonomyCategories" 
+                            type="button" role="tab" aria-controls="taxonomyCategories" aria-selected="true">
+                            分類
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="taxonomyTagsTab" data-bs-toggle="tab" data-bs-target="#taxonomyTags" 
+                            type="button" role="tab" aria-controls="taxonomyTags" aria-selected="true">
+                            標籤
+                        </button>
+                    </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="taxonomyArchivesTab" data-bs-toggle="tab" data-bs-target="#taxonomyArchives" 
+                        type="button" role="tab" aria-controls="taxonomyArchives" aria-selected="true">
+                        歸檔
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3">
+                    <div class="tab-pane active" id="taxonomyCategories" role="tabpanel" aria-labelledby="taxonomyCategoriesTab" tabindex="0">
+                        <a href="/categories/%E6%8A%80%E8%A1%93/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="技術">
+                            技術
+                            <span class="badge badge-sm text-secondary bg-white ms-1">8</span>
+                        </a>
+                        <a href="/categories/%E6%97%85%E8%A1%8C/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="旅行">
+                            旅行
+                            <span class="badge badge-sm text-secondary bg-white ms-1">7</span>
+                        </a>
+                        <a href="/categories/%E9%81%8A%E6%88%B2/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="遊戲">
+                            遊戲
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/categories/%E8%81%B7%E6%B6%AF/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="職涯">
+                            職涯
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/categories/%E4%BF%9D%E5%81%A5/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="保健">
+                            保健
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/categories/%E6%94%9D%E5%BD%B1/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-category me-2 mb-2" title="攝影">
+                            攝影
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                    </div>
+                    <div class="tab-pane" id="taxonomyTags" role="tabpanel" aria-labelledby="taxonomyTagsTab" tabindex="0">
+                        <a href="/tags/%E6%97%A5%E6%9C%AC/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="日本">
+                            日本
+                            <span class="badge badge-sm text-secondary bg-white ms-1">6</span>
+                        </a>
+                        <a href="/tags/ff14/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="FF14">
+                            FF14
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/%E4%BD%8F%E5%AE%BF/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="住宿">
+                            住宿
+                            <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+                        </a>
+                        <a href="/tags/c%23/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="C#">
+                            C#
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/online-game/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Online-Game">
+                            Online-Game
+                            <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+                        </a>
+                        <a href="/tags/back-end/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Back-End">
+                            Back-End
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/front-end/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Front-End">
+                            Front-End
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/genai/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="GenAI">
+                            GenAI
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/python/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="Python">
+                            Python
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="/tags/%E5%8F%97%E5%82%B7/" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title="受傷">
+                            受傷
+                            <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+                        </a>
+                        <a href="https://coreynote.life/tags" class="btn btn-sm btn-secondary post-taxonomy ps-3 post-tag me-2 mb-2" title='全部'>
+                        全部
+                        <span class="badge badge-sm text-secondary bg-white ms-1">45</span>
+                        </a>
+                    </div>
+                <div class="tab-pane" id="taxonomyArchives" role="tabpanel" aria-labelledby="taxonomyArchivesTab" tabindex="0">
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2026">
+    2026 <span class="badge badge-sm text-secondary bg-white ms-1">2</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2025">
+    2025 <span class="badge badge-sm text-secondary bg-white ms-1">4</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2024">
+    2024 <span class="badge badge-sm text-secondary bg-white ms-1">5</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2023">
+    2023 <span class="badge badge-sm text-secondary bg-white ms-1">10</span>
+    </a>
+
+    <a href="" class="btn btn-sm btn-secondary post-taxonomy ps-3 me-2 mb-2" title="2022">
+    2022 <span class="badge badge-sm text-secondary bg-white ms-1">3</span>
+    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="accordion posts-toggle">
+      <div class="row card component accordion-item">
+        <div class="accordion-header card-header border-0">
+          <a
+            class="accordion-button d-lg-none mb-1 shadow-none p-0 bg-transparent"
+            role="button"
+            data-bs-toggle="collapse"
+            href="#posts-toggle"
+            aria-expanded="true"
+            aria-controls="posts-toggle">
+            文章
+          </a>
+        </div>
+        <div
+          class="card-body collapse accordion-collapse accordion-body d-lg-block show"
+          id="posts-toggle">
+          <ul class="nav nav-pills nav-fill" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="recent-posts-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#recent-posts"
+                  type="button"
+                  role="tab"
+                  aria-controls="recent-posts"
+                  aria-selected="true">
+                  最近文章
+                </button>
+              </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+              <div
+                class="tab-pane active"
+                id="recent-posts"
+                role="tabpanel"
+                aria-labelledby="recent-posts-tab"
+                tabindex="0">
+                <ul class="post-list list-unstyled ms-1">
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂" src="https://coreynote.life/images/posts/zerospec/cover.jpg" loading="lazy"
+     width="1774"
+     height="887"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2026/04/zerospec/">
+        我為什麼做 ZeroSpec：先把專案整理到 AI 看得懂
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2026-04-25
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？" src="https://coreynote.life/images/posts/genai-language-choice-2026/cover.jpg" loading="lazy"
+     width="1745"
+     height="1752"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2026/03/genai-language-choice-2026/">
+        GenAI 時代，現代應用開發的「選語言」思維正在改變嗎？
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2026-03-30
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="FF14 繁中服（繁體中文版）快速入坑重點筆記" src="https://coreynote.life/images/posts/ff14-quick-guide-hant/cover.jpg" loading="lazy"
+     width="1920"
+     height="1080"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2025/12/ff14-quick-guide-hant/">
+        FF14 繁中服（繁體中文版）快速入坑重點筆記
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2025-12-06
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="我把「退休」改叫「養老」：一份理財目標筆記" src="https://coreynote.life/images/posts/retirement-financial-planning-taiwan-2025/cover.jpg" loading="lazy"
+     width="1024"
+     height="964"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2025/11/retirement-financial-planning-taiwan-2025/">
+        我把「退休」改叫「養老」：一份理財目標筆記
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2025-11-12
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                    <li class="mb-2">
+    
+  
+  <div class="d-flex">
+      <div
+        class="flex-shrink-0 d-flex justify-content-center align-items-center"
+        style="max-width: 100px"><picture><img class="img-fluid" alt="我的 SMART transPRK 術後三個月心得" src="https://coreynote.life/images/posts/smart-transprk-review/cover.jpg" loading="lazy"
+     width="926"
+     height="801"/>
+  </picture>
+      </div>
+    <div
+      class="flex-grow-1 d-flex flex-column h-auto justify-content-center ms-3">
+      <a class="post-title" href="/posts/2025/09/smart-transprk-review/">
+        我的 SMART TransPRK 術後三個月心得
+      </a>
+      <div class="post-meta mt-2">
+        <span class="post-date">
+          2025-09-20
+        </span>
+      </div>
+    </div>
+  </div>
+                    </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="accordion post-toc d-none d-lg-block">
+  <div class="accordion-item row mb-4 card component" id="postTOC">
+    <div class="card-header accordion-header">
+      <h2 class="card-title fs-4 my-2 text-surface d-none d-lg-block">目錄</h2>
+      <a class="accordion-button d-lg-none mb-1 collapsed shadow-none p-0 bg-transparent" role="button" data-bs-toggle="collapse" href="#post-toc" aria-expanded="false" aria-controls="post-toc">
+        目錄
+      </a>
+    </div>
+    <div class="card-body collapse accordion-collapse accordion-body d-lg-block" id="post-toc">
+      <nav id="TableOfContents">
+  <ol>
+    <li><a href="#工具一直在換做法一直在調">工具一直在換，做法一直在調</a></li>
+    <li><a href="#很多問題是因為-ai-手上沒有正確的地圖">很多問題，是因為 AI 手上沒有正確的地圖</a></li>
+    <li><a href="#與其追工具不如先整理專案">與其追工具，不如先整理專案</a></li>
+    <li><a href="#從個人習慣到正式歸納">從個人習慣到正式歸納</a></li>
+    <li><a href="#zerospec-做的事">ZeroSpec 做的事</a></li>
+    <li><a href="#為什麼是-markdown為什麼-zero-dependency">為什麼是 Markdown、為什麼 zero-dependency</a></li>
+    <li><a href="#小結">小結</a></li>
+    <li><a href="#參考資料">參考資料</a></li>
+  </ol>
+</nav>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    
+  </div>
+</aside>
+
+      </div>
+    </main><footer class="footer mt-auto py-3 text-center container"><div class="offcanvas offcanvas-bottom h-auto" tabindex="-1" id="offcanvasActionsPanel"
+  aria-labelledby="offcanvasActionsPanelLabel">
+  <div class="offcanvas-header">
+    <div class="offcanvas-title h5" id="offcanvasActionsPanelLabel">
+      <i class="fas fa-fw fa-th-large me-1"></i>
+      操作
+    </div>
+    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" data-bs-target="offcanvasActionsPanel" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body mt-2"><div class="actions d-flex overflow-auto align-items-center">
+      <a role="button" class="action action-go-back d-flex flex-column align-items-center me-3" href="javascript: window.history.back();">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-chevron-circle-down" data-fa-transform="rotate-90"></i></span> 返回
+      </a>
+      <a role="button" class="action action-reload-page d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-redo-alt"></i></span> 刷新
+      </a>
+      <a role="button" class="action action-copy-url d-flex flex-column align-items-center me-3">
+        <span class="action-icon mb-2"><i class="fas fa-2x fa-link"></i></span> 複製連結
+      </a>
+    </div>
+  </div>
+</div><div class="row text-center">
+  <div class="col-12 mt-2">
+    <p class="mb-2">Corey 種子的資訊生活筆記</p>
+    <p class="text-secondary mb-2"><small></small></p><div class="copyright mb-2 text-secondary">
+  <small>Copyright © 2022-2026 Corey Ko. All Rights Reserved.
+</small>
+</div>
+<div class="powered-by mb-2 text-secondary">
+  <small>
+    Build with ❤️ from the <a class="text-primary" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> and the <a class="text-primary" href="https://github.com/razonyang/hugo-theme-bootstrap" target="_blank" rel="noopener noreferrer">HBS</a> theme.
+  </small>
+</div>
+
+
+<nav class="social-links nav justify-content-center mb-2 mt-3">
+</nav>
+</div>
+  <div class="col-12 col-lg-8 offset-0 offset-lg-1"></div>
+</div>
+</footer>
+<script data-precache src="/assets/main/bundle.min.9569c090563145260584701d65065f905e6ad326be573ca5864efa540bcd58db.js" integrity="sha256-lWnAkFYxRSYFhHAdZQZfkF5q0ya&#43;Vzylhk76VAvNWNs=" crossorigin="anonymous" async></script><script data-precache src="/assets/icons/bundle.min.691458a56c2eef480bec8d31c967801a416b6445459ae901fe213e7870a0dd83.js" integrity="sha256-aRRYpWwu70gL7I0xyWeAGkFrZEVFmukB/iE&#43;eHCg3YM=" crossorigin="anonymous" defer></script>
+<script data-precache src="/assets/viewer/bundle.min.0a0d0099935beee41b7a7bf4543cd55e793e5f830a571b0794ef8c3602c5823c.js" integrity="sha256-Cg0AmZNb7uQbenv0VDzVXnk&#43;X4MKVxsHlO&#43;MNgLFgjw=" crossorigin="anonymous" defer></script>
+<script src="/js/sw-register.js" defer></script>
+
+  </body>
+</html>
