@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>First on Corey 種子的資訊生活筆記</title>
-    <link>http://localhost:1313/series/first/</link>
+    <link>http://localhost:5085/series/first/</link>
     <description>Recent content in First on Corey 種子的資訊生活筆記</description>
     <generator>Hugo</generator>
     <language>zh-hant</language>
     <copyright>Copyright © 2022-2026 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Mon, 07 Nov 2022 20:39:37 +0800</lastBuildDate><atom:link href="http://localhost:1313/series/first/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 20:39:37 +0800</lastBuildDate><atom:link href="http://localhost:5085/series/first/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/posts/2022/11/my-first-post/</link>
+      <link>http://localhost:5085/posts/2022/11/my-first-post/</link>
       <pubDate>Mon, 07 Nov 2022 20:39:37 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2022/11/my-first-post/</guid>
+      <guid>http://localhost:5085/posts/2022/11/my-first-post/</guid>
       <description><![CDATA[<h1 id="部落格測試" data-numberify>部落格測試<a class="anchor ms-1" href="#部落格測試"></a></h1>
 
 <h2 id="h2" data-numberify>h2<a class="anchor ms-1" href="#h2"></a></h2>
