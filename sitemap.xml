@@ -13,7 +13,7 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/</loc>
-    <lastmod>2026-08-25T23:24:45+08:00</lastmod>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -153,17 +153,37 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7/</loc>
-    <lastmod>2025-05-02T01:26:21+08:00</lastmod>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E4%B9%9D%E5%B7%9E/</loc>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/</loc>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/posts/2025/01/kyushu-road-trip-2024/</loc>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://coreynote.life/tags/%E8%87%AA%E9%A7%95/</loc>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/%E4%BD%8F%E5%AE%BF/</loc>
-    <lastmod>2026-03-15T20:22:55+08:00</lastmod>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/categories/%E6%97%85%E8%A1%8C/</loc>
-    <lastmod>2026-03-15T20:22:55+08:00</lastmod>
+    <lastmod>2026-10-23T15:16:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -223,11 +243,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://coreynote.life/tags/square-enix-cafe/</loc>
-    <lastmod>2024-11-28T02:22:57+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://coreynote.life/tags/%E6%97%A5%E6%9C%AC/</loc>
     <lastmod>2024-11-28T02:22:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
