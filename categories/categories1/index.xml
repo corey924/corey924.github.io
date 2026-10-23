@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories1 on Corey 種子的資訊生活筆記</title>
-    <link>http://localhost:7243/categories/categories1/</link>
+    <link>http://localhost:13870/categories/categories1/</link>
     <description>Recent content in Categories1 on Corey 種子的資訊生活筆記</description>
     <generator>Hugo</generator>
     <language>zh-TW</language>
     <copyright>Copyright © 2022-2026 Corey Ko. All Rights Reserved.
 </copyright>
-    <lastBuildDate>Tue, 08 Nov 2022 23:31:18 +0800</lastBuildDate><atom:link href="http://localhost:7243/categories/categories1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Nov 2022 23:31:18 +0800</lastBuildDate><atom:link href="http://localhost:13870/categories/categories1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>http://localhost:7243/posts/2022/11/test/</link>
+      <link>http://localhost:13870/posts/2022/11/test/</link>
       <pubDate>Tue, 08 Nov 2022 23:31:18 +0800</pubDate>
-      <guid>http://localhost:7243/posts/2022/11/test/</guid>
+      <guid>http://localhost:13870/posts/2022/11/test/</guid>
       <description><![CDATA[]]></description>
     </item>
     
     <item>
       <title>My First Post</title>
-      <link>http://localhost:7243/posts/2022/11/my-first-post/</link>
+      <link>http://localhost:13870/posts/2022/11/my-first-post/</link>
       <pubDate>Mon, 07 Nov 2022 20:39:37 +0800</pubDate>
-      <guid>http://localhost:7243/posts/2022/11/my-first-post/</guid>
+      <guid>http://localhost:13870/posts/2022/11/my-first-post/</guid>
       <description><![CDATA[<h1 id="部落格測試" data-numberify>部落格測試<a class="anchor ms-1" href="#部落格測試"></a></h1>
 
 <h2 id="h2" data-numberify>h2<a class="anchor ms-1" href="#h2"></a></h2>
